@@ -3,246 +3,279 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Doula Cath - Acompañamiento consciente para el embarazo, parto y postparto. Clases prenatales, lactancia y servicios personalizados.">
-  <meta name="keywords" content="Doula, parto, lactancia, clases prenatales, Madres a la Obra, embarazo, maternidad">
-  <meta name="author" content="Madres a la Obra">
-  <title>Madres a la Obra | Doula Cath</title>
+  <meta name="description" content="Acompañamiento personalizado en embarazo, parto y postparto con Doula Cath. Cursos, clases y apoyo emocional para madres conscientes." />
+  <meta name="keywords" content="Doula, parto humanizado, lactancia materna, embarazo, postparto, acompañamiento, clases prenatales, RD, Madres a la Obra" />
+  <title>Doula Cath | Madres a la Obra</title>
   <style>
-    /* Reset básico */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --main-color: #e5b3c2;
+      --bg-color: #ffffff;
+      --text-color: #333;
+      --accent-color: #f7d9df;
+      --hover-color: #d4849a;
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      line-height: 1.6;
-      background-color: #fff;
-      color: #333;
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
     }
 
     header {
+      background-color: var(--main-color);
+      padding: 10px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #ffeef3;
-      padding: 1rem 2rem;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #e91e63;
+    header h1 {
+      margin: 0;
+      font-size: 1.5em;
+      color: white;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      background: white;
+      height: 3px;
+      margin: 4px 0;
+      width: 25px;
+      border-radius: 2px;
     }
 
     nav {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 70px;
-      right: 20px;
-      background-color: #ffeef3;
-      border: 1px solid #eee;
-      border-radius: 8px;
-      overflow: hidden;
+      display: flex;
+      gap: 20px;
     }
 
     nav a {
-      padding: 1rem;
       text-decoration: none;
-      color: #333;
-      border-bottom: 1px solid #eee;
+      color: white;
+      font-weight: bold;
+      transition: color 0.3s ease;
     }
 
     nav a:hover {
-      background-color: #fddde6;
+      color: var(--hover-color);
     }
 
-    .hamburger {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      width: 25px;
-      height: 25px;
-      cursor: pointer;
-    }
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: var(--main-color);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+      }
 
-    .hamburger span {
-      height: 3px;
-      background-color: #e91e63;
-      border-radius: 2px;
-      width: 100%;
-    }
+      nav.active {
+        display: flex;
+      }
 
-    .show-menu {
-      display: flex;
+      .menu-toggle {
+        display: flex;
+      }
     }
 
     section {
-      padding: 3rem 2rem;
-      max-width: 900px;
-      margin: auto;
+      padding: 40px 20px;
     }
 
-    h1, h2, h3 {
-      margin-bottom: 1rem;
-      color: #e91e63;
+    h2 {
+      color: var(--main-color);
+      margin-bottom: 20px;
     }
 
-    .servicio {
-      margin-bottom: 2rem;
+    .servicios {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
     }
 
-    .galeria {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 1rem;
+    .bloque {
+      background: var(--accent-color);
+      padding: 20px;
+      border-radius: 10px;
+      animation: fadeInUp 0.7s ease;
     }
 
-    .galeria img {
-      width: 100%;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: transform 0.3s ease;
+    .bloque h3 {
+      margin-top: 0;
+      color: var(--hover-color);
     }
 
-    .galeria img:hover {
-      transform: scale(1.05);
+    ul {
+      list-style: disc;
+      padding-left: 20px;
     }
 
     footer {
-      background-color: #f8f8f8;
-      padding: 2rem;
+      background: var(--main-color);
+      color: white;
       text-align: center;
-      font-size: 0.9rem;
-      color: #777;
+      padding: 15px 10px;
+      margin-top: 40px;
     }
 
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal img {
-      max-width: 90%;
-      border-radius: 10px;
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
-
 <body>
   <header>
-    <div class="logo">Madres a la Obra</div>
-    <div class="hamburger" onclick="toggleMenu()">
+    <h1>Madres a la Obra</h1>
+    <div class="menu-toggle" id="menu-toggle">
       <span></span>
       <span></span>
       <span></span>
     </div>
-    <nav id="navMenu">
-      <a href="#inicio" onclick="closeMenu()">Inicio</a>
-      <a href="#servicios" onclick="closeMenu()">Servicios</a>
-      <a href="#galeria" onclick="closeMenu()">Galería</a>
-      <a href="#contacto" onclick="closeMenu()">Contacto</a>
+    <nav id="navbar">
+      <a href="#embarazo">Embarazo</a>
+      <a href="#parto">Parto</a>
+      <a href="#postparto">Postparto</a>
+      <a href="#contacto">Contacto</a>
     </nav>
   </header>
 
-  <section id="inicio">
-    <h1>Bienvenida a Madres a la Obra</h1>
-    <p>Acompañamiento profesional y humano para madres que desean vivir un embarazo, parto y postparto consciente. Soy Doula Cath, y estaré contigo en cada etapa.</p>
-  </section>
+  <main>
+    <section id="embarazo">
+      <h2>Servicios para el Embarazo</h2>
+      <div class="servicios">
+        <div class="bloque">
+          <h3>Acompañamiento Prenatal</h3>
+          <ul>
+            <li>Visitas presenciales o virtuales</li>
+            <li>Soporte emocional y físico</li>
+            <li>Plan de parto personalizado</li>
+          </ul>
+        </div>
 
-  <section id="servicios">
-    <h2>Servicios</h2>
+        <div class="bloque">
+          <h3>Panzas a la Obra (Clases Prenatales)</h3>
+          <ul>
+            <li>Clases según trimestre</li>
+            <li>Módulo práctico y masterclasses</li>
+            <li>Ejercicios con feedback personalizado</li>
+          </ul>
+        </div>
 
-    <div class="servicio">
-      <h3>Curso de Preparación al Parto</h3>
-      <p>Clases prácticas y emocionales para ayudarte a prepararte física y mentalmente para el nacimiento.</p>
-    </div>
+        <div class="bloque">
+          <h3>De la panza a los brazos (Cuidado Recién Nacido)</h3>
+          <ul>
+            <li>Cuidados básicos</li>
+            <li>Baño, sueño y señales del bebé</li>
+            <li>Rutinas y organización</li>
+          </ul>
+        </div>
 
-    <div class="servicio">
-      <h3>Asesoría de Lactancia</h3>
-      <p>Acompañamiento antes y después del parto para lograr una lactancia exitosa y placentera.</p>
-    </div>
+        <div class="bloque">
+          <h3>Lactancia sin miedo (Curso Prenatal)</h3>
+          <ul>
+            <li>Preparación desde el embarazo</li>
+            <li>Expectativas reales</li>
+            <li>Estrategias de prevención de grietas</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-    <div class="servicio">
-      <h3>Doula de Parto</h3>
-      <p>Acompañamiento emocional, físico e informativo durante la labor de parto, ya sea en casa o en clínica.</p>
-    </div>
+    <section id="parto">
+      <h2>Servicios para el Parto</h2>
+      <div class="servicios">
+        <div class="bloque">
+          <h3>Acompañamiento de Parto</h3>
+          <ul>
+            <li>Soporte continuo durante labor</li>
+            <li>Técnicas de confort</li>
+            <li>Presencia en clínica y hogar</li>
+          </ul>
+        </div>
 
-    <div class="servicio">
-      <h3>Doula Postparto</h3>
-      <p>Soporte en la transición al hogar, lactancia, descanso, emociones y cuidados del recién nacido.</p>
-    </div>
+        <div class="bloque">
+          <h3>Acompañamiento de Cesárea Respetada</h3>
+          <ul>
+            <li>Preparación emocional y física</li>
+            <li>Plan de cesárea humanizada</li>
+            <li>Apoyo en la recuperación inicial</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-    <div class="servicio">
-      <h3>Clases Prenatales Personalizadas</h3>
-      <p>Sesiones a domicilio o virtuales para ti y tu pareja, adaptadas a tus necesidades y dudas.</p>
-    </div>
-  </section>
+    <section id="postparto">
+      <h2>Servicios para el Postparto</h2>
+      <div class="servicios">
+        <div class="bloque">
+          <h3>Acompañamiento en Lactancia</h3>
+          <ul>
+            <li>Asesoría virtual y presencial</li>
+            <li>Evaluación de técnica y agarre</li>
+            <li>Seguimiento y resolución de dificultades</li>
+          </ul>
+        </div>
 
-  <section id="galeria">
-    <h2>Galería</h2>
-    <div class="galeria">
-      <img src="img/foto1.webp" alt="Clase de preparación al parto" onclick="openModal(this)">
-      <img src="img/foto2.webp" alt="Sesión de lactancia con mamá y bebé" onclick="openModal(this)">
-      <img src="img/foto3.webp" alt="Acompañamiento en el parto" onclick="openModal(this)">
-      <img src="img/foto4.webp" alt="Recién nacidos en brazos" onclick="openModal(this)">
-    </div>
-  </section>
+        <div class="bloque">
+          <h3>Doula Postparto</h3>
+          <ul>
+            <li>Apoyo en las primeras semanas</li>
+            <li>Contención emocional</li>
+            <li>Consejos de organización y autocuidado</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <p>Puedes escribirme vía WhatsApp o email para agendar una consulta o resolver tus dudas.</p>
-    <p>Email: contacto@madresalaobra.com.do</p>
-    <p>WhatsApp: +1 (809) 555-1234</p>
-  </section>
+    <section id="contacto">
+      <h2>Contáctame</h2>
+      <p>Pronto agregaremos un formulario para agendar tu consulta y resolver tus dudas.</p>
+      <p>También puedes escribirme directo por <a href="https://wa.me/18095555555" target="_blank">WhatsApp</a>.</p>
+    </section>
+  </main>
 
   <footer>
-    © 2025 Madres a la Obra. Todos los derechos reservados.
+    <p>&copy; 2025 Madres a la Obra by Doula Cath. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Modal para galería -->
-  <div class="modal" id="modal" onclick="closeModal()">
-    <img id="modal-img" src="" alt="Vista ampliada">
-  </div>
-
   <script>
-    const nav = document.getElementById("navMenu");
-    function toggleMenu() {
-      nav.classList.toggle("show-menu");
-    }
-    function closeMenu() {
-      nav.classList.remove("show-menu");
-    }
+    const toggle = document.getElementById('menu-toggle');
+    const navbar = document.getElementById('navbar');
 
-    // Modal de galería
-    function openModal(el) {
-      const modal = document.getElementById("modal");
-      const modalImg = document.getElementById("modal-img");
-      modal.style.display = "flex";
-      modalImg.src = el.src;
-      modalImg.alt = el.alt;
-    }
+    toggle.addEventListener('click', () => {
+      navbar.classList.toggle('active');
+    });
 
-    function closeModal() {
-      document.getElementById("modal").style.display = "none";
-    }
+    // Cerrar menú al hacer clic en una sección
+    const links = navbar.querySelectorAll('a');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        navbar.classList.remove('active');
+      });
+    });
   </script>
 </body>
 </html>
+
 
 
   
