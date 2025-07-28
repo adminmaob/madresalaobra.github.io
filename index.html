@@ -2,292 +2,215 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Acompañamiento emocional, físico y educativo para embarazadas, partos y postparto con Doula Cath.">
-  <meta name="keywords" content="Doula, embarazo, parto, postparto, lactancia, clases prenatales, Madres a la Obra, Santo Domingo">
-  <title>Madres a la Obra - Doula Cath</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Madres a la Obra | Doula & Acompañamiento Materno</title>
+  <meta name="description" content="Doula certiﬁcada en Santo Domingo. Apoyo prenatal, parto y lactancia con enfoque profesional y cálido." />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet"/>
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      background: #fffaf7;
-      color: #333;
+    :root {
+      --rosa: #d87e9f;
+      --rosa-claro: #f4d7e1;
+      --gris-texto: #5a4a4a;
+      --gris-claro: #f9f7f7;
+      --blanco: #fff;
+      --border-radius: 12px;
+      --shadow-light: 0 4px 12px rgb(216 126 159 / 0.15);
+      --transition-speed: 0.4s;
     }
-
-    header {
-      background: #ffe5dc;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-weight: 700;
-      font-size: 1.5rem;
-    }
-
-    .menu-toggle {
-      font-size: 2rem;
-      cursor: pointer;
-      display: block;
-      background: none;
-      border: none;
-    }
-
-    nav.mobile-menu {
-      position: absolute;
-      top: 60px;
-      left: 0;
-      right: 0;
-      background: #fffaf7;
-      display: none;
-      flex-direction: column;
-      text-align: center;
-      padding: 1rem;
-    }
-
-    nav.mobile-menu.open {
-      display: flex;
-    }
-
-    nav.mobile-menu a {
-      padding: 0.7rem;
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
-
-    nav.mobile-menu a:hover {
-      background: #ffe5dc;
-    }
-
-    main {
-      padding: 2rem;
-    }
-
-    .section-title {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #a64c3c;
-    }
-
-    .galeria {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .galeria img {
-      width: 100%;
-      max-width: 200px;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: transform 0.3s ease;
-    }
-
-    .galeria img:hover {
-      transform: scale(1.05);
-    }
-
-    .testimonial-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .testimonial-img {
-      width: 60px;
-      border-radius: 50%;
-    }
-
-    .cta {
-      background: #a64c3c;
-      color: white;
-      padding: 0.7rem 1.2rem;
-      text-decoration: none;
-      border-radius: 5px;
-      display: inline-block;
-      margin-top: 1rem;
-    }
-
-    footer {
-      background: #ffe5dc;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
-
-    .modal {
-      position: fixed;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.8);
-      z-index: 1000;
-    }
-
-    .modal.open {
-      display: flex;
-    }
-
-    .modal img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
-    }
-
-    @media(min-width: 768px) {
-      nav.mobile-menu {
-        display: flex !important;
-        position: static;
-        flex-direction: row;
-        justify-content: flex-end;
-        background: none;
-        padding: 0;
-      }
-
-      .menu-toggle {
-        display: none;
-      }
-
-      nav.mobile-menu a {
-        margin-left: 1rem;
-        background: none !important;
-      }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Montserrat',sans-serif; background:var(--blanco); color:var(--gris-texto); line-height:1.6; scroll-behavior:smooth; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+    a { text-decoration:none; color:var(--rosa); }
+    a:hover, a:focus { text-decoration:underline; }
+    header { position:fixed; top:0; left:0; right:0; background:var(--blanco); border-bottom:1px solid var(--rosa-claro); display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; z-index:9999; box-shadow:var(--shadow-light); }
+    header img { height:48px; }
+    .menu-toggle { display:flex; flex-direction:column; justify-content:space-between; width:28px; height:22px; cursor:pointer; }
+    .menu-toggle span { height:3px; background:var(--rosa); border-radius:2px; transition: all 0.3s ease; }
+    nav.mobile-menu { display:none; position:fixed; top:60px; left:0; right:0; background:var(--blanco); flex-direction:column; padding:1rem 1.5rem; box-shadow:var(--shadow-light); z-index:9998; }
+    nav.mobile-menu.open { display:flex; }
+    nav.mobile-menu a { padding:0.8rem 0; border-bottom:1px solid var(--rosa-claro); font-weight:600; }
+    nav.mobile-menu a:last-child { border:none; }
+    header .cta { padding:0.6rem 1.6rem; background:var(--rosa); color:var(--blanco); border-radius:30px; font-weight:600; box-shadow:0 4px 10px rgb(216 126 159 / 0.45); transition:background var(--transition-speed) ease; }
+    header .cta:hover, header .cta:focus { background:#c06d8b; }
+    main { max-width:900px; margin:100px auto 3rem; padding:0 1rem; }
+    section { margin-bottom:4rem; opacity:0; transform:translateY(30px); transition:opacity .7s ease,transform .7s ease; }
+    section.visible { opacity:1; transform:translateY(0); }
+    h2.section-title { font-size:2rem; color:var(--rosa); text-align:center; margin-bottom:1.5rem; }
+    .hero { display:flex; flex-direction:column; align-items:center; text-align:center; background:var(--gris-claro); padding:3rem 2rem; border-radius:var(--border-radius); box-shadow:var(--shadow-light); opacity:0; transform:translateY(30px); transition:opacity 1s ease,transform 1s ease; }
+    .hero.visible { opacity:1; transform:translateY(0); }
+    .hero h1 { font-size:3rem; font-weight:600; color:var(--rosa); margin-bottom:1rem; line-height:1.1; }
+    .hero p { max-width:520px; font-size:1.2rem; margin-bottom:2rem; }
+    .hero a { padding:1rem 2.5rem; background:var(--rosa); color:var(--blanco); border-radius:30px; font-weight:600; box-shadow:0 6px 16px rgb(216 126 159 / 0.5); transition:background var(--transition-speed) ease; }
+    .hero a:hover, .hero a:focus { background:#c06d8b; }
+    .sobre-mi { display:flex; gap:2rem; align-items:center; flex-wrap:wrap; }
+    .sobre-mi img { width:180px; height:180px; border-radius:50%; object-fit:cover; box-shadow:var(--shadow-light); flex-shrink:0; }
+    .sobre-mi .texto { flex:1; font-size:1.1rem; max-width:600px; }
+    .servicios-list { background:var(--gris-claro); padding:1.8rem; border-radius:var(--border-radius); }
+    .servicios-list strong { display:block; margin-top:1rem; margin-bottom:.5rem; font-size:1.2rem; }
+    .servicios-list ul { list-style:none; padding-left:1rem; }
+    .servicios-list li { margin-bottom:.5rem; position:relative; padding-left:1.4rem; }
+    .servicios-list li::before { content:"✔"; position:absolute; left:0; color:var(--rosa); font-weight:bold; }
+    .galeria { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1rem; }
+    .galeria img { width:100%; border-radius:var(--border-radius); object-fit:cover; aspect-ratio:4/3; cursor:pointer; transition:transform .3s ease; border:3px solid transparent; }
+    .galeria img:hover, .galeria img:focus { transform:scale(1.05); border-color:var(--rosa); outline:none; }
+    .testimonios { background:var(--gris-claro); padding:2rem; border-radius:var(--border-radius); box-shadow:var(--shadow-light); max-width:720px; margin:0 auto;}
+    .testimonios h2 { font-size:2rem; color:var(--rosa); text-align:center; margin-bottom:1.5rem; }
+    .testimonial-item { display:flex; gap:1rem; margin-bottom:1.5rem; }
+    .testimonial-img { width:60px; height:60px; border-radius:50%; object-fit:cover; box-shadow:var(--shadow-light); flex-shrink:0;}
+    .testimonial-text { font-style:italic; position:relative; padding-left:1rem; color:var(--gris-texto);}
+    .testimonial-text::before { content:"“"; position:absolute; left:0; top:-10px; font-size:3rem; color:var(--rosa); font-family:serif;}
+    .testimonial-author { margin-top:.4rem; font-weight:600; color:var(--rosa); }
+    .recursos-lista { list-style:none; max-width:720px; margin:0 auto; padding-left:0; }
+    .recursos-lista li { margin-bottom:1rem; padding-left:1.5rem; position:relative; font-size:1rem; }
+    .recursos-lista li::before { content:"📌"; position:absolute; left:0; }
+    .recursos-lista a { color:var(--rosa); font-weight:600; }
+    .contacto { text-align:center; }
+    .contacto h2 { font-size:2rem; color:var(--rosa); margin-bottom:1rem; }
+    .contacto p { margin-bottom:1.8rem; font-size:1.1rem; }
+    .contacto a.cta { padding:1rem 2.5rem; background:var(--rosa); color:var(--blanco); border-radius:30px; font-weight:600; box-shadow:0 6px 16px rgb(216 126 159 / 0.5); transition:background var(--transition-speed) ease; display:inline-block; }
+    .contacto a.cta:hover, .contacto a.cta:focus { background:#c06d8b; }
+    footer { text-align:center; padding:1rem 2rem; font-size:.9rem; color:var(--gris-texto); background:var(--rosa-claro); border-top:1px solid var(--rosa); }
+    .modal { display:none; position:fixed; z-index:15000; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; cursor:pointer; }
+    .modal.open { display:flex; }
+    .modal img { max-width:90vw; max-height:85vh; border-radius:var(--border-radius); box-shadow:0 8px 20px rgba(0,0,0,0.8); }
+    @media(max-width:768px){
+      main{margin-top:90px;}
+      .testimonial-item{flex-direction:column;align-items:center;text-align:center;}
+      .testimonial-text::before{left:50%;transform:translateX(-50%);}
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">Madres a la Obra</div>
-  <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
-  <nav class="mobile-menu">
+  <img src="https://i.imgur.com/jbMzxNQ.png" alt="Logo Madres a la Obra" />
+  <button class="menu-toggle" aria-expanded="false" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="mobile-menu" aria-label="Navegación móvil">
     <a href="#inicio">Inicio</a>
+    <a href="#sobre-mi">Sobre mí</a>
     <a href="#servicios">Servicios</a>
+    <a href="#galeria">Galería</a>
     <a href="#testimonios">Testimonios</a>
     <a href="#recursos">Recursos</a>
-    <a href="#contacto">Contacto</a>
+    <a href="#contacto" class="cta">Reserva tu cita</a>
   </nav>
 </header>
 
-<main>
-  <section id="inicio" tabindex="-1">
-    <h1 class="section-title">Acompañamiento para tu maternidad</h1>
-    <p>Te acompaño desde el embarazo hasta el postparto con servicios pensados para ti y tu bebé.</p>
+<main id="inicio">
+  <section class="hero visible">
+    <h1>Juntas Podemos<br> acompañarte en cada etapa</h1>
+    <p>Apoyo profesional y humano para tu embarazo, parto y lactancia en Santo Domingo, RD.</p>
+    <a href="#contacto">Reserva tu cita</a>
   </section>
 
-  <section id="servicios" tabindex="-1">
-    <h2 class="section-title">Servicios</h2>
-    <h3>Embarazo</h3>
-    <ul>
-      <li>Acompañamiento prenatal</li>
-      <li>Panzas a la Obra (clases prenatales)</li>
-      <li>De la Panza a los Brazos (cuidado del recién nacido)</li>
-      <li>Lactancia sin miedo (curso prenatal de lactancia)</li>
-    </ul>
-    <h3>Parto</h3>
-    <ul>
-      <li>Acompañamiento de parto</li>
-      <li>Acompañamiento en cesárea respetada</li>
-    </ul>
-    <h3>Postparto</h3>
-    <ul>
-      <li>Acompañamiento en lactancia</li>
-      <li>Acompañamiento doula postparto</li>
-    </ul>
+  <section class="sobre-mi" id="sobre-mi">
+    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80" alt="Cath Rodríguez, doula Santo Domingo" />
+    <div class="texto">
+      <h2 class="section-title">Sobre mí</h2>
+      <p>Soy <strong>Cath Rodríguez</strong>, doula certificada con años de experiencia acompañando madres en Santo Domingo. Brindo apoyo respetuoso, información confiable y acompañamiento lleno de empatía para una maternidad consciente y empoderada.</p>
+    </div>
   </section>
 
-  <section id="testimonios" tabindex="-1">
+  <section class="servicios" id="servicios">
+    <h2 class="section-title">Servicios & Planes</h2>
+    <div class="servicios-list">
+      <strong>Embarazo</strong>
+      <ul>
+        <li>Acompañamiento prenatal</li>
+        <li>Clases prenatales – Panzas a la Obra</li>
+        <li>Clases cuidado recién nacido – De la Panza a los Brazos</li>
+        <li>Guía prenatal y lactancia – Vida Materna</li>
+      </ul>
+      <strong>Parto</strong>
+      <ul>
+        <li>Acompañamiento al parto</li>
+        <li>Acompañamiento cesárea respetada</li>
+      </ul>
+      <strong>Postparto</strong>
+      <ul>
+        <li>Acompañamiento en lactancia</li>
+        <li>Acompañamiento doula postparto</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="galeria" id="galeria">
+    <h2 class="section-title">Galería</h2>
+    <img src="https://images.unsplash.com/photo-1600488991664-07b1f9d82535?auto=format&fit=crop&w=600&q=80" alt="Clase prenatal con madres" tabindex="0">
+    <img src="https://images.unsplash.com/photo-1519148246701-85a40f39cb0b?auto=format&fit=crop&w=600&q=80" alt="Acompañamiento en parto" tabindex="0">
+    <img src="https://images.unsplash.com/photo-1506459225024-1428097a7e18?auto=format&fit=crop&w=600&q=80" alt="Clase de lactancia materna" tabindex="0">
+    <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=600&q=80" alt="Madres en taller prenatal" tabindex="0">
+    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80" alt="Doula acompañando madre" tabindex="0">
+  </section>
+
+  <section class="testimonios" id="testimonios">
     <h2 class="section-title">Testimonios</h2>
     <div class="testimonial-item">
-      <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Testimonio de madre feliz" class="testimonial-img" />
-      <div>
-        <div>Cath fue mi apoyo incondicional durante el embarazo. Me sentí segura, escuchada y muy acompañada.</div>
-        <div><strong>— María López</strong></div>
-      </div>
+      <img class="testimonial-img" src="https://randomuser.me/api/portraits/women/68.jpg" alt="María Pérez">
+      <div class="testimonial-text">Sentí un respaldo emocional y físico increíble. Gracias a Cath mi parto fue consciente y empoderado.<div class="testimonial-author">– María Pérez</div></div>
     </div>
     <div class="testimonial-item">
-      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Testimonio doula" class="testimonial-img" />
-      <div>
-        <div>No hubiera podido vivir mi parto tan en paz sin su guía. Eternamente agradecida.</div>
-        <div><strong>— Carolina Méndez</strong></div>
-      </div>
+      <img class="testimonial-img" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana Gómez">
+      <div class="testimonial-text">Me ayudó a confiar en mi cuerpo y en mi decisión. La lactancia fluyó con apoyo constante.<div class="testimonial-author">– Ana Gómez</div></div>
     </div>
   </section>
 
-  <section id="recursos" tabindex="-1">
+  <section class="recursos" id="recursos">
     <h2 class="section-title">Recursos</h2>
-    <ul>
-      <li><a href="#">Guía de lactancia para madres primerizas</a></li>
-      <li><a href="#">Checklist para tu maleta del parto</a></li>
-      <li><a href="#">Curso gratuito: Preparación emocional al parto</a></li>
+    <ul class="recursos-lista">
+      <li><a href="#">Guía básica para una lactancia exitosa</a></li>
+      <li><a href="#">Cómo preparar tu plan de parto</a></li>
+      <li><a href="#">Ejercicios recomendados en el embarazo</a></li>
+      <li><a href="#">Consejos para el postparto saludable</a></li>
     </ul>
   </section>
 
-  <section id="contacto" tabindex="-1">
-    <h2>¿Lista para comenzar?</h2>
-    <p>Agenda tu primera cita o escríbeme por WhatsApp para más información personalizada.</p>
-    <a href="https://wa.me/18297705650" class="cta">Reservar ahora</a>
+  <section class="contacto" id="contacto">
+    <h2 class="section-title">Contacto</h2>
+    <p>Estoy aquí para apoyarte en lo que necesites. Si sientes conexión con mi enfoque, reserva tu cita por WhatsApp.</p>
+    <a href="https://wa.me/18297705650" class="cta">Reserva tu cita</a>
   </section>
 </main>
 
 <footer>
-  &copy; 2025 Madres a la Obra | Hecho con amor en Santo Domingo, RD
+  <p>Atención en Santo Domingo, Distrito Nacional, República Dominicana<br>© 2025 Cath Rodríguez – Madres a la Obra</p>
 </footer>
 
-<div class="modal" id="modal"><img src="" alt="Imagen ampliada" /></div>
+<div class="modal" id="modal" aria-hidden="true"><img src="" alt=""></div>
 
 <script>
-  const toggleBtn = document.querySelector('.menu-toggle');
-  const menu = document.querySelector('.mobile-menu');
-  const links = document.querySelectorAll('.mobile-menu a');
+  const sections = document.querySelectorAll("section");
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting){ e.target.classList.add("visible"); obs.unobserve(e.target);}
+    });
+  },{ threshold:0.15 });
+  sections.forEach(s => obs.observe(s));
+
   const modal = document.getElementById("modal");
   const modalImg = modal.querySelector("img");
-  const galeria = document.querySelectorAll(".galeria img");
-
-  toggleBtn.addEventListener("click", () => {
-    menu.classList.toggle("open");
+  document.querySelectorAll(".galeria img").forEach(img =>{
+    img.addEventListener("click", ()=>{ modalImg.src=img.src; modalImg.alt=img.alt; modal.classList.add("open"); });
+    img.addEventListener("keydown", e => (e.key==="Enter"||e.key===" ")&&(img.click()));
   });
+  modal.addEventListener("click", ()=>modal.classList.remove("open"));
 
-  links.forEach(link => {
-    link.addEventListener("click", () => {
-      menu.classList.remove("open");
+  const toggle = document.querySelector('.menu-toggle');
+  const m = document.querySelector('.mobile-menu');
+  toggle.addEventListener('click', ()=>{
+    const open = toggle.getAttribute('aria-expanded')==='true';
+    toggle.setAttribute('aria-expanded',!open);
+    m.classList.toggle('open');
+  });
+  document.querySelectorAll('nav.mobile-menu a').forEach(a=>{
+    a.addEventListener('click', ()=>{
+      toggle.setAttribute('aria-expanded','false');
+      m.classList.remove('open');
     });
   });
-
-  galeria.forEach(img => {
-    img.addEventListener("click", () => {
-      modalImg.src = img.src;
-      modal.classList.add("open");
-    });
-  });
-
-  modal.addEventListener("click", () => {
-    modal.classList.remove("open");
-    modalImg.src = "";
-  });
-
-  const sections = document.querySelectorAll("section");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add("visible");
-      }
-    });
-  }, { threshold: 0.2 });
-
-  sections.forEach(section => observer.observe(section));
 </script>
 
 </body>
 </html>
+
