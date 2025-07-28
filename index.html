@@ -1,222 +1,105 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Madres a la Obra - Doula y Consejería</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF‑8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Madres a la Obra – Doula en Santo Domingo</title>
+  <meta name="description" content="Doula certificada en Santo Domingo ofrece clases prenatales, acompañamiento al parto y apoyo en lactancia. Reserva tu cita por WhatsApp.">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Nunito', sans-serif;
-      background-color: #F6EEE7;
-      color: #8E6E5E;
-      line-height: 1.6;
+    :root {
+      --primary: #D8A7B1;
+      --secondary: #B7C6A5;
+      --text: #8E6E5E;
+      --light: #F6EEE7;
+      --accent: #8E6E5E;
     }
-    header {
-      background-color: #D8A7B1;
-      color: white;
-      padding: 3rem 1rem;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0 0 0.5rem;
-      font-weight: 700;
-      font-size: 2.8rem;
-    }
-    header p {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      font-style: italic;
-    }
-    header a.button {
-      background-color: #8E6E5E;
-      color: white;
-      padding: 0.8rem 2rem;
-      text-decoration: none;
-      font-weight: 700;
-      border-radius: 25px;
-      font-size: 1.1rem;
-      transition: background-color 0.3s ease;
-      display: inline-block;
-    }
-    header a.button:hover {
-      background-color: #6b554d;
-    }
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      margin-bottom: 3rem;
-    }
-    h2 {
-      color: #8E6E5E;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      border-bottom: 3px solid #B7C6A5;
-      padding-bottom: 0.3rem;
-    }
-    .sobre-mi img {
-      max-width: 200px;
-      border-radius: 50%;
-      float: left;
-      margin-right: 1.5rem;
-      margin-bottom: 1rem;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    }
-    .sobre-mi p {
-      font-size: 1.1rem;
-      margin-top: 0;
-    }
-    .servicios .card {
-      background-color: white;
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      margin-bottom: 1.5rem;
-    }
-    .servicios .card h3 {
-      margin-top: 0;
-      color: #D8A7B1;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-    th, td {
-      border: 1px solid #B6A69A;
-      padding: 0.8rem 1rem;
-      text-align: left;
-      font-size: 0.95rem;
-    }
-    th {
-      background-color: #D8A7B1;
-      color: white;
-    }
-    tbody tr:nth-child(even) {
-      background-color: #F6EEE7;
-    }
-    .testimonios blockquote {
-      background-color: #B7C6A5;
-      color: #4a4a4a;
-      padding: 1rem 1.5rem;
-      border-radius: 12px;
-      margin: 1rem 0;
-      font-style: italic;
-      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
-    }
-    .contacto a {
-      display: inline-block;
-      background-color: #8E6E5E;
-      color: white;
-      padding: 0.8rem 2rem;
-      border-radius: 25px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-    .contacto a:hover {
-      background-color: #6b554d;
-    }
-    footer {
-      background-color: #B6A69A;
-      color: #4a4a4a;
-      text-align: center;
-      padding: 1rem 1rem;
-      font-size: 0.85rem;
-    }
-    @media (max-width: 600px) {
-      .sobre-mi img {
-        float: none;
-        display: block;
-        margin: 0 auto 1rem auto;
-      }
-    }
+    * { box-sizing:border-box; margin:0; padding:0;}
+    body {font-family:'Nunito',sans-serif;color:var(--text);background:var(--light);line-height:1.6;}
+    header {background:var(--primary); color:white; text-align:center; padding:4rem 1rem;}
+    header h1 {font-size:2.8rem; font-weight:700;}
+    header p {font-size:1.2rem; margin:1rem 0; font-style:italic;}
+    header a.call {background:var(--accent); color:white; padding:1rem 2rem; border-radius:25px; font-size:1.1rem; text-decoration:none; font-weight:700;}
+    main {max-width:900px; margin:2rem auto; padding:0 1rem;}
+    section {margin-bottom:3rem;}
+    h2.section-title {color:var(--accent); font-size:1.8rem; margin-bottom:1rem; border-bottom:4px solid var(--secondary); padding-bottom:0.3rem;}
+    .sobre-mi {display:flex; align-items:center; gap:1.5rem;}
+    .sobre-mi img {border-radius:50%; width:140px; height:140px; object-fit:cover; flex-shrink:0;}
+    .servicios .card {background:white;border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+    .servicios table {width:100%; border-collapse:collapse;}
+    .servicios th, .servicios td {border:1px solid var(--secondary); padding:0.8rem;}
+    .servicios th {background:var(--primary); color:white;}
+    .servicios tr:nth-child(even) {background:var(--light);}
+    .beneficios ul {list-style:disc inside; margin-left:1rem; color:var(--text);}
+    .testimonios blockquote {background:var(--secondary); color:var(--text); padding:1rem 1.5rem; border-radius:12px; margin:1rem 0; font-style:italic;}
+    .contacto a.call {background:var(--accent); color:white;}
+    footer {background:var(--secondary); color:var(--text); text-align:center; padding:1rem; font-size:0.85rem;}
+    @media(max-width:600px){.sobre-mi{flex-direction:column;text-align:center;}.sobre-mi img{margin:0 auto;}}
   </style>
 </head>
 <body>
 
 <header>
   <h1>Madres a la Obra</h1>
-  <p>Juntas Podemos</p>
-  <a href="https://wa.me/18297705650" target="_blank" class="button">Reserva tu cita</a>
+  <p>“Juntas Podemos” — Acompañamiento cálido en cada etapa de tu maternidad</p>
+  <a href="https://wa.me/18297705650" class="call" target="_blank">Reserva tu cita</a>
 </header>
 
 <main>
   <section class="sobre-mi" id="sobre-mi">
-    <h2>Sobre mí</h2>
-    <img src="https://i.imgur.com/zRsC3r6.jpg" alt="Foto de Cath Rodríguez" />
-    <p>Hola, soy Cath Rodríguez, doula certificada y consejera en lactancia materna. Mi misión es acompañarte con respeto, cariño y evidencia científica durante tu embarazo, parto y postparto. Creo en el poder de las madres informadas y empoderadas. Aquí encontrarás el apoyo que necesitas para vivir tu maternidad con consciencia y amor.</p>
+    <h2 class="section-title">Sobre mí</h2>
+    <img src="https://i.imgur.com/zRsC3r6.jpg" alt="Cath Rodríguez Doula Santo Domingo">
+    <p>Soy <strong>Cath Rodríguez</strong>, doula certificada en Santo Domingo. Mi propósito es apoyarte con respeto, información y acompañamiento humano durante tu embarazo, parto y postparto. Creo en tu poder y en la fuerza transformadora de la maternidad.</p>
   </section>
 
-  <section class="servicios" id="servicios">
-    <h2>Servicios</h2>
-
+  <section id="servicios">
+    <h2 class="section-title">Servicios & Planes</h2>
     <div class="card">
       <h3>Clases Prenatales – Panzas a la Obra</h3>
-      <p>Programa completo con 3 módulos virtuales y 1 sesión presencial. Incluye apoyo vía WhatsApp, ejercicios prenatales y plan de parto personalizado.</p>
+      <p>3 módulos virtuales + 1 sesión presencial. Incluye plan de parto personalizado, ejercicios y acompañamiento vía WhatsApp.</p>
     </div>
-
     <div class="card">
       <h3>Doula Platinum – Acompañamiento al Nacimiento</h3>
-      <p>Acompañamiento desde la semana 20, con clases prenatales, soporte emocional y físico durante el trabajo de parto, y seguimiento postparto.</p>
+      <p>Acompañamiento desde la semana 20, soporte físico y emocional en el parto, clase prenatal incluida y postparto.</p>
     </div>
-
     <div class="card">
       <h3>Planes de Lactancia</h3>
       <table>
-        <thead>
-          <tr>
-            <th>Plan</th>
-            <th>Modalidad</th>
-            <th>Incluye</th>
-            <th>Precio (USD)</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Plan</th><th>Modalidad</th><th>Incluye</th><th>Precio</th></tr></thead>
         <tbody>
-          <tr>
-            <td>Básico</td>
-            <td>Presencial + WhatsApp</td>
-            <td>1 visita presencial (1.5h) + 7 días seguimiento WhatsApp</td>
-            <td>$85</td>
-          </tr>
-          <tr>
-            <td>Conectada</td>
-            <td>Presencial + Videollamadas + WhatsApp</td>
-            <td>1 visita presencial (1.5h), 2 videollamadas (1h c/u) + 21 días seguimiento WhatsApp</td>
-            <td>$150</td>
-          </tr>
-          <tr style="font-weight: 700; color: #D8A7B1;">
-            <td>Conectada VIP</td>
-            <td>Clínica + Hogar + Seguimiento</td>
-            <td>Todo lo del plan Conectada + visita presencial en clínica + visita en casa</td>
-            <td>$195</td>
-          </tr>
+          <tr><td>Básico</td><td>Presencial + WhatsApp</td><td>1 visita (1.5h) + 7 días seguimiento</td><td>$85</td></tr>
+          <tr><td>Conectada</td><td>Presencial + videollamadas + WhatsApp</td><td>1 visita + 2 llamadas (1h c/u) + 21 días seguimiento</td><td>$150</td></tr>
+          <tr style="font-weight:700;color:var(--primary)"><td>Conectada VIP</td><td>Clínica + hogar + seguimiento</td><td>Todo Conectada + visita en clínica y en casa</td><td>$195</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
-  <section class="testimonios" id="testimonios">
-    <h2>Testimonios</h2>
-    <blockquote>“Cath me acompañó con paciencia y cariño. Mi parto fue hermoso gracias a su guía.” – M. Pérez</blockquote>
-    <blockquote>“Gracias a Cath pude superar mis dudas y vivir la lactancia con confianza.” – A. Gómez</blockquote>
-    <blockquote>“Su apoyo durante el postparto fue invaluable, me sentí acompañada en todo momento.” – L. Fernández</blockquote>
+  <section class="beneficios">
+    <h2 class="section-title">Cómo trabajo contigo</h2>
+    <ul>
+      <li>Apoyo continuo por WhatsApp desde el comienzo.</li>
+      <li>Herramientas prácticas: plan de parto, ejercicios prenatales y videos de seguimiento.</li>
+      <li>Asesoría informada, emocional y personalizada según tu proceso.</li>
+      <li>Enfoque respetuoso, cálido y empoderador para que disfrutes tu experiencia.</li>
+    </ul>
   </section>
 
-  <section class="contacto" id="contacto">
-    <h2>Contacto</h2>
-    <p>¿Lista para comenzar? Reserva tu cita o contáctame para resolver tus dudas.</p>
-    <a href="https://wa.me/18297705650" target="_blank">Reserva por WhatsApp</a>
+  <section class="testimonios">
+    <h2 class="section-title">Testimonios</h2>
+    <blockquote>“Sentí un respaldo emocional y físico increíble. Gracias a Cath mi parto fue consciente y empoderado.” – M. Pérez</blockquote>
+    <blockquote>“Me ayudó a confiar en mi cuerpo y en mi decisión. La lactancia fluyó con apoyo constante.” – A. Gómez</blockquote>
+  </section>
+
+  <section class="contacto">
+    <h2 class="section-title">¿Hablamos?</h2>
+    <p>Si te resuenan mis servicios, estoy aquí para ayudarte a sentirte acompañada en cada paso.</p>
+    <a href="https://wa.me/18297705650" class="call">Reserva por WhatsApp</a>
   </section>
 </main>
 
 <footer>
-  <p>© 2025 Cath Rodríguez – Madres a la Obra. Todos los derechos reservados.</p>
+  <p>Atención en Santo Domingo, Distrito Nacional, República Dominicana<br>© 2025 Cath Rodríguez – Madres a la Obra</p>
 </footer>
 
 </body>
