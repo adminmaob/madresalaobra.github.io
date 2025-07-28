@@ -23,151 +23,55 @@
     a:hover, a:focus { text-decoration:underline; }
     header { position:fixed; top:0; left:0; right:0; background:var(--blanco); border-bottom:1px solid var(--rosa-claro); display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; z-index:9999; box-shadow:var(--shadow-light); }
     header img { height:48px; }
-
-    .menu-toggle {
-      display:flex; flex-direction:column; justify-content:space-between;
-      width:28px; height:22px; cursor:pointer; border:none; background:none;
-    }
-    .menu-toggle span {
-      display:block; height:3px; background:var(--rosa);
-      border-radius:2px; transition: all 0.3s ease;
-    }
-
-    nav.mobile-menu {
-      display:none; position:fixed; top:60px; left:0; right:0;
-      background:var(--blanco); flex-direction:column; padding:1rem 1.5rem;
-      box-shadow:var(--shadow-light); z-index:9998;
-    }
+    .menu-toggle { display:flex; flex-direction:column; justify-content:space-between; width:28px; height:22px; cursor:pointer; }
+    .menu-toggle span { height:3px; background:var(--rosa); border-radius:2px; transition: all 0.3s ease; }
+    nav.mobile-menu { display:none; position:fixed; top:60px; left:0; right:0; background:var(--blanco); flex-direction:column; padding:1rem 1.5rem; box-shadow:var(--shadow-light); z-index:9998; }
     nav.mobile-menu.open { display:flex; }
-    nav.mobile-menu a {
-      padding:0.8rem 0; border-bottom:1px solid var(--rosa-claro); font-weight:600;
-    }
+    nav.mobile-menu a { padding:0.8rem 0; border-bottom:1px solid var(--rosa-claro); font-weight:600; }
     nav.mobile-menu a:last-child { border:none; }
-
-    header .cta {
-      padding:0.6rem 1.6rem; background:var(--rosa); color:var(--blanco);
-      border-radius:30px; font-weight:600; box-shadow:0 4px 10px rgb(216 126 159 / 0.45);
-      transition:background var(--transition-speed) ease;
-    }
+    header .cta { padding:0.6rem 1.6rem; background:var(--rosa); color:var(--blanco); border-radius:30px; font-weight:600; box-shadow:0 4px 10px rgb(216 126 159 / 0.45); transition:background var(--transition-speed) ease; }
     header .cta:hover, header .cta:focus { background:#c06d8b; }
-
     main { max-width:900px; margin:100px auto 3rem; padding:0 1rem; }
     section { margin-bottom:4rem; opacity:0; transform:translateY(30px); transition:opacity .7s ease,transform .7s ease; }
     section.visible { opacity:1; transform:translateY(0); }
     h2.section-title { font-size:2rem; color:var(--rosa); text-align:center; margin-bottom:1.5rem; }
-
-    .hero {
-      display:flex; flex-direction:column; align-items:center;
-      text-align:center; background:var(--gris-claro);
-      padding:3rem 2rem; border-radius:var(--border-radius);
-      box-shadow:var(--shadow-light); opacity:0; transform:translateY(30px);
-      transition:opacity 1s ease,transform 1s ease;
-    }
+    .hero { display:flex; flex-direction:column; align-items:center; text-align:center; background:var(--gris-claro); padding:3rem 2rem; border-radius:var(--border-radius); box-shadow:var(--shadow-light); opacity:0; transform:translateY(30px); transition:opacity 1s ease,transform 1s ease; }
     .hero.visible { opacity:1; transform:translateY(0); }
-    .hero h1 {
-      font-size:3rem; font-weight:600; color:var(--rosa);
-      margin-bottom:1rem; line-height:1.1;
-    }
+    .hero h1 { font-size:3rem; font-weight:600; color:var(--rosa); margin-bottom:1rem; line-height:1.1; }
     .hero p { max-width:520px; font-size:1.2rem; margin-bottom:2rem; }
-    .hero a {
-      padding:1rem 2.5rem; background:var(--rosa); color:var(--blanco);
-      border-radius:30px; font-weight:600;
-      box-shadow:0 6px 16px rgb(216 126 159 / 0.5);
-      transition:background var(--transition-speed) ease;
-    }
+    .hero a { padding:1rem 2.5rem; background:var(--rosa); color:var(--blanco); border-radius:30px; font-weight:600; box-shadow:0 6px 16px rgb(216 126 159 / 0.5); transition:background var(--transition-speed) ease; }
     .hero a:hover, .hero a:focus { background:#c06d8b; }
-
     .sobre-mi { display:flex; gap:2rem; align-items:center; flex-wrap:wrap; }
-    .sobre-mi img {
-      width:180px; height:180px; border-radius:50%;
-      object-fit:cover; box-shadow:var(--shadow-light); flex-shrink:0;
-    }
+    .sobre-mi img { width:180px; height:180px; border-radius:50%; object-fit:cover; box-shadow:var(--shadow-light); flex-shrink:0; }
     .sobre-mi .texto { flex:1; font-size:1.1rem; max-width:600px; }
-
-    .servicios-list {
-      background:var(--gris-claro); padding:1.8rem;
-      border-radius:var(--border-radius);
-    }
+    .servicios-list { background:var(--gris-claro); padding:1.8rem; border-radius:var(--border-radius); }
     .servicios-list strong { display:block; margin-top:1rem; margin-bottom:.5rem; font-size:1.2rem; }
     .servicios-list ul { list-style:none; padding-left:1rem; }
-    .servicios-list li {
-      margin-bottom:.5rem; position:relative; padding-left:1.4rem;
-    }
-    .servicios-list li::before {
-      content:"✔"; position:absolute; left:0; color:var(--rosa); font-weight:bold;
-    }
-
-    .galeria {
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-      gap:1rem;
-    }
-    .galeria img {
-      width:100%; border-radius:var(--border-radius); object-fit:cover;
-      aspect-ratio:4/3; cursor:pointer; transition:transform .3s ease;
-      border:3px solid transparent;
-    }
-    .galeria img:hover, .galeria img:focus {
-      transform:scale(1.05); border-color:var(--rosa); outline:none;
-    }
-
-    .testimonios {
-      background:var(--gris-claro); padding:2rem; border-radius:var(--border-radius);
-      box-shadow:var(--shadow-light); max-width:720px; margin:0 auto;
-    }
+    .servicios-list li { margin-bottom:.5rem; position:relative; padding-left:1.4rem; }
+    .servicios-list li::before { content:"✔"; position:absolute; left:0; color:var(--rosa); font-weight:bold; }
+    .galeria { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1rem; }
+    .galeria img { width:100%; border-radius:var(--border-radius); object-fit:cover; aspect-ratio:4/3; cursor:pointer; transition:transform .3s ease; border:3px solid transparent; }
+    .galeria img:hover, .galeria img:focus { transform:scale(1.05); border-color:var(--rosa); outline:none; }
+    .testimonios { background:var(--gris-claro); padding:2rem; border-radius:var(--border-radius); box-shadow:var(--shadow-light); max-width:720px; margin:0 auto;}
     .testimonios h2 { font-size:2rem; color:var(--rosa); text-align:center; margin-bottom:1.5rem; }
     .testimonial-item { display:flex; gap:1rem; margin-bottom:1.5rem; }
-    .testimonial-img {
-      width:60px; height:60px; border-radius:50%; object-fit:cover;
-      box-shadow:var(--shadow-light); flex-shrink:0;
-    }
-    .testimonial-text {
-      font-style:italic; position:relative; padding-left:1rem; color:var(--gris-texto);
-    }
-    .testimonial-text::before {
-      content:"“"; position:absolute; left:0; top:-10px; font-size:3rem;
-      color:var(--rosa); font-family:serif;
-    }
-    .testimonial-author {
-      margin-top:.4rem; font-weight:600; color:var(--rosa);
-    }
-
-    .recursos-lista {
-      list-style:none; max-width:720px; margin:0 auto; padding-left:0;
-    }
-    .recursos-lista li {
-      margin-bottom:1rem; padding-left:1.5rem; position:relative; font-size:1rem;
-    }
+    .testimonial-img { width:60px; height:60px; border-radius:50%; object-fit:cover; box-shadow:var(--shadow-light); flex-shrink:0;}
+    .testimonial-text { font-style:italic; position:relative; padding-left:1rem; color:var(--gris-texto);}
+    .testimonial-text::before { content:"“"; position:absolute; left:0; top:-10px; font-size:3rem; color:var(--rosa); font-family:serif;}
+    .testimonial-author { margin-top:.4rem; font-weight:600; color:var(--rosa); }
+    .recursos-lista { list-style:none; max-width:720px; margin:0 auto; padding-left:0; }
+    .recursos-lista li { margin-bottom:1rem; padding-left:1.5rem; position:relative; font-size:1rem; }
     .recursos-lista li::before { content:"📌"; position:absolute; left:0; }
     .recursos-lista a { color:var(--rosa); font-weight:600; }
-
     .contacto { text-align:center; }
     .contacto h2 { font-size:2rem; color:var(--rosa); margin-bottom:1rem; }
     .contacto p { margin-bottom:1.8rem; font-size:1.1rem; }
-    .contacto a.cta {
-      padding:1rem 2.5rem; background:var(--rosa); color:var(--blanco);
-      border-radius:30px; font-weight:600;
-      box-shadow:0 6px 16px rgb(216 126 159 / 0.5);
-      transition:background var(--transition-speed) ease; display:inline-block;
-    }
+    .contacto a.cta { padding:1rem 2.5rem; background:var(--rosa); color:var(--blanco); border-radius:30px; font-weight:600; box-shadow:0 6px 16px rgb(216 126 159 / 0.5); transition:background var(--transition-speed) ease; display:inline-block; }
     .contacto a.cta:hover, .contacto a.cta:focus { background:#c06d8b; }
-
-    footer {
-      text-align:center; padding:1rem 2rem; font-size:.9rem;
-      color:var(--gris-texto); background:var(--rosa-claro);
-      border-top:1px solid var(--rosa);
-    }
-
-    .modal {
-      display:none; position:fixed; z-index:15000; top:0; left:0;
-      width:100vw; height:100vh; background:rgba(0,0,0,0.85);
-      justify-content:center; align-items:center; cursor:pointer;
-    }
+    footer { text-align:center; padding:1rem 2rem; font-size:.9rem; color:var(--gris-texto); background:var(--rosa-claro); border-top:1px solid var(--rosa); }
+    .modal { display:none; position:fixed; z-index:15000; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; cursor:pointer; }
     .modal.open { display:flex; }
-    .modal img {
-      max-width:90vw; max-height:85vh; border-radius:var(--border-radius);
-      box-shadow:0 8px 20px rgba(0,0,0,0.8);
-    }
-
+    .modal img { max-width:90vw; max-height:85vh; border-radius:var(--border-radius); box-shadow:0 8px 20px rgba(0,0,0,0.8); }
     @media(max-width:768px){
       main{margin-top:90px;}
       .testimonial-item{flex-direction:column;align-items:center;text-align:center;}
@@ -180,9 +84,7 @@
 <header>
   <img src="https://i.imgur.com/jbMzxNQ.png" alt="Logo Madres a la Obra" />
   <button class="menu-toggle" aria-expanded="false" aria-label="Menú">
-    <span></span>
-    <span></span>
-    <span></span>
+    <span></span><span></span><span></span>
   </button>
   <nav class="mobile-menu" aria-label="Navegación móvil">
     <a href="#inicio">Inicio</a>
@@ -194,18 +96,117 @@
     <a href="#contacto" class="cta">Reserva tu cita</a>
   </nav>
 </header>
+
+<main id="inicio">
+  <section class="hero visible">
+    <h1>Juntas Podemos<br> acompañarte en cada etapa</h1>
+    <p>Apoyo profesional y humano para tu embarazo, parto y lactancia en Santo Domingo, RD.</p>
+    <a href="#contacto">Reserva tu cita</a>
+  </section>
+
+  <section class="sobre-mi" id="sobre-mi">
+    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80" alt="Cath Rodríguez, doula Santo Domingo" />
+    <div class="texto">
+      <h2 class="section-title">Sobre mí</h2>
+      <p>Soy <strong>Cath Rodríguez</strong>, doula certificada con años de experiencia acompañando madres en Santo Domingo. Brindo apoyo respetuoso, información confiable y acompañamiento lleno de empatía para una maternidad consciente y empoderada.</p>
+    </div>
+  </section>
+
+  <section class="servicios" id="servicios">
+    <h2 class="section-title">Servicios & Planes</h2>
+    <div class="servicios-list">
+      <strong>Embarazo</strong>
+      <ul>
+        <li>Acompañamiento prenatal</li>
+        <li>Clases prenatales – Panzas a la Obra</li>
+        <li>Clases cuidado recién nacido – De la Panza a los Brazos</li>
+        <li>Guía prenatal y lactancia – Vida Materna</li>
+      </ul>
+      <strong>Parto</strong>
+      <ul>
+        <li>Acompañamiento al parto</li>
+        <li>Acompañamiento cesárea respetada</li>
+      </ul>
+      <strong>Postparto</strong>
+      <ul>
+        <li>Acompañamiento en lactancia</li>
+        <li>Acompañamiento doula postparto</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="galeria" id="galeria">
+    <h2 class="section-title">Galería</h2>
+    <img src="https://images.unsplash.com/photo-1600488991664-07b1f9d82535?auto=format&fit=crop&w=600&q=80" alt="Clase prenatal con madres" tabindex="0">
+    <img src="https://images.unsplash.com/photo-1519148246701-85a40f39cb0b?auto=format&fit=crop&w=600&q=80" alt="Acompañamiento en parto" tabindex="0">
+    <img src="https://images.unsplash.com/photo-1506459225024-1428097a7e18?auto=format&fit=crop&w=600&q=80" alt="Clase de lactancia materna" tabindex="0">
+    <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=600&q=80" alt="Madres en taller prenatal" tabindex="0">
+    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80" alt="Doula acompañando madre" tabindex="0">
+  </section>
+
+  <section class="testimonios" id="testimonios">
+    <h2 class="section-title">Testimonios</h2>
+    <div class="testimonial-item">
+      <img class="testimonial-img" src="https://randomuser.me/api/portraits/women/68.jpg" alt="María Pérez">
+      <div class="testimonial-text">Sentí un respaldo emocional y físico increíble. Gracias a Cath mi parto fue consciente y empoderado.<div class="testimonial-author">– María Pérez</div></div>
+    </div>
+    <div class="testimonial-item">
+      <img class="testimonial-img" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana Gómez">
+      <div class="testimonial-text">Me ayudó a confiar en mi cuerpo y en mi decisión. La lactancia fluyó con apoyo constante.<div class="testimonial-author">– Ana Gómez</div></div>
+    </div>
+  </section>
+
+  <section class="recursos" id="recursos">
+    <h2 class="section-title">Recursos</h2>
+    <ul class="recursos-lista">
+      <li><a href="#">Guía básica para una lactancia exitosa</a></li>
+      <li><a href="#">Cómo preparar tu plan de parto</a></li>
+      <li><a href="#">Ejercicios recomendados en el embarazo</a></li>
+      <li><a href="#">Consejos para el postparto saludable</a></li>
+    </ul>
+  </section>
+
+  <section class="contacto" id="contacto">
+    <h2 class="section-title">Contacto</h2>
+    <p>Estoy aquí para apoyarte en lo que necesites. Si sientes conexión con mi enfoque, reserva tu cita por WhatsApp.</p>
+    <a href="https://wa.me/18297705650" class="cta">Reserva tu cita</a>
+  </section>
+</main>
+
+<footer>
+  <p>Atención en Santo Domingo, Distrito Nacional, República Dominicana<br>© 2025 Cath Rodríguez – Madres a la Obra</p>
+</footer>
+
+<div class="modal" id="modal" aria-hidden="true"><img src="" alt=""></div>
+
 <script>
-  const toggle = document.querySelector('.menu-toggle');
-  const menu = document.querySelector('.mobile-menu');
-  toggle.addEventListener('click', () => {
-    const expanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', !expanded);
-    menu.classList.toggle('open');
+  const sections = document.querySelectorAll("section");
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting){ e.target.classList.add("visible"); obs.unobserve(e.target);}
+    });
+  },{ threshold:0.15 });
+  sections.forEach(s => obs.observe(s));
+
+  const modal = document.getElementById("modal");
+  const modalImg = modal.querySelector("img");
+  document.querySelectorAll(".galeria img").forEach(img =>{
+    img.addEventListener("click", ()=>{ modalImg.src=img.src; modalImg.alt=img.alt; modal.classList.add("open"); });
+    img.addEventListener("keydown", e => (e.key==="Enter"||e.key===" ")&&(img.click()));
   });
-  document.querySelectorAll('.mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      toggle.setAttribute('aria-expanded', 'false');
-      menu.classList.remove('open');
+  modal.addEventListener("click", ()=>modal.classList.remove("open"));
+
+  const toggle = document.querySelector('.menu-toggle');
+  const m = document.querySelector('.mobile-menu');
+  toggle.addEventListener('click', ()=>{
+    const open = toggle.getAttribute('aria-expanded')==='true';
+    toggle.setAttribute('aria-expanded',!open);
+    m.classList.toggle('open');
+  });
+  document.querySelectorAll('nav.mobile-menu a').forEach(a=>{
+    a.addEventListener('click', ()=>{
+      toggle.setAttribute('aria-expanded','false');
+      m.classList.remove('open');
     });
   });
 </script>
