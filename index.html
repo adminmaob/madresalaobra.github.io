@@ -46,13 +46,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
     z-index: 9999;
     box-shadow: var(--shadow-light);
   }
   header img {
     height: 48px;
   }
+  /* Menú Desktop */
   nav ul {
     list-style: none;
     display: flex;
@@ -82,10 +83,53 @@
   header a.cta:focus {
     background: #c06d8b;
   }
+
+  /* Menú móvil */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 28px;
+    height: 22px;
+    cursor: pointer;
+  }
+  .menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background: var(--rosa);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  /* Menú móvil oculto */
+  nav.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 65px;
+    left: 0;
+    right: 0;
+    background: var(--blanco);
+    box-shadow: var(--shadow-light);
+    border-top: 1px solid var(--rosa-claro);
+    flex-direction: column;
+    padding: 1rem 2rem;
+    z-index: 9998;
+  }
+  nav.mobile-menu.open {
+    display: flex;
+  }
+  nav.mobile-menu a {
+    padding: 1rem 0;
+    font-weight: 600;
+    border-bottom: 1px solid var(--rosa-claro);
+  }
+  nav.mobile-menu a:last-child {
+    border-bottom: none;
+  }
+
   main {
     max-width: 900px;
-    margin: 100px auto 3rem;
-    padding: 0 2rem;
+    margin: 90px auto 3rem;
+    padding: 0 1rem;
   }
   section {
     margin-bottom: 4rem;
@@ -173,46 +217,7 @@
     color: var(--gris-texto);
     max-width: 600px;
   }
-  /* Servicios */
-  .servicios-lista {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-    gap: 2rem;
-  }
-  .servicio-card {
-    background: var(--gris-claro);
-    border-radius: var(--border-radius);
-    padding: 1.8rem 1.5rem;
-    box-shadow: var(--shadow-light);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .servicio-card:hover,
-  .servicio-card:focus-within {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 18px rgb(216 126 159 / 0.3);
-  }
-  .servicio-card h3 {
-    font-family: 'Playfair Display', serif;
-    color: var(--rosa);
-    margin-bottom: 0.8rem;
-  }
-  .servicio-card p {
-    font-size: 1rem;
-    color: var(--gris-texto);
-    line-height: 1.5;
-    margin-bottom: 1rem;
-    flex-grow: 1;
-  }
-  .precio {
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: var(--rosa);
-    margin-bottom: 1rem;
-  }
-  /* Tabla lactancia minimalista */
+  /* Servicios: tabla comparativa */
   .tabla-lactancia {
     margin-top: 2rem;
     overflow-x: auto;
@@ -220,49 +225,54 @@
   }
   table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 8px;
+    border-collapse: collapse;
     font-size: 0.95rem;
     color: var(--gris-texto);
   }
-  th, td {
-    padding: 0.75rem 1rem;
-    text-align: left;
-  }
-  thead th {
+  thead {
     background: var(--rosa);
     color: var(--blanco);
+  }
+  thead th {
+    padding: 0.9rem 0.6rem;
     font-weight: 600;
-    border-radius: 12px 12px 0 0;
+    text-align: center;
   }
-  tbody tr {
+  tbody tr:nth-child(even) {
     background: var(--gris-claro);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-light);
   }
-  tbody tr td {
-    border-bottom: none !important;
+  tbody tr:hover {
+    background: #f9d3e0;
   }
-  tbody tr:last-child td {
-    border-radius: 0 0 var(--border-radius) var(--border-radius);
+  tbody td, tbody th {
+    padding: 0.9rem 0.6rem;
+    text-align: center;
   }
-  /* Lista bullets moderno */
-  ul.bullets {
-    list-style: none;
-    padding-left: 1rem;
+  tbody td:first-child {
+    text-align: left;
+    font-weight: 600;
+    background: var(--rosa-claro);
+    color: var(--gris-texto);
+    min-width: 180px;
   }
-  ul.bullets li {
-    position: relative;
-    padding-left: 1.4rem;
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-  }
-  ul.bullets li::before {
-    content: "✔";
-    position: absolute;
-    left: 0;
+  tbody tr.price-row td {
+    font-weight: 700;
+    font-size: 1.1rem;
     color: var(--rosa);
-    font-weight: bold;
+    background: var(--gris-claro);
+  }
+  /* Ticks */
+  .tick {
+    color: var(--rosa);
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 1;
+  }
+  /* Lista de descripción de planes */
+  .plan-descripcion {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    max-width: 600px;
   }
   /* Galería */
   .galeria {
@@ -425,17 +435,24 @@
   }
   /* Responsive */
   @media (max-width: 768px) {
-    header {
-      padding: 1rem 1.5rem;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
+    /* Header */
     nav ul {
-      gap: 1rem;
+      display: none;
     }
+    .menu-toggle {
+      display: flex;
+    }
+    nav.mobile-menu {
+      display: none;
+      flex-direction: column;
+    }
+    nav.mobile-menu.open {
+      display: flex;
+    }
+
     main {
-      margin: 130px auto 3rem;
-      padding: 0 1rem;
+      margin: 100px 1rem 3rem;
+      padding: 0 0.5rem;
     }
     .sobre-mi {
       flex-direction: column;
@@ -453,113 +470,118 @@
       text-align: center;
     }
     .testimonial-text::before {
-      top: 0;
       left: 50%;
       transform: translateX(-50%);
+    }
+    /* Tabla lactancia simplificada scroll */
+    .tabla-lactancia {
+      overflow-x: scroll;
     }
   }
 </style>
 </head>
 <body>
 
-<header>
-  <img src="https://i.imgur.com/jbMzxNQ.png" alt="Logo Madres a la Obra" />
+<header role="banner">
+  <img src="https://i.imgur.com/VTzjCZF.png" alt="Logo Madres a la Obra" />
   <nav>
-    <ul>
-      <li><a href="#sobre-mi">Sobre mí</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#galeria">Galería</a></li>
-      <li><a href="#testimonios">Testimonios</a></li>
-      <li><a href="#recursos">Recursos</a></li>
-      <li><a href="#contacto">Contacto</a></li>
+    <ul class="desktop-menu" role="menubar" aria-label="Menú principal">
+      <li role="none"><a role="menuitem" href="#inicio">Inicio</a></li>
+      <li role="none"><a role="menuitem" href="#sobre-mi">Sobre mí</a></li>
+      <li role="none"><a role="menuitem" href="#servicios">Servicios</a></li>
+      <li role="none"><a role="menuitem" href="#galeria">Galería</a></li>
+      <li role="none"><a role="menuitem" href="#testimonios">Testimonios</a></li>
+      <li role="none"><a role="menuitem" href="#recursos">Recursos</a></li>
+      <li role="none"><a role="menuitem" href="#contacto" class="cta">Reserva tu cita</a></li>
     </ul>
+    <button class="menu-toggle" aria-expanded="false" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="mobile-menu" role="menu" aria-label="Menú móvil" tabindex="-1">
+      <a role="menuitem" href="#inicio">Inicio</a>
+      <a role="menuitem" href="#sobre-mi">Sobre mí</a>
+      <a role="menuitem" href="#servicios">Servicios</a>
+      <a role="menuitem" href="#galeria">Galería</a>
+      <a role="menuitem" href="#testimonios">Testimonios</a>
+      <a role="menuitem" href="#recursos">Recursos</a>
+      <a role="menuitem" href="#contacto" class="cta">Reserva tu cita</a>
+    </nav>
   </nav>
-  <a href="https://wa.me/18297705650" class="cta" target="_blank" rel="noopener">Reserva tu cita</a>
 </header>
 
-<main>
+<main id="inicio" tabindex="0">
 
-  <section class="hero" id="inicio">
-    <h1>Juntas Podemos<br> acompañarte en cada etapa</h1>
-    <p>Apoyo profesional y humano para tu embarazo, parto y lactancia en Santo Domingo, RD.</p>
-    <a href="https://wa.me/18297705650" target="_blank" class="cta" rel="noopener">Reserva tu cita</a>
+  <section class="hero visible" aria-label="Bienvenida y llamado a la acción">
+    <h1>Madres a la Obra</h1>
+    <p>Juntas podemos construir un camino lleno de confianza, amor y conocimiento. Acompañamiento prenatal, parto y lactancia para madres que desean vivir su maternidad con poder y apoyo real.</p>
+    <a href="#contacto">Reserva tu cita</a>
   </section>
 
-  <section class="sobre-mi" id="sobre-mi" tabindex="0" aria-label="Sección sobre Cath Rodríguez">
-    <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80" alt="Foto de Cath Rodríguez" />
+  <section class="sobre-mi" id="sobre-mi" tabindex="0" aria-label="Sobre mí">
+    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80" alt="Cath Rodríguez" />
     <div class="texto">
-      <h2 class="section-title">Sobre mí</h2>
-      <p>Hola, soy <strong>Cath Rodríguez</strong>, doula certificada con más de 7 años acompañando madres en Santo Domingo. Mi misión es brindarte apoyo respetuoso, información confiable y un acompañamiento lleno de empatía para que vivas una maternidad consciente, segura y empoderada.</p>
-      <p>Creo que cada mujer merece ser escuchada, acompañada y respetada en sus decisiones. Juntas podemos construir un camino lleno de confianza, amor y conocimiento.</p>
+      <p>Hola, soy Cath Rodríguez, doula certificada y consejera de lactancia con años de experiencia apoyando a madres en Santo Domingo. Mi misión es acompañarte con respeto y conocimiento para que tu maternidad sea un viaje empoderado y lleno de amor.</p>
     </div>
   </section>
 
-  <section class="servicios" id="servicios" tabindex="0" aria-label="Sección de servicios y planes">
+  <section class="servicios" id="servicios" tabindex="0" aria-label="Servicios y planes">
     <h2 class="section-title">Servicios & Planes</h2>
 
-    <div class="servicios-lista">
-      <article class="servicio-card">
-        <h3>Clases Prenatales – Panzas a la Obra</h3>
-        <p>3 módulos virtuales + 1 sesión presencial. Incluye plan de parto personalizado, ejercicios prenatales y acompañamiento vía WhatsApp.</p>
-        <p class="precio">Desde US$55</p>
-      </article>
-      <article class="servicio-card">
-        <h3>Doula Platinum – Acompañamiento al Nacimiento</h3>
-        <p>Acompañamiento desde la semana 20, soporte físico y emocional en el parto, clase prenatal incluida y seguimiento postparto.</p>
-        <p class="precio">Desde US$350</p>
-      </article>
-    </div>
+    <p class="plan-descripcion">
+      Ofrezco clases prenatales, acompañamiento en el nacimiento y apoyo especializado en lactancia y postparto. Aquí puedes ver la comparación clara y sencilla de los planes para que elijas el que más se adapta a ti.
+    </p>
 
     <div class="tabla-lactancia" aria-label="Tabla comparativa de planes de lactancia">
       <table>
         <thead>
           <tr>
-            <th>Plan</th>
-            <th>Modalidad</th>
-            <th>Incluye</th>
-            <th>Precio</th>
+            <th>Servicios / Planes</th>
+            <th>Básico</th>
+            <th>Conectada</th>
+            <th>Conectada VIP</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Básico</td>
-            <td>Presencial + WhatsApp</td>
-            <td>
-              <ul class="bullets">
-                <li>1 visita presencial (1.5h)</li>
-                <li>7 días seguimiento por WhatsApp</li>
-              </ul>
-            </td>
-            <td>US$85</td>
+            <td>1 visita presencial (1.5h)</td>
+            <td><span class="tick">✔</span></td>
+            <td><span class="tick">✔</span></td>
+            <td><span class="tick">✔</span></td>
           </tr>
           <tr>
-            <td>Conectada</td>
-            <td>Presencial + videollamadas + WhatsApp</td>
-            <td>
-              <ul class="bullets">
-                <li>1 visita presencial (1.5h)</li>
-                <li>Hasta 2 videollamadas de 1 hora</li>
-                <li>21 días seguimiento por WhatsApp</li>
-              </ul>
-            </td>
-            <td>US$150</td>
+            <td>Seguimiento por WhatsApp</td>
+            <td>7 días</td>
+            <td>21 días</td>
+            <td>21 días</td>
           </tr>
-          <tr style="font-weight:bold; color: var(--rosa);">
-            <td>Conectada VIP</td>
-            <td>Clínica + hogar + seguimiento</td>
-            <td>
-              <ul class="bullets">
-                <li>Todo lo del plan Conectada</li>
-                <li>Visita en clínica y en casa</li>
-                <li>1.5 horas por sesión</li>
-                <li>Área Distrito Nacional (sujeto a confirmación)</li>
-              </ul>
-            </td>
+          <tr>
+            <td>Videollamadas</td>
+            <td>—</td>
+            <td>Hasta 2 sesiones de 1 hora</td>
+            <td>Hasta 2 sesiones de 1 hora</td>
+          </tr>
+          <tr>
+            <td>Visita en clínica</td>
+            <td>—</td>
+            <td>—</td>
+            <td><span class="tick">✔</span></td>
+          </tr>
+          <tr>
+            <td>Visita en hogar</td>
+            <td>—</td>
+            <td><span class="tick">✔</span></td>
+            <td><span class="tick">✔</span></td>
+          </tr>
+          <tr class="price-row">
+            <td>Precio</td>
+            <td>US$85</td>
+            <td>US$150</td>
             <td>US$195</td>
           </tr>
         </tbody>
       </table>
     </div>
+
   </section>
 
   <section class="galeria" id="galeria" tabindex="0" aria-label="Galería de fotos de eventos y clases">
@@ -571,7 +593,7 @@
     <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80" alt="Doula acompañando madre" tabindex="0" />
   </section>
 
-  <section class="testimonios" id="testimonios" tabindex="0" aria-label="Sección de testimonios">
+  <section class="testimonios" id="testimonios" tabindex="0" aria-label="Testimonios">
     <h2>Testimonios</h2>
 
     <div class="testimonial-item">
@@ -592,7 +614,7 @@
 
   </section>
 
-  <section class="recursos" id="recursos" tabindex="0" aria-label="Sección de recursos">
+  <section class="recursos" id="recursos" tabindex="0" aria-label="Recursos para madres">
     <h2 class="section-title">Recursos</h2>
     <ul class="recursos-lista">
       <li><a href="#" target="_blank" rel="noopener">Guía básica para una lactancia exitosa</a></li>
@@ -602,7 +624,7 @@
     </ul>
   </section>
 
-  <section class="contacto" id="contacto" tabindex="0" aria-label="Sección de contacto">
+  <section class="contacto" id="contacto" tabindex="0" aria-label="Contacto">
     <h2 class="section-title">¿Quieres conversar?</h2>
     <p>Estoy aquí para brindarte el acompañamiento que necesitas. No estás sola en este camino.</p>
     <a href="https://wa.me/18297705650" target="_blank" class="cta" rel="noopener">Reserva tu cita por WhatsApp</a>
@@ -614,20 +636,28 @@
   <p>Atención en Santo Domingo, Distrito Nacional, República Dominicana<br />© 2025 Cath Rodríguez – Madres a la Obra</p>
 </footer>
 
-<!-- Modal para galería -->
+<!-- Modal galería -->
 <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-label="Imagen ampliada">
-  <img src="" alt="" />
+  <img src="" alt="" tabindex="0" />
 </div>
 
 <script>
+  // Menú móvil toggle
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mobileMenu = document.querySelector('nav.mobile-menu');
+
+  menuToggle.addEventListener('click', () => {
+    const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+    menuToggle.setAttribute('aria-expanded', !expanded);
+    mobileMenu.classList.toggle('open');
+  });
+
   // Animaciones con Intersection Observer
   const sections = document.querySelectorAll("section");
-  const observerOptions = {
-    threshold: 0.15
-  };
-  const observer = new IntersectionObserver((entries) => {
+  const observerOptions = { threshold: 0.15 };
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if(entry.isIntersecting) {
+      if(entry.isIntersecting){
         entry.target.classList.add("visible");
         observer.unobserve(entry.target);
       }
@@ -646,7 +676,6 @@
       modalImg.alt = img.alt;
       modal.classList.add("open");
       modal.setAttribute("aria-hidden", "false");
-      // Focus para accesibilidad
       modalImg.focus();
     });
     img.addEventListener("keydown", e => {
