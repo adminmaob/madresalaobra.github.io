@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Servicios — Madres a la Obra</title>
+  <meta name="description" content="Clases prenatales, lactancia, postparto, acompañamiento al nacimiento y más. Acompañamiento cálido, profesional y basado en evidencia." />
+  <meta property="og:title" content="Servicios — MAOB" />
+  <meta property="og:description" content="Elige el acompañamiento que necesitas en esta etapa." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/og-image.jpg" />
+  <link rel="icon" href="assets/images/favicon.png" />
+  <style>
+    :root{
+      --bg:#fffdfc; --ink:#1f2937; --muted:#6b7280; --primary:#9b87f5; --accent:#f6a5b8;
+      --surface:#ffffff; --radius:16px; --shadow:0 12px 28px rgba(18,24,40,.06); --header-h:64px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
+    img{max-width:100%;height:auto;display:block}
+    a{color:inherit;text-decoration:none}
+    a:focus,button:focus{outline:2px solid var(--primary);outline-offset:2px}
+    .container{width:min(1120px,92vw);margin-inline:auto}
+    .visually-hidden{position:absolute!important;clip:rect(1px,1px,1px,1px);padding:0;border:0;height:1px;width:1px;overflow:hidden}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #f1f5f9;height:var(--header-h)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:var(--header-h)}
+    .brand{display:flex;gap:.6rem;align-items:center}
+    .brand img{width:32px;height:32px}
+    .brand strong{font-weight:700}
+    .nav-links{display:flex;gap:1rem;align-items:center}
+    .nav-links a{padding:.4rem .6rem;border-radius:10px}
+    .nav-links a:hover,.nav-links a.active{background:#f6f7ff;color:#4338ca}
+    .cta{background:var(--primary);color:white;padding:.6rem .9rem;border-radius:999px;box-shadow:var(--shadow);border:0;font-weight:600;transition:transform .2s ease,box-shadow .2s ease}
+    .cta:hover{transform:translateY(-1px);box-shadow:0 16px 30px rgba(155,135,245,.25)}
+    .burger{display:none;background:transparent;border:0;padding:.4rem}
+
+    /* Hero */
+    .hero{padding:88px 0 40px;position:relative;overflow:hidden}
+    .hero::before{content:"";position:absolute;inset:-20% -10% auto -20%;height:360px;width:360px;background:
+      radial-gradient(60% 60% at 50% 50%, rgba(246,165,184,.35), transparent 60%),
+      radial-gradient(60% 60% at 70% 30%, rgba(155,135,245,.30), transparent 70%);
+      filter:blur(30px);animation:floatBlob 14s ease-in-out infinite alternate}
+    h1{font-size:clamp(30px,4vw,46px);line-height:1.1;margin:.3rem 0 .7rem}
+    .lead{color:#374151;margin:0}
+    .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 0}
+    .search{flex:1;min-width:220px;display:flex;align-items:center;gap:8px;background:white;border:1px solid #e5e7eb;border-radius:12px;padding:.6rem .8rem;box-shadow:var(--shadow)}
+    .search input{border:0;outline:none;width:100%;font-size:16px}
+    .chip{border:1px solid #e5e7eb;background:#fff;border-radius:999px;padding:.35rem .7rem;font-weight:600;font-size:13px;cursor:pointer}
+    .chip.active{background:#f6f7ff;border-color:#e4e7ff;color:#4338ca}
+
+    /* Sections */
+    main{padding:0 0 48px}
+    section{scroll-margin-top:calc(var(--header-h) + 16px)}
+    .section{padding:48px 0}
+    .section h2{font-size:clamp(22px,3vw,30px);margin:0 0 12px;position:relative;display:inline-block}
+    .section h2::after{content:"";position:absolute;left:0;bottom:-6px;width:100%;height:8px;background:linear-gradient(90deg, rgba(155,135,245,.35), rgba(246,165,184,.35));border-radius:999px;transform-origin:left;transform:scaleX(.2);transition:transform .6s ease}
+    .section.reveal.is-visible h2::after{transform:scaleX(1)}
+    .sub{color:var(--muted);margin:0 0 22px}
+
+    /* Cards */
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
+    .card{display:flex;flex-direction:column;gap:12px;background:var(--surface);border:1px solid #eef2f7;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);transition:transform .25s ease,box-shadow .25s ease}
+    .card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(18,24,40,.12)}
+    .thumb{border-radius:12px;overflow:hidden;aspect-ratio:16/9;background:#f8fafc}
+    .badge{display:inline-block;background:#f6f7ff;color:#4338ca;border:1px solid #e4e7ff;padding:.2rem .6rem;border-radius:999px;font-size:12px;font-weight:700}
+    .card h3{margin:.2rem 0;font-size:18px}
+    .list{margin:0;padding-left:18px;color:#475569}
+    .list li{margin:.2rem 0}
+    .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1rem;border-radius:12px;border:1px solid #e5e7eb;background:white;font-weight:700}
+    .btn.primary{background:var(--primary);color:white;border-color:transparent}
+    .note{color:#6b7280;font-size:14px;margin:0}
+
+    /* Reveal + motion */
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.is-visible{opacity:1;transform:none}
+    @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+    /* Footer */
+    footer{padding:36px 0;border-top:1px solid #eef2f7;color:#64748b}
+
+    /* Mobile */
+    @media (max-width: 860px){
+      .grid{grid-template-columns:1fr}
+      .nav-links{display:none;position:absolute;top:var(--header-h);right:0;left:0;background:white;border-bottom:1px solid #e5e7eb;padding:10px}
+      .nav-links.open{display:flex;flex-direction:column}
+      .burger{display:inline-flex}
+    }
+
+    /* Keyframes */
+    @keyframes floatBlob{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(6%,-6%,0) scale(1.08)}}
+  </style>
+</head>
+<body>
+  <a class="visually-hidden" href="#contenido">Saltar al contenido</a>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="Inicio Madres a la Obra">
+        <img src="assets/images/logo.svg" alt="Logo MAOB" />
+        <strong>Madres a la Obra</strong>
+      </a>
+      <nav>
+        <button class="burger" aria-label="Abrir menú" aria-expanded="false" onclick="toggleNav(this)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <div id="menu" class="nav-links">
+          <a class="active" href="servicios.html" data-close>Servicios</a>
+          <a href="guias.html" data-close>Guías</a>
+          <a href="index.html#sobre-mi" data-close>Sobre mí</a>
+          <a href="index.html#faq" data-close>FAQ</a>
+          <a class="cta" href="index.html#contacto" data-close>Agenda una llamada</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido" class="container">
+    <!-- HERO -->
+    <section class="hero reveal is-visible">
+      <h1>Mis Servicios</h1>
+      <p class="lead">Elige el acompañamiento que necesitas: información clara, presencia amorosa y decisiones informadas en cada etapa.</p>
+      <div class="toolbar">
+        <div class="search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor"/><path d="m20 20-3.5-3.5" stroke="currentColor"/></svg>
+          <input id="q" type="search" placeholder="Buscar servicios… (ej. lactancia, cesárea, compras)" aria-label="Buscar servicios" />
+        </div>
+        <button class="chip" data-tag="Embarazo">Embarazo</button>
+        <button class="chip" data-tag="Parto">Parto/Cesárea</button>
+        <button class="chip" data-tag="Lactancia">Lactancia</button>
+        <button class="chip" data-tag="Postparto">Postparto</button>
+        <button class="chip" data-tag="Compras">Compras</button>
+        <button class="chip" data-tag="Eventos">Eventos</button>
+      </div>
+    </section>
+
+    <!-- GRID -->
+    <section class="section reveal">
+      <h2>Paquetes y acompañamientos</h2>
+      <p class="sub">Todos los servicios pueden ser online o presenciales (según agenda y ubicación).</p>
+      <div id="grid" class="grid">
+
+        <!-- Clases prenatales -->
+        <article class="card" data-title="Clases prenatales preparación para parto o cesárea" data-tags="Embarazo,Parto">
+          <div class="thumb">
+            <img src="assets/images/s1.jpg" alt="Clases prenatales: preparación para parto o cesárea" loading="lazy">
+          </div>
+          <span class="badge">Clases prenatales</span>
+          <h3>Preparación para parto o cesárea</h3>
+          <ul class="list">
+            <li>Plan de nacimiento informado y respetado.</li>
+            <li>Manejo del dolor, posiciones y respiración.</li>
+            <li>Rol de la pareja y comunicación con el equipo de salud.</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn primary wapp"
+               href="https://wa.me/18297705650"
+               target="_blank" rel="noopener"
+               data-text="Hola, soy [tu nombre]. Me interesa el servicio: Preparación para parto o cesárea. ¿Tienes disponibilidad? Mi ciudad es [ciudad]. Gracias.">
+              Consultar disponibilidad
+            </a>
+          </div>
+          <p class="note">Incluye material de apoyo y seguimiento breve post-sesión.</p>
+        </article>
+
+        <!-- Acompañamiento al nacimiento -->
+        <article class="card" data-title="Acompañamiento al nacimiento parto y cesárea" data-tags="Parto">
+          <div class="thumb">
+            <img src="assets/images/s2.jpg" alt="Acompañamiento al nacimiento: parto y cesárea" loading="lazy">
+          </div>
+          <span class="badge">Parto/Cesárea</span>
+          <h3>Acompañamiento al nacimiento</h3>
+          <ul class="list">
+            <li>Apoyo físico y emocional continuo.</li>
+            <li>Ambiente tranquilo y protector.</li>
+            <li>Asistencia para decisiones informadas en el proceso.</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn primary wapp"
+               href="https://wa.me/18297705650"
+               target="_blank" rel="noopener"
+               data-text="Hola, soy [tu nombre]. Me interesa el servicio: Acompañamiento al nacimiento. ¿Tienes disponibilidad? Mi ciudad es [ciudad] y mi fecha estimada es [FECHA]. Gracias.">
+              Consultar disponibilidad
+            </a>
+          </div>
+          <p class="note">Coordinación previa con tu centro y equipo de salud.</p>
+        </article>
+
+        <!-- Lactancia -->
+        <article class="card" data-title="Consejerías de lactancia talleres" data-tags="Lactancia,Postparto">
+          <div class="thumb">
+            <img src="assets/images/s3.jpg" alt="Consejerías de lactancia" loading="lazy">
+          </div>
+          <span class="badge">Lactancia</span>
+          <h3>Consejerías y talleres de lactancia</h3>
+          <ul class="list">
+            <li>Inicio, agarre, posiciones y dolor.</li>
+            <li>Banco de leche y regreso al trabajo.</li>
+            <li>Extracción, almacenamiento y mitos frecuentes.</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn primary wapp"
+               href="https://wa.me/18297705650"
+               target="_blank" rel="noopener"
+               data-text="Hola, soy [tu nombre]. Me interesa el servicio: Consejerías y talleres de lactancia. ¿Tienes disponibilidad esta semana? Vivo en [ciudad]. Gracias.">
+              Consultar disponibilidad
+            </a>
+          </div>
+          <p class="note">Puedes incluir evaluación de toma (si es presencial).</p>
+        </article>
+
+        <!-- Recién nacido -->
+        <article class="card" data-title="Cuidados del recién nacido sueño baño señales" data-tags="Postparto,Embarazo">
+          <div class="thumb">
+            <img src="assets/images/s4.jpg" alt="Cuidados esenciales del recién nacido" loading="lazy">
+          </div>
+          <span class="badge">Recién nacido</span>
+          <h3>Cuidados esenciales del bebé</h3>
+          <ul class="list">
+            <li>Señales, sueño seguro y rutinas suaves.</li>
+            <li>Baño, piel con piel y porteo básico.</li>
+            <li>Entorno y organización del hogar.</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn primary wapp"
+               href="https://wa.me/18297705650"
+               target="_blank" rel="noopener"
+               data-text="Hola, soy [tu nombre]. Me interesa el servicio: Cuidados esenciales del bebé. ¿Tienes disponibilidad? Estoy en [ciudad]. Gracias.">
+              Consultar disponibilidad
+            </a>
+          </div>
+        </article>
+
+        <!-- Lista de compras / habitación -->
+        <article class="card" data-title="Lista de compras bebé habitación minimalista" data-tags="Compras,Embarazo">
+          <div class="thumb">
+            <img src="assets/images/s5.jpg" alt="Lista inteligente de compras y habitación del bebé" loading="lazy">
+          </div>
+          <span class="badge">Compras</span>
+          <h3>Lista inteligente y habitación</h3>
+          <ul class="list">
+            <li>Lo esencial según tu contexto y presupuesto.</li>
+            <li>Checklist minimalista y opciones recomendadas.</li>
+            <li>Distribución básica del espacio del bebé.</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn primary wapp"
+               href="https://wa.me/18297705650"
+               target="_blank" rel="noopener"
+               data-text="Hola, soy [tu nombre]. Me interesa el servicio: Lista inteligente y habitación del bebé. ¿Tienes disponibilidad? Vivo en [ciudad]. Presupuesto aproximado: [monto].">
+              Consultar disponibilidad
+            </a>
+          </div>
+        </article>
+
+        <!-- Baby shower / charlas -->
+        <article class="card" data-title="Baby shower charla participacion especial" data-tags="Eventos,Embarazo,Postparto">
+          <div class="thumb">
+            <img src="assets/images/s6.jpg" alt="Participación especial en baby shower y charlas" loading="lazy">
+          </div>
+          <span class="badge">Eventos</span>
+          <h3>Participación especial (Baby shower / Charlas)</h3>
+          <ul class="list">
+            <li>Mini-charla significativa y dinámica con invitados.</li>
+            <li>Mensaje amoroso y basado en evidencia.</li>
+            <li>Material de apoyo para la familia.</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn primary wapp"
+               href="https://wa.me/18297705650"
+               target="_blank" rel="noopener"
+               data-text="Hola, soy [tu nombre]. Me interesa el servicio: Participación especial (Baby shower/Charlas). Fecha tentativa: [fecha]. Ciudad: [ciudad]. ¿Tienes disponibilidad?">
+              Consultar disponibilidad
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Preguntas frecuentes breves -->
+    <section class="section reveal" id="faq">
+      <h2>Preguntas frecuentes</h2>
+      <details>
+        <summary>¿Modalidad online o presencial?</summary>
+        <p>Ambas, según agenda y ubicación. En remoto usamos videollamada con material de apoyo.</p>
+      </details>
+      <details>
+        <summary>¿Acompañas cesáreas?</summary>
+        <p>Sí. Preparo contigo una experiencia informada y amorosa, coordinando con tu centro de salud.</p>
+      </details>
+      <details>
+        <summary>¿Cómo reservo?</summary>
+        <p>Escríbeme por <a href="https://wa.me/18297705650" target="_blank" rel="noopener">WhatsApp</a> para consultar disponibilidad y coordinar.</p>
+      </details>
+      <p class="note" style="margin-top:10px">Información educativa; no sustituye atención médica. Ante emergencias, acude a tu servicio de salud.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center">
+      <small>© <span id="y"></span> Madres a la Obra • Servicios</small>
+      <div style="display:flex;gap:12px">
+        <a href="https://instagram.com/madresalaobra" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor"/><circle cx="12" cy="12" r="4" stroke="currentColor"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        </a>
+        <a href="https://wa.me/18297705650" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 1 1-15.72 4.31L3.5 21l4.86-1.26A8.5 8.5 0 0 1 20.5 12Z" stroke="currentColor"/><path d="M9 9c0 3 3 6 6 6l1.2-.6a.8.8 0 0 1 .8.06l1 .64" stroke="currentColor" stroke-linecap="round"/></svg>
+        </a>
+        <a href="index.html#contacto" aria-label="Email">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor"/><path d="m4 7 8 6 8-6" stroke="currentColor"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Año dinámico
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Menú responsive
+    function toggleNav(btn){
+      const menu = document.getElementById('menu');
+      const open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    document.querySelectorAll('#menu [data-close]').forEach(a=>a.addEventListener('click',()=>{
+      document.getElementById('menu').classList.remove('open');
+    }));
+
+    // Reveal on scroll
+    const io = ('IntersectionObserver' in window) ? new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+    }, {threshold: .12}) : null;
+    document.querySelectorAll('.reveal').forEach(el=>{ if(io) io.observe(el); else el.classList.add('is-visible'); });
+
+    // Búsqueda y chips
+    const q = document.getElementById('q');
+    const chips = Array.from(document.querySelectorAll('.chip'));
+    const cards = Array.from(document.querySelectorAll('.card'));
+    const state = { query:'', tags:new Set() };
+
+    function normalize(s){ return s.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu,''); }
+    function apply(){
+      let qn = normalize(state.query);
+      cards.forEach(c=>{
+        const title = normalize(c.dataset.title||'');
+        const tags = (c.dataset.tags||'').split(',').map(t=>t.trim());
+        const matchText = !qn || title.includes(qn);
+        const matchTags = state.tags.size===0 || tags.some(t=>state.tags.has(t));
+        c.style.display = (matchText && matchTags) ? '' : 'none';
+      });
+    }
+    q.addEventListener('input', e=>{ state.query = e.target.value; apply(); });
+    chips.forEach(ch=> ch.addEventListener('click', ()=>{
+      const t = ch.dataset.tag;
+      if(ch.classList.toggle('active')) state.tags.add(t); else state.tags.delete(t);
+      apply();
+    }));
+    apply();
+
+    // WhatsApp prellenado (un solo lugar para cambiar el número)
+    const phone = "18297705650";
+    document.querySelectorAll('a.wapp').forEach(el=>{
+      const txt = el.getAttribute('data-text') || '';
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(txt)}`;
+      el.setAttribute('href', url);
+    });
+  </script>
+
+  <!-- Datos estructurados (ItemList de servicios) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Servicios — Madres a la Obra",
+    "itemListElement": [
+      {"@type":"Service","name":"Clases prenatales — Preparación para parto o cesárea","areaServed":"Santo Domingo, DO","serviceType":"Educación perinatal","provider":{"@type":"LocalBusiness","name":"Madres a la Obra"}},
+      {"@type":"Service","name":"Acompañamiento al nacimiento (parto/cesárea)","areaServed":"Santo Domingo, DO","serviceType":"Doula de nacimiento","provider":{"@type":"LocalBusiness","name":"Madres a la Obra"}},
+      {"@type":"Service","name":"Consejerías y talleres de lactancia","areaServed":"Santo Domingo, DO","serviceType":"Lactancia","provider":{"@type":"LocalBusiness","name":"Madres a la Obra"}},
+      {"@type":"Service","name":"Cuidados esenciales del recién nacido","areaServed":"Santo Domingo, DO","serviceType":"Postparto","provider":{"@type":"LocalBusiness","name":"Madres a la Obra"}},
+      {"@type":"Service","name":"Lista inteligente y habitación del bebé","areaServed":"Santo Domingo, DO","serviceType":"Consultoría de compras","provider":{"@type":"LocalBusiness","name":"Madres a la Obra"}},
+      {"@type":"Service","name":"Participación especial (Baby shower / Charlas)","areaServed":"Santo Domingo, DO","serviceType":"Eventos","provider":{"@type":"LocalBusiness","name":"Madres a la Obra"}}
+    ]
+  }
+  </script>
+</body>
+</html>
