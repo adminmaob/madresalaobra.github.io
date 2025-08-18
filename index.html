@@ -24,6 +24,7 @@
     .container{width:min(1120px,92vw);margin-inline:auto}
     .visually-hidden{position:absolute!important;clip:rect(1px,1px,1px,1px);padding:0;border:0;height:1px;width:1px;overflow:hidden}
 
+    /* Header */
     header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #f1f5f9;height:var(--header-h)}
     .nav{display:flex;align-items:center;justify-content:space-between;height:var(--header-h)}
     .brand{display:flex;gap:.6rem;align-items:center}
@@ -36,6 +37,7 @@
     .cta:hover{transform:translateY(-1px);box-shadow:0 16px 30px rgba(155,135,245,.25)}
     .burger{display:none;background:transparent;border:0;padding:.4rem}
 
+    /* Hero */
     .hero{padding:88px 0 64px;position:relative;overflow:hidden}
     .hero::before{content:"";position:absolute;inset:-20% -10% auto -20%;height:360px;width:360px;background:
       radial-gradient(60% 60% at 50% 50%, rgba(246,165,184,.35), transparent 60%),
@@ -51,6 +53,7 @@
     .btn:hover{transform:translateY(-2px);box-shadow:0 12px 22px rgba(18,24,40,.12)}
     .hero img{border-radius:18px;box-shadow:0 18px 40px rgba(18,24,40,.10);animation:floatY 6s ease-in-out infinite}
 
+    /* Sections */
     section{scroll-margin-top:calc(var(--header-h) + 16px)}
     .section{padding:64px 0}
     .section h2{font-size:clamp(24px,3vw,32px);margin:0 0 12px;position:relative;display:inline-block}
@@ -81,11 +84,12 @@
 
     footer{padding:36px 0;border-top:1px solid #eef2f7;color:#64748b}
 
+    /* Reveal + motion */
     .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
     .reveal.is-visible{opacity:1;transform:none}
-
     @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 
+    /* Mobile */
     @media (max-width: 860px){
       .hero-grid,.features,.services,.quotes,.about{grid-template-columns:1fr}
       .nav-links{display:none;position:absolute;top:var(--header-h);right:0;left:0;background:white;border-bottom:1px solid #e5e7eb;padding:10px}
@@ -93,12 +97,15 @@
       .burger{display:inline-flex}
     }
 
+    /* Keyframes */
     @keyframes floatY{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
     @keyframes floatBlob{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(6%,-6%,0) scale(1.08)}}
   </style>
 </head>
 <body>
   <a class="visually-hidden" href="#inicio">Saltar al contenido</a>
+
+  <!-- HEADER UNIFICADO -->
   <header>
     <div class="container nav">
       <a class="brand" href="index.html" aria-label="Inicio Madres a la Obra">
@@ -110,9 +117,9 @@
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
         <div id="menu" class="nav-links">
-          <a href="servicios.html" data-close>Servicios</a>
-          <a href="guias.html" data-close>Guías</a>
-          <a href="sobre.html" data-close>Sobre mí</a>
+          <a href="./servicios.html" data-close>Servicios</a>
+          <a href="./guias.html" data-close>Guías</a>
+          <a href="./sobre.html" data-close>Sobre mí</a>
           <a href="index.html#faq" data-close>FAQ</a>
           <a class="cta" href="index.html#contacto" data-close>Agenda una llamada</a>
         </div>
@@ -121,6 +128,7 @@
   </header>
 
   <main id="inicio" class="container">
+    <!-- HERO -->
     <section class="hero reveal is-visible">
       <div class="hero-grid">
         <div>
@@ -139,6 +147,7 @@
       </div>
     </section>
 
+    <!-- CÓMO -->
     <section class="section reveal" id="como">
       <h2>Cómo te acompaño</h2>
       <p class="sub">Información clara. Presencia amorosa. Decisiones informadas.</p>
@@ -149,6 +158,7 @@
       </div>
     </section>
 
+    <!-- SERVICIOS (extracto) -->
     <section class="section reveal" id="servicios">
       <h2>Servicios</h2>
       <p class="sub">Elige el acompañamiento que necesitas en esta etapa.</p>
@@ -190,6 +200,7 @@
       </div>
     </section>
 
+    <!-- GUÍAS (cta) -->
     <section class="section reveal" id="guias">
       <h2>Guías y recursos</h2>
       <p class="sub">Encuentra todas las guías en una sola página, listas para móvil.</p>
@@ -198,6 +209,7 @@
       </div>
     </section>
 
+    <!-- SOBRE MÍ (extracto) -->
     <section class="section about reveal" id="sobre-mi">
       <div>
         <img src="assets/images/about.jpg" alt="Tu doula acompañándote con serenidad" loading="lazy" />
@@ -210,6 +222,7 @@
       </div>
     </section>
 
+    <!-- TESTIMONIOS -->
     <section class="section reveal" id="testimonios">
       <h2>Testimonios</h2>
       <div class="quotes">
@@ -218,6 +231,7 @@
       </div>
     </section>
 
+    <!-- FAQ -->
     <section class="section reveal" id="faq">
       <h2>Preguntas frecuentes</h2>
       <details>
@@ -234,6 +248,7 @@
       </details>
     </section>
 
+    <!-- CONTACTO -->
     <section class="section reveal" id="contacto">
       <h2>Contacto / Reserva</h2>
       <p class="sub">Me encantará acompañarte. Elige la vía que prefieras:</p>
@@ -268,24 +283,51 @@
     document.getElementById('y').textContent = new Date().getFullYear();
 
     // Menú responsive
-    function toggleNav(btn){const menu=document.getElementById('menu');const open=menu.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');}
-    document.querySelectorAll('#menu [data-close]').forEach(a=>a.addEventListener('click',()=>{document.getElementById('menu').classList.remove('open');}));
+    function toggleNav(btn){
+      const menu=document.getElementById('menu');
+      const open=menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open?'true':'false');
+    }
+    document.querySelectorAll('#menu [data-close]').forEach(a=>a.addEventListener('click',()=>{
+      document.getElementById('menu').classList.remove('open');
+    }));
 
     // Reveal on scroll
-    const io=('IntersectionObserver' in window)?new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target);}});},{threshold:.12}):null;
-    document.querySelectorAll('.reveal').forEach(el=>{if(io)io.observe(el);else el.classList.add('is-visible');});
+    const io=('IntersectionObserver' in window)
+      ? new IntersectionObserver((entries)=>{
+          entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); }});
+        }, {threshold:.12})
+      : null;
+    document.querySelectorAll('.reveal').forEach(el=>{
+      if(io) io.observe(el); else el.classList.add('is-visible');
+    });
 
     // Marcar enlace activo según página (servicios | guías | sobre)
     (function(){
-      const current = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-      const targets = ['servicios.html','guias.html','sobre.html'];
-      targets.forEach(t=>{
-        const link = document.querySelector(`.nav-links a[href$="${t}"]`);
-        if (link) link.classList.toggle('active', current===t);
+      const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+      ['servicios.html','guias.html','sobre.html'].forEach(t=>{
+        const link=document.querySelector(`.nav-links a[href$="${t}"]`);
+        if(link) link.classList.toggle('active', current===t);
       });
     })();
   </script>
 
+  <!-- Fuerza navegación a otras páginas (evita scroll a anclas si coincidieran IDs) -->
+  <script>
+    (function enforcePageNav(){
+      document.querySelectorAll('.nav-links a').forEach(a=>{
+        const href=a.getAttribute('href')||'';
+        if(/\.html(\?|#|$)/i.test(href)){
+          a.addEventListener('click',function(e){
+            e.preventDefault();
+            window.location.assign(href);
+          });
+        }
+      });
+    })();
+  </script>
+
+  <!-- Datos estructurados -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
