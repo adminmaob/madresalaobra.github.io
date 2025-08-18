@@ -1,215 +1,294 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Madres a la Obra | Doula & Acompañamiento Materno</title>
-  <meta name="description" content="Doula certiﬁcada en Santo Domingo. Apoyo prenatal, parto y lactancia con enfoque profesional y cálido." />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <title>Madres a la Obra — Acompañamiento a la maternidad</title>
+  <meta name="description" content="Acompañamiento cálido y profesional en embarazo, parto/cesárea y postparto. Información clara, presencia amorosa y decisiones informadas." />
+  <meta property="og:title" content="Madres a la Obra" />
+  <meta property="og:description" content="Acompañamiento cálido y profesional en tu viaje a la maternidad." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/og-image.jpg" />
+  <link rel="icon" href="assets/images/favicon.png" />
   <style>
-    :root {
-      --rosa: #d87e9f;
-      --rosa-claro: #f4d7e1;
-      --gris-texto: #5a4a4a;
-      --gris-claro: #f9f7f7;
-      --blanco: #fff;
-      --border-radius: 12px;
-      --shadow-light: 0 4px 12px rgb(216 126 159 / 0.15);
-      --transition-speed: 0.4s;
+    :root{
+      --bg:#fffdfc;--ink:#1f2937;--muted:#6b7280;--primary:#9b87f5;--accent:#f6a5b8;--surface:#ffffff;
+      --ring:rgba(155,135,245,.35);--radius:16px;--shadow:0 12px 28px rgba(18,24,40,.06);--header-h:64px;
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Montserrat',sans-serif; background:var(--blanco); color:var(--gris-texto); line-height:1.6; scroll-behavior:smooth; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
-    a { text-decoration:none; color:var(--rosa); }
-    a:hover, a:focus { text-decoration:underline; }
-    header { position:fixed; top:0; left:0; right:0; background:var(--blanco); border-bottom:1px solid var(--rosa-claro); display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; z-index:9999; box-shadow:var(--shadow-light); }
-    header img { height:48px; }
-    .menu-toggle { display:flex; flex-direction:column; justify-content:space-between; width:28px; height:22px; cursor:pointer; }
-    .menu-toggle span { height:3px; background:var(--rosa); border-radius:2px; transition: all 0.3s ease; }
-    nav.mobile-menu { display:none; position:fixed; top:60px; left:0; right:0; background:var(--blanco); flex-direction:column; padding:1rem 1.5rem; box-shadow:var(--shadow-light); z-index:9998; }
-    nav.mobile-menu.open { display:flex; }
-    nav.mobile-menu a { padding:0.8rem 0; border-bottom:1px solid var(--rosa-claro); font-weight:600; }
-    nav.mobile-menu a:last-child { border:none; }
-    header .cta { padding:0.6rem 1.6rem; background:var(--rosa); color:var(--blanco); border-radius:30px; font-weight:600; box-shadow:0 4px 10px rgb(216 126 159 / 0.45); transition:background var(--transition-speed) ease; }
-    header .cta:hover, header .cta:focus { background:#c06d8b; }
-    main { max-width:900px; margin:100px auto 3rem; padding:0 1rem; }
-    section { margin-bottom:4rem; opacity:0; transform:translateY(30px); transition:opacity .7s ease,transform .7s ease; }
-    section.visible { opacity:1; transform:translateY(0); }
-    h2.section-title { font-size:2rem; color:var(--rosa); text-align:center; margin-bottom:1.5rem; }
-    .hero { display:flex; flex-direction:column; align-items:center; text-align:center; background:var(--gris-claro); padding:3rem 2rem; border-radius:var(--border-radius); box-shadow:var(--shadow-light); opacity:0; transform:translateY(30px); transition:opacity 1s ease,transform 1s ease; }
-    .hero.visible { opacity:1; transform:translateY(0); }
-    .hero h1 { font-size:3rem; font-weight:600; color:var(--rosa); margin-bottom:1rem; line-height:1.1; }
-    .hero p { max-width:520px; font-size:1.2rem; margin-bottom:2rem; }
-    .hero a { padding:1rem 2.5rem; background:var(--rosa); color:var(--blanco); border-radius:30px; font-weight:600; box-shadow:0 6px 16px rgb(216 126 159 / 0.5); transition:background var(--transition-speed) ease; }
-    .hero a:hover, .hero a:focus { background:#c06d8b; }
-    .sobre-mi { display:flex; gap:2rem; align-items:center; flex-wrap:wrap; }
-    .sobre-mi img { width:180px; height:180px; border-radius:50%; object-fit:cover; box-shadow:var(--shadow-light); flex-shrink:0; }
-    .sobre-mi .texto { flex:1; font-size:1.1rem; max-width:600px; }
-    .servicios-list { background:var(--gris-claro); padding:1.8rem; border-radius:var(--border-radius); }
-    .servicios-list strong { display:block; margin-top:1rem; margin-bottom:.5rem; font-size:1.2rem; }
-    .servicios-list ul { list-style:none; padding-left:1rem; }
-    .servicios-list li { margin-bottom:.5rem; position:relative; padding-left:1.4rem; }
-    .servicios-list li::before { content:"✔"; position:absolute; left:0; color:var(--rosa); font-weight:bold; }
-    .galeria { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1rem; }
-    .galeria img { width:100%; border-radius:var(--border-radius); object-fit:cover; aspect-ratio:4/3; cursor:pointer; transition:transform .3s ease; border:3px solid transparent; }
-    .galeria img:hover, .galeria img:focus { transform:scale(1.05); border-color:var(--rosa); outline:none; }
-    .testimonios { background:var(--gris-claro); padding:2rem; border-radius:var(--border-radius); box-shadow:var(--shadow-light); max-width:720px; margin:0 auto;}
-    .testimonios h2 { font-size:2rem; color:var(--rosa); text-align:center; margin-bottom:1.5rem; }
-    .testimonial-item { display:flex; gap:1rem; margin-bottom:1.5rem; }
-    .testimonial-img { width:60px; height:60px; border-radius:50%; object-fit:cover; box-shadow:var(--shadow-light); flex-shrink:0;}
-    .testimonial-text { font-style:italic; position:relative; padding-left:1rem; color:var(--gris-texto);}
-    .testimonial-text::before { content:"“"; position:absolute; left:0; top:-10px; font-size:3rem; color:var(--rosa); font-family:serif;}
-    .testimonial-author { margin-top:.4rem; font-weight:600; color:var(--rosa); }
-    .recursos-lista { list-style:none; max-width:720px; margin:0 auto; padding-left:0; }
-    .recursos-lista li { margin-bottom:1rem; padding-left:1.5rem; position:relative; font-size:1rem; }
-    .recursos-lista li::before { content:"📌"; position:absolute; left:0; }
-    .recursos-lista a { color:var(--rosa); font-weight:600; }
-    .contacto { text-align:center; }
-    .contacto h2 { font-size:2rem; color:var(--rosa); margin-bottom:1rem; }
-    .contacto p { margin-bottom:1.8rem; font-size:1.1rem; }
-    .contacto a.cta { padding:1rem 2.5rem; background:var(--rosa); color:var(--blanco); border-radius:30px; font-weight:600; box-shadow:0 6px 16px rgb(216 126 159 / 0.5); transition:background var(--transition-speed) ease; display:inline-block; }
-    .contacto a.cta:hover, .contacto a.cta:focus { background:#c06d8b; }
-    footer { text-align:center; padding:1rem 2rem; font-size:.9rem; color:var(--gris-texto); background:var(--rosa-claro); border-top:1px solid var(--rosa); }
-    .modal { display:none; position:fixed; z-index:15000; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; cursor:pointer; }
-    .modal.open { display:flex; }
-    .modal img { max-width:90vw; max-height:85vh; border-radius:var(--border-radius); box-shadow:0 8px 20px rgba(0,0,0,0.8); }
-    @media(max-width:768px){
-      main{margin-top:90px;}
-      .testimonial-item{flex-direction:column;align-items:center;text-align:center;}
-      .testimonial-text::before{left:50%;transform:translateX(-50%);}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
+    img{max-width:100%;height:auto;display:block}
+    a{color:inherit;text-decoration:none}
+    a:focus,button:focus{outline:2px solid var(--primary);outline-offset:2px}
+    .container{width:min(1120px,92vw);margin-inline:auto}
+    .visually-hidden{position:absolute!important;clip:rect(1px,1px,1px,1px);padding:0;border:0;height:1px;width:1px;overflow:hidden}
+
+    header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #f1f5f9;height:var(--header-h)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:var(--header-h)}
+    .brand{display:flex;gap:.6rem;align-items:center}
+    .brand img{width:32px;height:32px}
+    .brand strong{font-weight:700}
+    .nav-links{display:flex;gap:1rem;align-items:center}
+    .nav-links a{padding:.4rem .6rem;border-radius:10px}
+    .nav-links a:hover{background:#f8fafc}
+    .cta{background:var(--primary);color:white;padding:.6rem .9rem;border-radius:999px;box-shadow:var(--shadow);border:0;font-weight:600;transition:transform .2s ease,box-shadow .2s ease}
+    .cta:hover{transform:translateY(-1px);box-shadow:0 16px 30px rgba(155,135,245,.25)}
+    .burger{display:none;background:transparent;border:0;padding:.4rem}
+
+    .hero{padding:88px 0 64px;position:relative;overflow:hidden}
+    .hero::before{content:"";position:absolute;inset:-20% -10% auto -20%;height:360px;width:360px;background:radial-gradient(60% 60% at 50% 50%, rgba(246,165,184,.35), transparent 60%),radial-gradient(60% 60% at 70% 30%, rgba(155,135,245,.30), transparent 70%);filter:blur(30px);animation:floatBlob 14s ease-in-out infinite alternate}
+    .hero-grid{display:grid;gap:32px;grid-template-columns:1.1fr .9fr;align-items:center}
+    .eyebrow{color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+    h1{font-size:clamp(30px,4vw,46px);line-height:1.1;margin:.3rem 0 1rem}
+    p.lead{font-size:clamp(16px,2.1vw,19px);color:#374151}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.05rem;border-radius:14px;border:1px solid transparent;background:var(--primary);color:white;font-weight:600;transition:transform .2s ease,box-shadow .2s ease}
+    .btn.secondary{background:white;color:var(--ink);border-color:#e5e7eb}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 22px rgba(18,24,40,.12)}
+    .hero img{border-radius:18px;box-shadow:0 18px 40px rgba(18,24,40,.10);animation:floatY 6s ease-in-out infinite}
+
+    section{scroll-margin-top:calc(var(--header-h) + 16px)}
+    .section{padding:64px 0}
+    .section h2{font-size:clamp(24px,3vw,32px);margin:0 0 12px;position:relative;display:inline-block}
+    .section h2::after{content:"";position:absolute;left:0;bottom:-6px;width:100%;height:8px;background:linear-gradient(90deg, rgba(155,135,245,.35), rgba(246,165,184,.35));border-radius:999px;transform-origin:left;transform:scaleX(.2);transition:transform .6s ease}
+    .section.reveal.is-visible h2::after{transform:scaleX(1)}
+    .section p.sub{color:var(--muted);margin:0 0 26px}
+
+    .features{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
+    .card{background:var(--surface);border:1px solid #eef2f7;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);transition:transform .25s ease,box-shadow .25s ease}
+    .card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(18,24,40,.12)}
+    .card h3{margin:0 0 .4rem;font-size:18px}
+    .card p{margin:0;color:#475569}
+
+    .services{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
+    .badge{display:inline-block;background:#f6f7ff;color:#4338ca;border:1px solid #e4e7ff;padding:.2rem .6rem;border-radius:999px;font-size:12px;font-weight:600}
+
+    .quotes{display:grid;gap:16px;grid-template-columns:repeat(2,1fr)}
+    blockquote{margin:0;padding:20px;border-left:4px solid var(--accent);background:white;border-radius:12px}
+
+    details{background:white;border:1px solid #e5e7eb;border-radius:12px;padding:14px;transition:box-shadow .25s ease}
+    details[open]{box-shadow:0 8px 24px rgba(18,24,40,.08)}
+    details+details{margin-top:10px}
+    summary{cursor:pointer;font-weight:600}
+
+    .about{display:grid;gap:24px;grid-template-columns:1fr 1.2fr;align-items:center}
+
+    .contact-cta{display:flex;flex-wrap:wrap;gap:12px}
+
+    footer{padding:36px 0;border-top:1px solid #eef2f7;color:#64748b}
+
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.is-visible{opacity:1;transform:none}
+
+    @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+    @media (max-width: 860px){
+      .hero-grid,.features,.services,.quotes,.about{grid-template-columns:1fr}
+      .nav-links{display:none;position:absolute;top:var(--header-h);right:0;left:0;background:white;border-bottom:1px solid #e5e7eb;padding:10px}
+      .nav-links.open{display:flex;flex-direction:column}
+      .burger{display:inline-flex}
     }
+
+    @keyframes floatY{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+    @keyframes floatBlob{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(6%,-6%,0) scale(1.08)}}
   </style>
 </head>
 <body>
-
-<header>
-  <img src="https://i.imgur.com/jbMzxNQ.png" alt="Logo Madres a la Obra" />
-  <button class="menu-toggle" aria-expanded="false" aria-label="Menú">
-    <span></span><span></span><span></span>
-  </button>
-  <nav class="mobile-menu" aria-label="Navegación móvil">
-    <a href="#inicio">Inicio</a>
-    <a href="#sobre-mi">Sobre mí</a>
-    <a href="#servicios">Servicios</a>
-    <a href="#galeria">Galería</a>
-    <a href="#testimonios">Testimonios</a>
-    <a href="#recursos">Recursos</a>
-    <a href="#contacto" class="cta">Reserva tu cita</a>
-  </nav>
-</header>
-
-<main id="inicio">
-  <section class="hero visible">
-    <h1>Juntas Podemos<br> acompañarte en cada etapa</h1>
-    <p>Apoyo profesional y humano para tu embarazo, parto y lactancia en Santo Domingo, RD.</p>
-    <a href="#contacto">Reserva tu cita</a>
-  </section>
-
-  <section class="sobre-mi" id="sobre-mi">
-    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80" alt="Cath Rodríguez, doula Santo Domingo" />
-    <div class="texto">
-      <h2 class="section-title">Sobre mí</h2>
-      <p>Soy <strong>Cath Rodríguez</strong>, doula certificada con años de experiencia acompañando madres en Santo Domingo. Brindo apoyo respetuoso, información confiable y acompañamiento lleno de empatía para una maternidad consciente y empoderada.</p>
+  <a class="visually-hidden" href="#inicio">Saltar al contenido</a>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="Madres a la Obra, inicio">
+        <img src="assets/images/logo.svg" alt="Logo MAOB" />
+        <strong>Madres a la Obra</strong>
+      </a>
+      <nav>
+        <button class="burger" aria-label="Abrir menú" aria-expanded="false" onclick="toggleNav(this)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <div id="menu" class="nav-links">
+          <a href="#servicios" data-close>Servicios</a>
+          <a href="guias.html" data-close>Guías</a>
+          <a href="#sobre-mi" data-close>Sobre mí</a>
+          <a href="#faq" data-close>FAQ</a>
+          <a class="cta" href="#contacto" data-close>Agenda una llamada</a>
+        </div>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <section class="servicios" id="servicios">
-    <h2 class="section-title">Servicios & Planes</h2>
-    <div class="servicios-list">
-      <strong>Embarazo</strong>
-      <ul>
-        <li>Acompañamiento prenatal</li>
-        <li>Clases prenatales – Panzas a la Obra</li>
-        <li>Clases cuidado recién nacido – De la Panza a los Brazos</li>
-        <li>Guía prenatal y lactancia – Vida Materna</li>
-      </ul>
-      <strong>Parto</strong>
-      <ul>
-        <li>Acompañamiento al parto</li>
-        <li>Acompañamiento cesárea respetada</li>
-      </ul>
-      <strong>Postparto</strong>
-      <ul>
-        <li>Acompañamiento en lactancia</li>
-        <li>Acompañamiento doula postparto</li>
-      </ul>
+  <main id="inicio" class="container">
+    <section class="hero reveal is-visible">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Acompañamiento perinatal con amor y evidencia</div>
+          <h1>Acompañamiento cálido y profesional en tu viaje a la maternidad</h1>
+          <p class="lead">Te brindo información, contención y herramientas para vivir el embarazo, el parto/cesárea y el postparto con seguridad y amor.</p>
+          <div class="actions">
+            <a class="btn" href="#contacto">Agenda una llamada</a>
+            <a class="btn secondary" href="https://wa.me/18297705650" target="_blank" rel="noopener">WhatsApp directo</a>
+          </div>
+          <p class="sub" style="margin-top:10px;color:#6b7280">Cientos de mamás acompañadas con respeto y evidencia. Respondo en 24 horas hábiles.</p>
+        </div>
+        <div>
+          <img src="assets/images/hero.jpg" alt="Ilustración madre y bebé en calma" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="como">
+      <h2>Cómo te acompaño</h2>
+      <p class="sub">Información clara. Presencia amorosa. Decisiones informadas.</p>
+      <div class="features">
+        <div class="card"><h3>Información clara</h3><p>Contenidos basados en evidencia, explicados con calma.</p></div>
+        <div class="card"><h3>Presencia amorosa</h3><p>Escucha activa, respeto y contención emocional.</p></div>
+        <div class="card"><h3>Decisiones informadas</h3><p>Tú eliges; yo te acompaño sin juicios.</p></div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="servicios">
+      <h2>Servicios</h2>
+      <p class="sub">Elige el acompañamiento que necesitas en esta etapa.</p>
+      <div class="services">
+        <div class="card">
+          <span class="badge">Clases prenatales</span>
+          <h3>Preparación para parto o cesárea</h3>
+          <p>Herramientas prácticas y emocionales para un nacimiento consciente y seguro.</p>
+        </div>
+        <div class="card">
+          <span class="badge">Recién nacido</span>
+          <h3>Cuidados esenciales del bebé</h3>
+          <p>Señales, sueño seguro, baño, piel con piel y porteo básico.</p>
+        </div>
+        <div class="card">
+          <span class="badge">Compras</span>
+          <h3>Lista inteligente y habitación</h3>
+          <p>Optimiza tu presupuesto y elige lo necesario sin gastar de más.</p>
+        </div>
+        <div class="card">
+          <span class="badge">Baby Shower</span>
+          <h3>Participación especial</h3>
+          <p>Mini-charla, dinámica y momento significativo para celebrar tu maternidad.</p>
+        </div>
+        <div class="card">
+          <span class="badge">Lactancia</span>
+          <h3>Consejerías y talleres</h3>
+          <p>Inicio, posiciones, banco de leche y regreso al trabajo.</p>
+        </div>
+        <div class="card">
+          <span class="badge">Parto/Cesárea</span>
+          <h3>Acompañamiento al nacimiento</h3>
+          <p>Apoyo físico y emocional continuo para un proceso respetado.</p>
+        </div>
+      </div>
+      <div class="actions" style="margin-top:18px">
+        <a class="btn" href="https://madresalaobra.setmore.com" target="_blank" rel="noopener">Reservar sesión</a>
+        <a class="btn secondary" href="#faq">Ver preguntas frecuentes</a>
+      </div>
+    </section>
+
+    <section class="section reveal" id="guias">
+      <h2>Guías y recursos</h2>
+      <p class="sub">Encuentra todas las guías en una sola página, listas para móvil.</p>
+      <div class="features">
+        <a class="card" href="guias.html"><h3>Ver todas las guías</h3><p>Filtra por tema y descarga fácilmente.</p></a>
+      </div>
+    </section>
+
+    <section class="section about reveal" id="sobre-mi">
+      <div>
+        <img src="assets/images/about.jpg" alt="Tu doula acompañándote con serenidad" loading="lazy" />
+      </div>
+      <div>
+        <h2>Sobre mí</h2>
+        <p class="sub">Enfoque humanizado y basado en evidencia.</p>
+        <p>Soy doula y educadora perinatal. Acompaño a madres y familias para que vivan la maternidad con calma, seguridad y amor. Trabajo en colaboración con tu equipo de salud y adapto cada proceso a tus necesidades.</p>
+        <div class="actions"><a class="btn" href="#contacto">Conversemos</a></div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="testimonios">
+      <h2>Testimonios</h2>
+      <div class="quotes">
+        <blockquote>“Llegué con muchas dudas y me fui con un plan claro y la paz que necesitaba.” <br><strong>— Mamá A.</strong></blockquote>
+        <blockquote>“El apoyo en mi cesárea fue fundamental para vivirla con amor.” <br><strong>— Mamá B.</strong></blockquote>
+      </div>
+    </section>
+
+    <section class="section reveal" id="faq">
+      <h2>Preguntas frecuentes</h2>
+      <details>
+        <summary>¿Qué hace una doula?</summary>
+        <p>Acompaña emocional y físicamente en embarazo, parto/cesárea y postparto. No reemplaza al personal de salud.</p>
+      </details>
+      <details>
+        <summary>¿Acompañas cesáreas?</summary>
+        <p>Sí, preparo contigo una experiencia informada y amorosa.</p>
+      </details>
+      <details>
+        <summary>¿Modalidad online o presencial?</summary>
+        <p>Ambas, según tu ubicación y preferencia.</p>
+      </details>
+    </section>
+
+    <section class="section reveal" id="contacto">
+      <h2>Contacto / Reserva</h2>
+      <p class="sub">Me encantará acompañarte. Elige la vía que prefieras:</p>
+      <div class="contact-cta">
+        <a class="btn" href="mailto:cath@madresalaobra.com.do">cath@madresalaobra.com.do</a>
+        <a class="btn secondary" href="https://wa.me/18297705650" target="_blank" rel="noopener">WhatsApp: +1 829 770 5650</a>
+        <a class="btn secondary" href="https://madresalaobra.setmore.com" target="_blank" rel="noopener">Agendar llamada</a>
+      </div>
+      <p style="color:#6b7280;margin-top:10px">Información educativa; no sustituye atención médica. Ante emergencias, acude a tu servicio de salud.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center">
+      <small>© <span id="y"></span> Madres a la Obra • Acompañamiento con amor y evidencia</small>
+      <div style="display:flex;gap:12px">
+        <a href="https://instagram.com/madresalaobra" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor"/><circle cx="12" cy="12" r="4" stroke="currentColor"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        </a>
+        <a href="https://wa.me/18297705650" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 1 1-15.72 4.31L3.5 21l4.86-1.26A8.5 8.5 0 0 1 20.5 12Z" stroke="currentColor"/><path d="M9 9c0 3 3 6 6 6l1.2-.6a.8.8 0 0 1 .8.06l1 .64" stroke="currentColor" stroke-linecap="round"/></svg>
+        </a>
+        <a href="#contacto" aria-label="Email">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor"/><path d="m4 7 8 6 8-6" stroke="currentColor"/></svg>
+        </a>
+      </div>
     </div>
-  </section>
+  </footer>
 
-  <section class="galeria" id="galeria">
-    <h2 class="section-title">Galería</h2>
-    <img src="https://images.unsplash.com/photo-1600488991664-07b1f9d82535?auto=format&fit=crop&w=600&q=80" alt="Clase prenatal con madres" tabindex="0">
-    <img src="https://images.unsplash.com/photo-1519148246701-85a40f39cb0b?auto=format&fit=crop&w=600&q=80" alt="Acompañamiento en parto" tabindex="0">
-    <img src="https://images.unsplash.com/photo-1506459225024-1428097a7e18?auto=format&fit=crop&w=600&q=80" alt="Clase de lactancia materna" tabindex="0">
-    <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=600&q=80" alt="Madres en taller prenatal" tabindex="0">
-    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80" alt="Doula acompañando madre" tabindex="0">
-  </section>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    function toggleNav(btn){const menu=document.getElementById('menu');const open=menu.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');}
+    document.querySelectorAll('#menu [data-close]').forEach(a=>a.addEventListener('click',()=>{document.getElementById('menu').classList.remove('open');}));
+    const io=('IntersectionObserver' in window)?new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target);}});},{threshold:.12}):null;document.querySelectorAll('.reveal').forEach(el=>{if(io)io.observe(el);else el.classList.add('is-visible');});
+  </script>
 
-  <section class="testimonios" id="testimonios">
-    <h2 class="section-title">Testimonios</h2>
-    <div class="testimonial-item">
-      <img class="testimonial-img" src="https://randomuser.me/api/portraits/women/68.jpg" alt="María Pérez">
-      <div class="testimonial-text">Sentí un respaldo emocional y físico increíble. Gracias a Cath mi parto fue consciente y empoderado.<div class="testimonial-author">– María Pérez</div></div>
-    </div>
-    <div class="testimonial-item">
-      <img class="testimonial-img" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana Gómez">
-      <div class="testimonial-text">Me ayudó a confiar en mi cuerpo y en mi decisión. La lactancia fluyó con apoyo constante.<div class="testimonial-author">– Ana Gómez</div></div>
-    </div>
-  </section>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Madres a la Obra",
+    "image": "https://TUUSUARIO.github.io/assets/images/og-image.jpg",
+    "url": "https://TUUSUARIO.github.io/",
+    "telephone": "+1 829-770-5650",
+    "email": "cath@madresalaobra.com.do",
+    "areaServed": "Santo Domingo, DO",
+    "sameAs": ["https://instagram.com/madresalaobra"],
+    "priceRange": "$$",
+    "description": "Doula y educadora perinatal. Acompañamiento en embarazo, parto/cesárea y postparto."
+  }
+  </script>
 
-  <section class="recursos" id="recursos">
-    <h2 class="section-title">Recursos</h2>
-    <ul class="recursos-lista">
-      <li><a href="#">Guía básica para una lactancia exitosa</a></li>
-      <li><a href="#">Cómo preparar tu plan de parto</a></li>
-      <li><a href="#">Ejercicios recomendados en el embarazo</a></li>
-      <li><a href="#">Consejos para el postparto saludable</a></li>
-    </ul>
-  </section>
-
-  <section class="contacto" id="contacto">
-    <h2 class="section-title">Contacto</h2>
-    <p>Estoy aquí para apoyarte en lo que necesites. Si sientes conexión con mi enfoque, reserva tu cita por WhatsApp.</p>
-    <a href="https://wa.me/18297705650" class="cta">Reserva tu cita</a>
-  </section>
-</main>
-
-<footer>
-  <p>Atención en Santo Domingo, Distrito Nacional, República Dominicana<br>© 2025 Cath Rodríguez – Madres a la Obra</p>
-</footer>
-
-<div class="modal" id="modal" aria-hidden="true"><img src="" alt=""></div>
-
-<script>
-  const sections = document.querySelectorAll("section");
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if(e.isIntersecting){ e.target.classList.add("visible"); obs.unobserve(e.target);}
-    });
-  },{ threshold:0.15 });
-  sections.forEach(s => obs.observe(s));
-
-  const modal = document.getElementById("modal");
-  const modalImg = modal.querySelector("img");
-  document.querySelectorAll(".galeria img").forEach(img =>{
-    img.addEventListener("click", ()=>{ modalImg.src=img.src; modalImg.alt=img.alt; modal.classList.add("open"); });
-    img.addEventListener("keydown", e => (e.key==="Enter"||e.key===" ")&&(img.click()));
-  });
-  modal.addEventListener("click", ()=>modal.classList.remove("open"));
-
-  const toggle = document.querySelector('.menu-toggle');
-  const m = document.querySelector('.mobile-menu');
-  toggle.addEventListener('click', ()=>{
-    const open = toggle.getAttribute('aria-expanded')==='true';
-    toggle.setAttribute('aria-expanded',!open);
-    m.classList.toggle('open');
-  });
-  document.querySelectorAll('nav.mobile-menu a').forEach(a=>{
-    a.addEventListener('click', ()=>{
-      toggle.setAttribute('aria-expanded','false');
-      m.classList.remove('open');
-    });
-  });
-</script>
-
+  <!--
+    Personaliza:
+    - Reemplaza assets/images/logo.svg, hero.jpg, about.jpg, og-image.jpg y favicon.png
+    - WhatsApp y correo ya configurados
+    - Ajusta colores en :root según tu paleta de marca
+    - Integra tipografías de marca subiendo a assets/fonts y definiendo @font-face
+  -->
 </body>
 </html>
