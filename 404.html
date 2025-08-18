@@ -11,57 +11,103 @@
   <meta property="og:image" content="assets/images/og-image.jpg" />
   <link rel="icon" href="assets/images/favicon.png" />
   <style>
-    :root{--bg:#fffdfc;--ink:#1f2937;--muted:#6b7280;--primary:#9b87f5;--accent:#f6a5b8;--surface:#ffffff;--radius:16px;--shadow:0 12px 28px rgba(18,24,40,.06);--header-h:64px}
-    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    :root{
+      --bg:#fffdfc;--ink:#1f2937;--muted:#6b7280;--primary:#9b87f5;--accent:#f6a5b8;--surface:#ffffff;
+      --radius:16px;--shadow:0 12px 28px rgba(18,24,40,.06);--header-h:64px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
-    img{max-width:100%;height:auto;display:block} a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+    a{color:inherit;text-decoration:none}
     a:focus,button:focus{outline:2px solid var(--primary);outline-offset:2px}
     .container{width:min(1120px,92vw);margin-inline:auto}
 
+    /* Header (unificado) */
     header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #f1f5f9;height:var(--header-h)}
     .nav{display:flex;align-items:center;justify-content:space-between;height:var(--header-h)}
-    .brand{display:flex;gap:.6rem;align-items:center}.brand img{width:32px;height:32px}.brand strong{font-weight:700}
-    .nav-links{display:flex;gap:1rem;align-items:center}.nav-links a{padding:.4rem .6rem;border-radius:10px}
+    .brand{display:flex;gap:.6rem;align-items:center}
+    .brand img{width:32px;height:32px}
+    .brand strong{font-weight:700}
+    .nav-links{display:flex;gap:1rem;align-items:center}
+    .nav-links a{padding:.4rem .6rem;border-radius:10px}
     .nav-links a:hover,.nav-links a.active{background:#f6f7ff;color:#4338ca}
     .cta{background:var(--primary);color:#fff;padding:.6rem .9rem;border-radius:999px;box-shadow:var(--shadow);border:0;font-weight:600}
     .burger{display:none;background:transparent;border:0;padding:.4rem}
 
+    /* Hero */
     .hero{padding:88px 0 28px;position:relative;overflow:hidden}
-    .hero::before{content:"";position:absolute;inset:-20% -10% auto -20%;height:360px;width:360px;background:
-      radial-gradient(60% 60% at 50% 50%, rgba(246,165,184,.35), transparent 60%),
-      radial-gradient(60% 60% at 70% 30%, rgba(155,135,245,.30), transparent 70%);
-      filter:blur(30px);animation:floatBlob 14s ease-in-out infinite alternate}
+    .hero::before{
+      content:"";position:absolute;inset:-20% -10% auto -20%;height:360px;width:360px;
+      background:
+        radial-gradient(60% 60% at 50% 50%, rgba(246,165,184,.35), transparent 60%),
+        radial-gradient(60% 60% at 70% 30%, rgba(155,135,245,.30), transparent 70%);
+      filter:blur(30px);animation:floatBlob 14s ease-in-out infinite alternate
+    }
     h1{font-size:clamp(28px,4vw,42px);line-height:1.1;margin:.3rem 0 .6rem}
-    .lead{color:#374151;margin:0 0 8px}.muted{color:#6b7280}
+    .lead{color:#374151;margin:0 0 8px}
     .chip{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .6rem;border:1px solid #e5e7eb;border-radius:999px;background:#fff;font-weight:600;color:#374151}
+    .muted{color:#6b7280}
 
+    /* Search + suggestions */
     .toolbox{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px}
     .search{flex:1;min-width:220px;display:flex;align-items:center;gap:8px;background:white;border:1px solid #e5e7eb;border-radius:12px;padding:.6rem .8rem;box-shadow:var(--shadow)}
     .search input{border:0;outline:none;width:100%;font-size:16px}
-    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1rem;border-radius:12px;border:1px solid #e5e7eb;background:#fff;font-weight:700}
-    .btn.primary{background:var(--primary);color:#fff;border-color:transparent}
-
     .results{margin-top:10px;display:grid;gap:10px;grid-template-columns:repeat(3,1fr)}
     .card{background:var(--surface);border:1px solid #eef2f7;border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);transition:transform .25s ease,box-shadow .25s ease}
     .card:hover{transform:translateY(-3px);box-shadow:0 18px 34px rgba(18,24,40,.12)}
-    .card h3{margin:.1rem 0 .3rem;font-size:18px}.card p{margin:0;color:#475569}
+    .card h3{margin:.1rem 0 .3rem;font-size:18px}
+    .card p{margin:0;color:#475569}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1rem;border-radius:12px;border:1px solid #e5e7eb;background:#fff;font-weight:700}
+    .btn.primary{background:var(--primary);color:#fff;border-color:transparent}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
 
+    /* Footer */
     footer{padding:36px 0;border-top:1px solid #eef2f7;color:#64748b;margin-top:32px}
 
+    /* Responsive */
     @media (max-width: 860px){
       .results{grid-template-columns:1fr}
       .nav-links{display:none;position:absolute;top:var(--header-h);right:0;left:0;background:white;border-bottom:1px solid #e5e7eb;padding:10px}
-      .nav-links.open{display:flex;flex-direction:column}.burger{display:inline-flex}
+      .nav-links.open{display:flex;flex-direction:column}
+      .burger{display:inline-flex}
     }
+
+    /* Motion */
     .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
     .reveal.is-visible{opacity:1;transform:none}
     @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
     @keyframes floatBlob{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(6%,-6%,0) scale(1.08)}}
+  
+  /* ===== Footer moderno MAOB ===== */
+.site-footer{background:#ffffff;border-top:1px solid #eef2f7;margin-top:40px}
+.f-grid{display:grid;grid-template-columns:1.2fr 1fr 1.1fr .9fr;gap:24px;align-items:start;padding:28px 0}
+.f-title{font-weight:700;margin:0 0 10px;font-size:16px}
+.f-text{color:#475569;margin:0}
+.f-links a{display:block;color:#1f2937;padding:.25rem 0;border-radius:8px}
+.f-links a:hover{background:#f6f7ff;color:#4338ca}
+.f-contact a{display:flex;gap:.5rem;align-items:center;color:#1f2937;padding:.25rem 0;border-radius:8px;word-break:break-word}
+.f-contact a:hover{background:#f8fafc}
+.f-social{display:flex;gap:10px;flex-wrap:wrap}
+.f-social a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid #e5e7eb;border-radius:12px;background:#fff;box-shadow:0 6px 14px rgba(18,24,40,.06)}
+.f-social a:hover{transform:translateY(-1px);box-shadow:0 10px 20px rgba(18,24,40,.10)}
+.f-bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;border-top:1px solid #eef2f7;padding:16px 0;color:#64748b}
+.f-badges{display:flex;gap:10px;flex-wrap:wrap}
+.badge-soft{display:inline-flex;align-items:center;gap:.4rem;background:#f6f7ff;color:#4338ca;border:1px solid #e4e7ff;padding:.25rem .6rem;border-radius:999px;font-size:12px;font-weight:700}
+@media (max-width: 960px){
+  .f-grid{grid-template-columns:1fr 1fr;gap:18px}
+}
+@media (max-width: 640px){
+  .f-grid{grid-template-columns:1fr}
+}
+  
+  
   </style>
 </head>
 <body>
   <a class="visually-hidden" href="#contenido">Saltar al contenido</a>
 
+  <!-- Header unificado -->
   <header>
     <div class="container nav">
       <a class="brand" href="index.html" aria-label="Inicio Madres a la Obra">
@@ -95,20 +141,24 @@
           <input id="q" type="search" placeholder="Buscar… (ej. servicios, guías, sobre)" aria-label="Buscar en el sitio" />
         </div>
         <button class="btn" onclick="history.back()">Volver a la anterior</button>
-        <a id="goHome" class="btn" href="#">Ir al inicio</a>
-        <a id="goServ" class="btn" href="#">Ir a Servicios</a>
-        <a id="goGuias" class="btn" href="#">Ir a Guías</a>
-        <a id="goSobre" class="btn" href="#">Ir a Sobre mí</a>
+        <a class="btn" href="index.html">Ir al inicio</a>
+        <a class="btn" href="servicios.html">Ir a Servicios</a>
+        <a class="btn" href="guias.html">Ir a Guías</a>
+        <a class="btn" href="sobre.html">Ir a Sobre mí</a>
       </div>
 
       <p class="muted" id="redir">Te llevaremos al inicio en <strong><span id="count">10</span>s</strong>. <a href="#" id="cancel">Cancelar</a></p>
     </section>
 
+    <!-- Sugerencias -->
     <section class="reveal">
       <h2 style="font-size:clamp(22px,3vw,30px);margin:0 0 10px">Quizás buscabas…</h2>
-      <div id="results" class="results"></div>
+      <div id="results" class="results">
+        <!-- Se llena por JS con coincidencias -->
+      </div>
     </section>
 
+    <!-- Reporte / contacto -->
     <section class="reveal" style="margin-top:12px">
       <div class="card">
         <h3 style="margin:.2rem 0">¿Nos ayudas a corregirlo?</h3>
@@ -121,96 +171,207 @@
     </section>
   </main>
 
-<footer>
-  <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
-    <small>© <span id="y"></span> Madres a la Obra</small>
-    <div style="display:flex;gap:12px">
-      <a href="privacidad.html">Privacidad</a>
-      <a href="terminos.html">Términos</a>
+<footer class="site-footer">
+  <div class="container f-grid">
+    <!-- Brand / propósito -->
+    <section>
+      <a class="brand" href="index.html" aria-label="Inicio Madres a la Obra" style="display:flex;gap:.6rem;align-items:center;margin-bottom:6px">
+        <img src="assets/images/logo.svg" alt="Logo MAOB" style="width:28px;height:28px" />
+        <strong>Madres a la Obra</strong>
+      </a>
+      <p class="f-text">Acompañamiento perinatal con evidencia, presencia amorosa y decisiones informadas.</p>
+      <div class="f-badges" style="margin-top:10px">
+        <span class="badge-soft">Santo Domingo, DO</span>
+        <span class="badge-soft">Atención online y presencial</span>
+      </div>
+    </section>
+
+    <!-- Enlaces -->
+    <nav aria-label="Enlaces del sitio" class="f-links">
+      <h3 class="f-title">Explora</h3>
+      <a href="servicios.html">Servicios</a>
+      <a href="guias.html">Guías</a>
+      <a href="sobre.html">Sobre mí</a>
+      <a href="index.html#faq">Preguntas frecuentes</a>
+      <a href="privacidad.html">Política de privacidad</a>
+      <a href="terminos.html">Términos y condiciones</a>
+    </nav>
+
+    <!-- Contacto -->
+    <section class="f-contact">
+      <h3 class="f-title">Contacto</h3>
+      <a href="mailto:cath@madresalaobra.com.do" aria-label="Enviar correo a cath@madresalaobra.com.do">
+        <!-- Mail icon -->
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor"/><path d="m4 7 8 6 8-6" stroke="currentColor"/></svg>
+        cath@madresalaobra.com.do
+      </a>
+      <a href="tel:+18297705650" aria-label="Llamar al número +1 829 770 5650">
+        <!-- Phone icon -->
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 1 1-15.72 4.31L3.5 21l4.86-1.26A8.5 8.5 0 0 1 20.5 12Z" stroke="currentColor"/><path d="M9 9c0 3 3 6 6 6l1.2-.6a.8.8 0 0 1 .8.06l1 .64" stroke="currentColor" stroke-linecap="round"/></svg>
+        +1 829-770-5650
+      </a>
+      <a href="https://wa.me/18297705650" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <!-- WhatsApp icon -->
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 1 1-15.72 4.31L3.5 21l4.86-1.26A8.5 8.5 0 0 1 20.5 12Z" stroke="currentColor"/><path d="M9 9c0 3 3 6 6 6l1.2-.6a.8.8 0 0 1 .8.06l1 .64" stroke="currentColor" stroke-linecap="round"/></svg>
+        Escríbeme por WhatsApp
+      </a>
+    </section>
+
+    <!-- Redes sociales -->
+    <section>
+      <h3 class="f-title">Redes sociales</h3>
+      <div class="f-social" role="list">
+        <a href="https://instagram.com/madresalaobra" target="_blank" rel="noopener" aria-label="Instagram">
+          <!-- Instagram -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor"/><circle cx="12" cy="12" r="4" stroke="currentColor"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        </a>
+        <a href="https://tiktok.com/@madresalaobra" target="_blank" rel="noopener" aria-label="TikTok">
+          <!-- TikTok -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.5 3c.4 2.1 1.9 3.9 4 4.5v2.3c-1.6-.1-3.1-.6-4.4-1.5V15c0 3.3-2.7 6-6 6S3 18.3 3 15s2.7-6 6-6c.4 0 .8 0 1.2.1v2.7c-.4-.1-.8-.2-1.2-.2-1.8 0-3.3 1.5-3.3 3.4S7.2 18.4 9 18.4s3.4-1.5 3.4-3.3V3h3.1Z"/></svg>
+        </a>
+        <a href="https://youtube.com/@madresalaobra" target="_blank" rel="noopener" aria-label="YouTube">
+          <!-- YouTube -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12s0-3-.4-4.4a3 3 0 0 0-2.1-2.1C17 5 12 5 12 5s-5 0-7.5.5A3 3 0 0 0 2.4 7.6C2 9 2 12 2 12s0 3 .4 4.4a3 3 0 0 0 2.1 2.1C7 19 12 19 12 19s5 0 7.5-.5a3 3 0 0 0 2.1-2.1C22 15 22 12 22 12Z"/><path d="m10 9 5 3-5 3V9Z" fill="#fff"/></svg>
+        </a>
+        <a href="https://wa.me/18297705650" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <!-- WhatsApp (extra) -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 1 1-15.72 4.31L3.5 21l4.86-1.26A8.5 8.5 0 0 1 20.5 12Z" stroke="currentColor"/><path d="M9 9c0 3 3 6 6 6l1.2-.6a.8.8 0 0 1 .8.06l1 .64" stroke="currentColor" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <!-- Franja inferior -->
+  <div class="container f-bottom">
+    <small>© <span id="y"></span> <strong>Cath Rodríguez</strong>. Todos los derechos reservados.</small>
+    <div class="f-badges">
+      <span class="badge-soft">Información educativa; no sustituye atención médica</span>
     </div>
   </div>
 </footer>
+
 <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
 
   <script>
     // Año dinámico
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Menú responsive
-    function toggleNav(btn){const m=document.getElementById('menu');const open=m.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');}
+        // Menú responsive
+    function toggleNav(btn){
+      const menu=document.getElementById('menu');
+      const open=menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open?'true':'false');
+    }
     document.querySelectorAll('#menu [data-close]').forEach(a=>a.addEventListener('click',()=>{document.getElementById('menu').classList.remove('open');}));
 
-    // Reveal
-    const io=('IntersectionObserver' in window)?new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target);}});},{threshold:.12}):null;
+    // Reveal on scroll
+    const io=('IntersectionObserver' in window)?new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target);}});},{threshold:.12}):null;
     document.querySelectorAll('.reveal').forEach(el=>{if(io)io.observe(el);else el.classList.add('is-visible');});
 
     // Mostrar URL rota
     const broken = decodeURIComponent(location.pathname + location.search + location.hash);
     document.getElementById('broken').textContent = broken || '—';
 
-    // ===== Detectar base del sitio (user site vs project site) =====
-    (function(){
-      const origin = location.origin;
-      const parts = location.pathname.split('/').filter(Boolean); // ej: ['tu-repo','algo','faltante']
-      // Candidatos a raíz: user site (/) y project site (/repo/)
-      const candidates = [ origin + '/', parts.length ? origin + '/' + parts[0] + '/' : null ].filter(Boolean);
-      // Probar cuál existe con HEAD a index.html y fijar BASE
-      (async function pickBase(){
-        let BASE = candidates[0]; // fallback
-        for (const base of candidates){
-          try{
-            const res = await fetch(base + 'index.html', {method:'HEAD', cache:'no-store'});
-            if (res.ok) { BASE = base; break; }
-          }catch(_){}
+    // Enlaces de reporte
+    const subject = encodeURIComponent('Enlace roto en Madres a la Obra');
+    const body = encodeURIComponent(`Hola Cath,\n\nEncontré un enlace roto en tu sitio:\n\nURL rota: ${location.href}\nPágina anterior: ${document.referrer || '(sin referrer)'}\n\n¡Gracias!`);
+    document.getElementById('reportMail').href = `mailto:cath@madresalaobra.com.do?subject=${subject}&body=${body}`;
+    document.getElementById('reportWa').href = `https://wa.me/18297705650?text=${encodeURIComponent('Hola, Cath. Encontré un enlace roto en tu web: ' + location.href)}`;
+
+    // Datos del sitio para búsqueda/sugerencias
+    const PAGES = [
+      {title:'Inicio', path:'index.html', desc:'Página principal de Madres a la Obra'},
+      {title:'Servicios', path:'servicios.html', desc:'Clases prenatales, lactancia, postparto y acompañamiento al nacimiento'},
+      {title:'Guías', path:'guias.html', desc:'Guías y recursos descargables'},
+      {title:'Sobre mí', path:'sobre.html', desc:'Conoce mi enfoque y valores'}
+    ];
+
+    // Coincidencia básica + difusa (Levenshtein)
+    const normalize = s => s.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu,'').trim();
+    function lev(a,b){
+      a=normalize(a); b=normalize(b);
+      const m=a.length, n=b.length; if(!m) return n; if(!n) return m;
+      const dp=Array.from({length:m+1},(_,i)=>Array(n+1).fill(0));
+      for(let i=0;i<=m;i++) dp[i][0]=i; for(let j=0;j<=n;j++) dp[0][j]=j;
+      for(let i=1;i<=m;i++){for(let j=1;j<=n;j++){
+        const cost = a[i-1]===b[j-1] ? 0 : 1;
+        dp[i][j] = Math.min(dp[i-1][j]+1, dp[i][j-1]+1, dp[i-1][j-1]+cost);
+      }} return dp[m][n];
+    }
+
+    const results = document.getElementById('results');
+    function render(list){
+      results.innerHTML = list.map(p=>`
+        <a class="card" href="${p.path}">
+          <h3>${p.title}</h3>
+          <p>${p.desc}</p>
+        </a>`).join('');
+    }
+
+    function search(q){
+      const qn = normalize(q);
+      if(!qn) return [...PAGES];
+      const scored = PAGES.map(p=>{
+        const t = normalize(p.title);
+        const d = normalize(p.desc);
+        const direct = t.includes(qn) || d.includes(qn) ? 0 : 1e9; // prefer direct include
+        const dist = Math.min(lev(t, qn), lev(d, qn));
+        return {p, score: Math.min(dist, direct)};
+      }).sort((a,b)=>a.score - b.score);
+      // muestra top 4
+      return scored.slice(0,4).map(x=>x.p);
+    }
+
+    // Inicial
+    render(search(''));
+
+    // Input búsqueda
+    const q = document.getElementById('q');
+    q.addEventListener('input', e => render(search(e.target.value)));
+
+    // Redirección automática a inicio con contador
+    let secs = 10; const countEl = document.getElementById('count'); countEl.textContent = secs;
+    const timer = setInterval(()=>{ secs--; countEl.textContent = secs; if(secs<=0){ clearInterval(timer); location.href='index.html'; } },1000);
+    document.getElementById('cancel').addEventListener('click', e=>{ e.preventDefault(); clearInterval(timer); document.getElementById('redir').textContent = 'Redirección cancelada.'; });
+
+    // Detección de intención (si la URL rota sugiere una página conocida)
+    (function smartGuess(){
+      const last = (location.pathname.split('/').pop() || '').toLowerCase();
+      const candidates = [
+        {kw:['servicio','servicios','service','servicos','servivcios'], to:'servicios.html'},
+        {kw:['guia','guias','guilas','guides'], to:'guias.html'},
+        {kw:['sobre','about','cath'], to:'sobre.html'}
+      ];
+      for(const c of candidates){
+        if(c.kw.some(k=> last.includes(k)) ){
+          // Mostrar sugerencia al principio
+          const tip = document.createElement('div');
+          tip.className='card';
+          tip.innerHTML = `<strong>Sugerencia:</strong> Parece que buscabas <a href="${c.to}">${c.to.replace('.html','')}</a>.`;
+          results.prepend(tip);
+          break;
         }
-        // Enlaces correctos según BASE
-        const link = (id, path) => { const el=document.getElementById(id); if(el) el.href = BASE + path; };
-        link('goHome','');
-        link('goServ','servicios.html');
-        link('goGuias','guias.html');
-        link('goSobre','sobre.html');
+      }
+    })();
 
-        // Reporte (email / WhatsApp)
-        const subject = encodeURIComponent('Enlace roto en Madres a la Obra');
-        const body = encodeURIComponent(`Hola Cath,\n\nEncontré un enlace roto en tu sitio:\n\nURL rota: ${location.href}\nPágina anterior: ${document.referrer || '(sin referrer)'}\n\n¡Gracias!`);
-        document.getElementById('reportMail').href = `mailto:cath@madresalaobra.com.do?subject=${subject}&body=${body}`;
-        document.getElementById('reportWa').href = `https://wa.me/18297705650?text=${encodeURIComponent('Hola, Cath. Encontré un enlace roto: ' + location.href)}`;
+    // Enlaces activos (por coherencia visual)
+    (function highlightActive(){
+      const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+      ['servicios.html','guias.html','sobre.html'].forEach(t=>{
+        const link=document.querySelector(\`.nav-links a[href$="\${t}"]\`);
+        if(link) link.classList.toggle('active', current===t);
+      });
+    })();
 
-        // Redirección automática en 10s a BASE
-        let secs = 10; const countEl = document.getElementById('count'); countEl.textContent = secs;
-        const timer = setInterval(()=>{ secs--; countEl.textContent = secs; if(secs<=0){ clearInterval(timer); window.location.replace(BASE); } },1000);
-        document.getElementById('cancel').addEventListener('click', e=>{ e.preventDefault(); clearInterval(timer); document.getElementById('redir').textContent = 'Redirección cancelada.'; });
-
-        // Sugerencias / búsqueda (simple)
-        const PAGES = [
-          {title:'Inicio', path: BASE, desc:'Página principal de Madres a la Obra'},
-          {title:'Servicios', path: BASE+'servicios.html', desc:'Clases prenatales, lactancia, postparto y acompañamiento al nacimiento'},
-          {title:'Guías', path: BASE+'guias.html', desc:'Guías y recursos descargables'},
-          {title:'Sobre mí', path: BASE+'sobre.html', desc:'Conoce mi enfoque y valores'}
-        ];
-        const normalize = s => s.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu,'').trim();
-        function lev(a,b){a=normalize(a);b=normalize(b);const m=a.length,n=b.length;if(!m)return n;if(!n)return m;const d=Array.from({length:m+1},(_,i)=>Array(n+1).fill(0));for(let i=0;i<=m;i++)d[i][0]=i;for(let j=0;j<=n;j++)d[0][j]=j;for(let i=1;i<=m;i++){for(let j=1;j<=n;j++){const c=a[i-1]===b[j-1]?0:1;d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+c);}}return d[m][n];}
-        const results = document.getElementById('results');
-        function render(list){results.innerHTML = list.map(p=>`<a class="card" href="${p.path}"><h3>${p.title}</h3><p>${p.desc}</p></a>`).join('');}
-        function search(q){const qn=normalize(q);if(!qn)return [...PAGES];const scored=PAGES.map(p=>{const t=normalize(p.title),d=normalize(p.desc);const direct=t.includes(qn)||d.includes(qn)?0:1e9;const dist=Math.min(lev(t,qn),lev(d,qn));return {p,score:Math.min(dist,direct)};}).sort((a,b)=>a.score-b.score);return scored.slice(0,4).map(x=>x.p);}
-        render(search(''));
-        document.getElementById('q').addEventListener('input',e=>render(search(e.target.value)));
-
-        // Marcar activo coherente (opcional visual)
-        (function highlight(){
-          const current=(location.pathname.split('/').pop()||'404.html').toLowerCase();
-          ['servicios.html','guias.html','sobre.html'].forEach(t=>{
-            const sel=`.nav-links a[href$="${t}"]`;const el=document.querySelector(sel);
-            if(el) el.classList.toggle('active', current===t);
-          });
-        })();
-
-        // Forzar navegación a páginas (.html) desde el menú
-        document.querySelectorAll('.nav-links a').forEach(a=>{
-          const href=a.getAttribute('href')||'';
-          if(/\.html(\?|#|$)/i.test(href)){ a.addEventListener('click',e=>{e.preventDefault(); window.location.assign(a.href);}); }
-        });
-      })();
+    // Fuerza navegación a páginas (evita scroll a anclas)
+    (function enforcePageNav(){
+      document.querySelectorAll('.nav-links a').forEach(a=>{
+        const href=a.getAttribute('href')||'';
+        if(/\.html(\?|#|$)/i.test(href)){
+          a.addEventListener('click',function(e){ e.preventDefault(); window.location.assign(href); });
+        }
+      });
     })();
   </script>
 </body>
