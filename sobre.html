@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sobre mí — Madres a la Obra</title>
-  <meta name="description" content="Conoce mi enfoque: información clara, presencia amorosa y decisiones informadas para vivir tu maternidad con paz y confianza." />
-  <meta property="og:title" content="Sobre mí — MAOB" />
+  <title>Madres a la Obra — Acompañamiento a la maternidad</title>
+  <meta name="description" content="Acompañamiento cálido y profesional en embarazo, parto/cesárea y postparto. Información clara, presencia amorosa y decisiones informadas." />
+  <meta property="og:title" content="Madres a la Obra" />
   <meta property="og:description" content="Acompañamiento cálido y profesional en tu viaje a la maternidad." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/images/og-image.jpg" />
   <link rel="icon" href="assets/images/favicon.png" />
   <style>
     :root{
-      --bg:#fffdfc; --ink:#1f2937; --muted:#6b7280; --primary:#9b87f5; --accent:#f6a5b8;
-      --surface:#ffffff; --radius:16px; --shadow:0 12px 28px rgba(18,24,40,.06); --header-h:64px;
+      --bg:#fffdfc;--ink:#1f2937;--muted:#6b7280;--primary:#9b87f5;--accent:#f6a5b8;--surface:#ffffff;
+      --ring:rgba(155,135,245,.35);--radius:16px;--shadow:0 12px 28px rgba(18,24,40,.06);--header-h:64px;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -38,61 +38,91 @@
     .burger{display:none;background:transparent;border:0;padding:.4rem}
 
     /* Hero */
-    .hero{padding:88px 0 40px;position:relative;overflow:hidden}
+    .hero{padding:88px 0 64px;position:relative;overflow:hidden}
     .hero::before{content:"";position:absolute;inset:-20% -10% auto -20%;height:360px;width:360px;background:
       radial-gradient(60% 60% at 50% 50%, rgba(246,165,184,.35), transparent 60%),
       radial-gradient(60% 60% at 70% 30%, rgba(155,135,245,.30), transparent 70%);
       filter:blur(30px);animation:floatBlob 14s ease-in-out infinite alternate}
-    h1{font-size:clamp(30px,4vw,46px);line-height:1.1;margin:.3rem 0 .7rem}
-    .lead{color:#374151;margin:0}
+    .hero-grid{display:grid;gap:32px;grid-template-columns:1.1fr .9fr;align-items:center}
+    .eyebrow{color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+    h1{font-size:clamp(30px,4vw,46px);line-height:1.1;margin:.3rem 0 1rem}
+    p.lead{font-size:clamp(16px,2.1vw,19px);color:#374151}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.05rem;border-radius:14px;border:1px solid transparent;background:var(--primary);color:white;font-weight:600;transition:transform .2s ease,box-shadow .2s ease}
+    .btn.secondary{background:white;color:var(--ink);border-color:#e5e7eb}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 22px rgba(18,24,40,.12)}
+    .hero img{border-radius:18px;box-shadow:0 18px 40px rgba(18,24,40,.10);animation:floatY 6s ease-in-out infinite}
 
     /* Sections */
-    main{padding:0 0 56px}
     section{scroll-margin-top:calc(var(--header-h) + 16px)}
-    .section{padding:48px 0}
-    .section h2{font-size:clamp(22px,3vw,30px);margin:0 0 12px;position:relative;display:inline-block}
+    .section{padding:64px 0}
+    .section h2{font-size:clamp(24px,3vw,32px);margin:0 0 12px;position:relative;display:inline-block}
     .section h2::after{content:"";position:absolute;left:0;bottom:-6px;width:100%;height:8px;background:linear-gradient(90deg, rgba(155,135,245,.35), rgba(246,165,184,.35));border-radius:999px;transform-origin:left;transform:scaleX(.2);transition:transform .6s ease}
     .section.reveal.is-visible h2::after{transform:scaleX(1)}
-    .sub{color:var(--muted);margin:0 0 22px}
+    .section p.sub{color:var(--muted);margin:0 0 26px}
 
-    /* Layouts */
-    .about{display:grid;gap:24px;grid-template-columns:1fr 1.2fr;align-items:center}
-    .portrait{border-radius:18px;overflow:hidden;box-shadow:0 18px 40px rgba(18,24,40,.10)}
-    .grid-3{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
+    .features{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
     .card{background:var(--surface);border:1px solid #eef2f7;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);transition:transform .25s ease,box-shadow .25s ease}
     .card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(18,24,40,.12)}
-    .card h3{margin:.2rem 0 .4rem;font-size:18px}
-    .list{margin:0;padding-left:18px;color:#475569}
-    .taglist{display:flex;flex-wrap:wrap;gap:10px}
-    .tag{border:1px solid #e5e7eb;background:#fff;border-radius:999px;padding:.35rem .7rem;font-weight:600;font-size:13px}
+    .card h3{margin:0 0 .4rem;font-size:18px}
+    .card p{margin:0;color:#475569}
 
-    /* CTA */
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
-    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.05rem;border-radius:14px;border:1px solid #e5e7eb;background:white;font-weight:700}
-    .btn.primary{background:var(--primary);color:white;border-color:transparent}
+    .services{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
+    .badge{display:inline-block;background:#f6f7ff;color:#4338ca;border:1px solid #e4e7ff;padding:.2rem .6rem;border-radius:999px;font-size:12px;font-weight:600}
 
-    /* Footer */
-    footer{padding:36px 0;border-top:1px solid #eef2f7;color:#64748b}
+    .quotes{display:grid;gap:16px;grid-template-columns:repeat(2,1fr)}
+    blockquote{margin:0;padding:20px;border-left:4px solid var(--accent);background:white;border-radius:12px}
+
+    details{background:white;border:1px solid #e5e7eb;border-radius:12px;padding:14px;transition:box-shadow .25s ease}
+    details[open]{box-shadow:0 8px 24px rgba(18,24,40,.08)}
+    details+details{margin-top:10px}
+    summary{cursor:pointer;font-weight:600}
+
+    .about{display:grid;gap:24px;grid-template-columns:1fr 1.2fr;align-items:center}
+
+    .contact-cta{display:flex;flex-wrap:wrap;gap:12px}
 
     /* Reveal + motion */
-    .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
     .reveal.is-visible{opacity:1;transform:none}
     @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 
     /* Mobile */
     @media (max-width: 860px){
-      .about,.grid-3{grid-template-columns:1fr}
+      .hero-grid,.features,.services,.quotes,.about{grid-template-columns:1fr}
       .nav-links{display:none;position:absolute;top:var(--header-h);right:0;left:0;background:white;border-bottom:1px solid #e5e7eb;padding:10px}
       .nav-links.open{display:flex;flex-direction:column}
       .burger{display:inline-flex}
     }
 
     /* Keyframes */
+    @keyframes floatY{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
     @keyframes floatBlob{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(6%,-6%,0) scale(1.08)}}
+
+    /* ===== Footer moderno MAOB ===== */
+    .site-footer{background:#ffffff;border-top:1px solid #eef2f7;margin-top:40px}
+    .f-grid{display:grid;grid-template-columns:1.2fr 1fr 1.1fr .9fr;gap:24px;align-items:start;padding:28px 0}
+    .f-title{font-weight:700;margin:0 0 10px;font-size:16px}
+    .f-text{color:#475569;margin:0}
+    .f-links a{display:block;color:#1f2937;padding:.25rem 0;border-radius:8px}
+    .f-links a:hover{background:#f6f7ff;color:#4338ca}
+    .f-contact a{display:flex;gap:.5rem;align-items:center;color:#1f2937;padding:.25rem 0;border-radius:8px;word-break:break-word}
+    .f-contact a:hover{background:#f8fafc}
+    .f-social{display:flex;gap:10px;flex-wrap:wrap}
+    .f-social a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid #e5e7eb;border-radius:12px;background:#fff;box-shadow:0 6px 14px rgba(18,24,40,.06)}
+    .f-social a:hover{transform:translateY(-1px);box-shadow:0 10px 20px rgba(18,24,40,.10)}
+    .f-bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;border-top:1px solid #eef2f7;padding:16px 0;color:#64748b}
+    .f-badges{display:flex;gap:10px;flex-wrap:wrap}
+    .badge-soft{display:inline-flex;align-items:center;gap:.4rem;background:#f6f7ff;color:#4338ca;border:1px solid #e4e7ff;padding:.25rem .6rem;border-radius:999px;font-size:12px;font-weight:700}
+    @media (max-width: 960px){.f-grid{grid-template-columns:1fr 1fr;gap:18px}}
+    @media (max-width: 640px){.f-grid{grid-template-columns:1fr}}
+
+    /* WhatsApp & social icons size */
+    .f-social a svg,.f-contact a svg{width:20px;height:20px;display:block;color:#1f2937}
   </style>
 </head>
 <body>
-  <a class="visually-hidden" href="#contenido">Saltar al contenido</a>
+  <a class="visually-hidden" href="#inicio">Saltar al contenido</a>
   <header>
     <div class="container nav">
       <a class="brand" href="index.html" aria-label="Inicio Madres a la Obra">
@@ -104,9 +134,9 @@
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
         <div id="menu" class="nav-links">
-          <a href="servicios.html" data-close>Servicios</a>
-          <a href="guias.html" data-close>Guías</a>
-          <a class="active" href="sobre.html" data-close>Sobre mí</a>
+          <a href="./servicios.html" data-close>Servicios</a>
+          <a href="./guias.html" data-close>Guías</a>
+          <a href="./sobre.html" data-close>Sobre mí</a>
           <a href="index.html#faq" data-close>FAQ</a>
           <a class="cta" href="index.html#contacto" data-close>Agenda una llamada</a>
         </div>
@@ -114,137 +144,100 @@
     </div>
   </header>
 
-  <main id="contenido" class="container">
+  <main id="inicio" class="container">
     <!-- HERO -->
     <section class="hero reveal is-visible">
-      <h1>Sobre mí</h1>
-      <p class="lead">Acompaño con serenidad, respeto y evidencia para que vivas tu maternidad con paz y confianza.</p>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="section about reveal">
-      <div class="portrait">
-        <!-- Reemplaza la imagen por tu foto -->
-        <img src="assets/images/about-portrait.jpg" alt="Tu doula acompañándote con serenidad" loading="lazy">
-      </div>
-      <div>
-        <h2>Hola, soy Cath</h2>
-        <p class="sub">Doula y educadora perinatal. Creo en la fuerza de las madres, en la información clara y en la presencia amorosa.</p>
-        <p>Mi misión es ofrecerte un espacio seguro donde puedas preguntar, procesar, elegir y sentirte acompañada. Trabajo en colaboración con tu equipo de salud, respetando tus tiempos, valores y decisiones.</p>
-        <div class="cta-row">
-          <a class="btn primary wapp" href="https://wa.me/18297705650"
-             target="_blank" rel="noopener"
-             data-text="Hola, soy [tu nombre]. Leí tu página 'Sobre mí' y me gustaría conversar sobre acompañamiento. ¿Tienes disponibilidad?">
-            Hablar por WhatsApp
-          </a>
-          <a class="btn" href="servicios.html">Ver servicios</a>
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Acompañamiento perinatal con amor y evidencia</div>
+          <h1>Acompañamiento cálido y profesional en tu viaje a la maternidad</h1>
+          <p class="lead">Te brindo información, contención y herramientas para vivir el embarazo, el parto/cesárea y el postparto con seguridad y amor.</p>
+          <div class="actions">
+            <a class="btn" href="#contacto">Agenda una llamada</a>
+            <a class="btn secondary" href="https://wa.me/18297705650" target="_blank" rel="noopener">WhatsApp directo</a>
+          </div>
+          <p class="sub" style="margin-top:10px;color:#6b7280">Cientos de mamás acompañadas con respeto y evidencia. Respondo en 24 horas hábiles.</p>
+        </div>
+        <div>
+          <img src="assets/images/hero.jpg" alt="Ilustración madre y bebé en calma" loading="lazy" />
         </div>
       </div>
     </section>
 
-    <!-- ENFOQUE -->
-    <section class="section reveal">
-      <h2>Mi enfoque</h2>
-      <p class="sub">Tres pilares que guían todo mi acompañamiento.</p>
-      <div class="grid-3">
-        <article class="card">
-          <h3>Información basada en evidencia</h3>
-          <p>Explicaciones claras, actualizadas y aterrizadas a tu realidad para tomar decisiones informadas.</p>
-        </article>
-        <article class="card">
-          <h3>Presencia amorosa</h3>
-          <p>Escucha activa y contención emocional, siempre desde el respeto y la empatía.</p>
-        </article>
-        <article class="card">
-          <h3>Autonomía y respeto</h3>
-          <p>Tú eliges el camino; yo te acompaño sin juicios, honrando tu cuerpo y tu historia.</p>
-        </article>
+    <!-- CÓMO -->
+    <section class="section reveal" id="como">
+      <h2>Cómo te acompaño</h2>
+      <p class="sub">Información clara. Presencia amorosa. Decisiones informadas.</p>
+      <div class="features">
+        <div class="card"><h3>Información clara</h3><p>Contenidos basados en evidencia, explicados con calma.</p></div>
+        <div class="card"><h3>Presencia amorosa</h3><p>Escucha activa, respeto y contención emocional.</p></div>
+        <div class="card"><h3>Decisiones informadas</h3><p>Tú eliges; yo te acompaño sin juicios.</p></div>
       </div>
     </section>
 
-    <!-- VALORES -->
-    <section class="section reveal">
-      <h2>Valores</h2>
-      <p class="sub">Lo que defiende Madres a la Obra.</p>
-      <div class="taglist">
-        <span class="tag">Humanización</span>
-        <span class="tag">Respeto</span>
-        <span class="tag">Paz</span>
-        <span class="tag">Amor</span>
-        <span class="tag">Confidencialidad</span>
-        <span class="tag">Diversidad</span>
-        <span class="tag">Cuidado informado</span>
+    <!-- SERVICIOS (extracto) -->
+    <section class="section reveal" id="servicios">
+      <h2>Servicios</h2>
+      <p class="sub">Elige el acompañamiento que necesitas en esta etapa.</p>
+      <div class="services">
+        <div class="card"><span class="badge">Clases prenatales</span><h3>Preparación para parto o cesárea</h3><p>Herramientas prácticas y emocionales para un nacimiento consciente y seguro.</p></div>
+        <div class="card"><span class="badge">Recién nacido</span><h3>Cuidados esenciales del bebé</h3><p>Señales, sueño seguro, baño, piel con piel y porteo básico.</p></div>
+        <div class="card"><span class="badge">Compras</span><h3>Lista inteligente y habitación</h3><p>Optimiza tu presupuesto y elige lo necesario sin gastar de más.</p></div>
+        <div class="card"><span class="badge">Baby Shower</span><h3>Participación especial</h3><p>Mini-charla, dinámica y momento significativo para celebrar tu maternidad.</p></div>
+        <div class="card"><span class="badge">Lactancia</span><h3>Consejerías y talleres</h3><p>Inicio, posiciones, banco de leche y regreso al trabajo.</p></div>
+        <div class="card"><span class="badge">Parto/Cesárea</span><h3>Acompañamiento al nacimiento</h3><p>Apoyo físico y emocional continuo para un proceso respetado.</p></div>
+      </div>
+      <div class="actions" style="margin-top:18px">
+        <a class="btn" href="https://madresalaobra.setmore.com" target="_blank" rel="noopener">Reservar sesión</a>
+        <a class="btn secondary" href="#faq">Ver preguntas frecuentes</a>
       </div>
     </section>
 
-    <!-- CERTIFICACIONES / FORMACIÓN -->
-    <section class="section reveal" id="formacion">
-      <h2>Formación & actualización</h2>
-      <p class="sub">Aprendizaje continuo para acompañarte mejor.</p>
-      <div class="grid-3">
-        <article class="card">
-          <h3>Áreas de estudio</h3>
-          <ul class="list">
-            <li>Educación perinatal</li>
-            <li>Lactancia y banco de leche</li>
-            <li>Postparto y cuidado del recién nacido</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Cursos y talleres</h3>
-          <ul class="list">
-            <li>Actualizaciones periódicas en embarazo, parto/cesárea y postparto</li>
-            <li>Comunicación y acompañamiento emocional</li>
-            <li>Herramientas prácticas para el entorno del bebé</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Para personalizar</h3>
-          <ul class="list">
-            <li><!-- Agrega aquí tus certificaciones específicas, por ejemplo:
-              "Doula — [institución/organización]" --></li>
-            <li><!-- "Curso de [tema] — [institución]" --></li>
-            <li><!-- "Miembro de [asociación]" --></li>
-          </ul>
-        </article>
-      </div>
-      <p class="sub" style="margin-top:14px">¿Quieres detalles de mi formación? Escríbeme y te comparto mi dossier actualizado.</p>
-      <div class="cta-row">
-        <a class="btn primary wapp" href="https://wa.me/18297705650" target="_blank" rel="noopener"
-           data-text="Hola, soy [tu nombre]. ¿Podrías enviarme tu dossier de formación y certificaciones? Gracias.">
-          Solicitar dossier por WhatsApp
-        </a>
+    <!-- GUÍAS (cta) -->
+    <section class="section reveal" id="guias">
+      <h2>Guías y recursos</h2>
+      <p class="sub">Encuentra todas las guías en una sola página, listas para móvil.</p>
+      <div class="features">
+        <a class="card" href="guias.html"><h3>Ver todas las guías</h3><p>Filtra por tema y descarga fácilmente.</p></a>
       </div>
     </section>
 
-    <!-- ÁREAS DE ACOMPAÑAMIENTO -->
-    <section class="section reveal">
-      <h2>¿En qué te acompaño?</h2>
-      <p class="sub">Puedo estar contigo en diferentes momentos del camino.</p>
-      <div class="grid-3">
-        <article class="card"><h3>Embarazo</h3><p>Clases prenatales, plan de nacimiento y preparación emocional.</p></article>
-        <article class="card"><h3>Parto/Cesárea</h3><p>Apoyo físico y emocional, comunicación con tu equipo y ambiente respetado.</p></article>
-        <article class="card"><h3>Lactancia & Postparto</h3><p>Inicio, banco de leche, organización del hogar y cuidados del bebé.</p></article>
-      </div>
-      <div class="cta-row" style="margin-top:14px">
-        <a class="btn" href="servicios.html">Ver servicios</a>
-        <a class="btn primary wapp" href="https://wa.me/18297705650" target="_blank" rel="noopener"
-           data-text="Hola, soy [tu nombre]. Me gustaría conversar para definir el servicio ideal para mí. ¿Tienes disponibilidad?">
-          Consultar disponibilidad
-        </a>
+    <!-- SOBRE MÍ (extracto) -->
+    <section class="section about reveal" id="sobre-mi">
+      <div><img src="assets/images/about.jpg" alt="Tu doula acompañándote con serenidad" loading="lazy" /></div>
+      <div>
+        <h2>Sobre mí</h2>
+        <p class="sub">Enfoque humanizado y basado en evidencia.</p>
+        <p>Soy doula y educadora perinatal. Acompaño a madres y familias para que vivan la maternidad con calma, seguridad y amor. Trabajo en colaboración con tu equipo de salud y adapto cada proceso a tus necesidades.</p>
+        <div class="actions"><a class="btn" href="#contacto">Conversemos</a></div>
       </div>
     </section>
 
-    <!-- CIERRE / CONTACTO -->
+    <!-- TESTIMONIOS -->
+    <section class="section reveal" id="testimonios">
+      <h2>Testimonios</h2>
+      <div class="quotes">
+        <blockquote>“Llegué con muchas dudas y me fui con un plan claro y la paz que necesitaba.” <br><strong>— Mamá A.</strong></blockquote>
+        <blockquote>“El apoyo en mi cesárea fue fundamental para vivirla con amor.” <br><strong>— Mamá B.</strong></blockquote>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section reveal" id="faq">
+      <h2>Preguntas frecuentes</h2>
+      <details><summary>¿Qué hace una doula?</summary><p>Acompaña emocional y físicamente en embarazo, parto/cesárea y postparto. No reemplaza al personal de salud.</p></details>
+      <details><summary>¿Acompañas cesáreas?</summary><p>Sí, preparo contigo una experiencia informada y amorosa.</p></details>
+      <details><summary>¿Modalidad online o presencial?</summary><p>Ambas, según tu ubicación y preferencia.</p></details>
+    </section>
+
+    <!-- CONTACTO -->
     <section class="section reveal" id="contacto">
-      <h2>Conversemos</h2>
-      <p class="sub">Será un honor caminar contigo este tramo tan importante.</p>
-      <div class="cta-row">
-        <a class="btn primary wapp" href="https://wa.me/18297705650" target="_blank" rel="noopener"
-           data-text="Hola, soy [tu nombre]. Vengo desde la página 'Sobre mí' y quiero agenda para conversar.">
-          Hablar por WhatsApp
-        </a>
-        <a class="btn" href="guias.html">Ver guías</a>
+      <h2>Contacto / Reserva</h2>
+      <p class="sub">Me encantará acompañarte. Elige la vía que prefieras:</p>
+      <div class="contact-cta">
+        <a class="btn" href="mailto:cath@madresalaobra.com.do">Email</a>
+        <a class="btn secondary" href="https://wa.me/18297705650" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn secondary" href="https://madresalaobra.setmore.com" target="_blank" rel="noopener">Agendar llamada</a>
       </div>
       <p style="color:#6b7280;margin-top:10px">Información educativa; no sustituye atención médica. Ante emergencias, acude a tu servicio de salud.</p>
     </section>
@@ -325,51 +318,58 @@
     </div>
   </footer>
 
-
   <script>
     // Año dinámico
     document.getElementById('y').textContent = new Date().getFullYear();
 
     // Menú responsive
     function toggleNav(btn){
-      const menu = document.getElementById('menu');
-      const open = menu.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      const menu=document.getElementById('menu');
+      const open=menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open?'true':'false');
     }
     document.querySelectorAll('#menu [data-close]').forEach(a=>a.addEventListener('click',()=>{
       document.getElementById('menu').classList.remove('open');
     }));
 
     // Reveal on scroll
-    const io = ('IntersectionObserver' in window) ? new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); } });
-    }, {threshold: .12}) : null;
-    document.querySelectorAll('.reveal').forEach(el=>{ if(io) io.observe(el); else el.classList.add('is-visible'); });
-
-    // WhatsApp prellenado (un solo lugar para cambiar el número)
-    const phone = "18297705650";
-    document.querySelectorAll('a.wapp').forEach(el=>{
-      const txt = el.getAttribute('data-text') || '';
-      const url = `https://wa.me/${phone}?text=${encodeURIComponent(txt)}`;
-      el.setAttribute('href', url);
+    const io=('IntersectionObserver' in window)
+      ? new IntersectionObserver((entries)=>{
+          entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); }});
+        }, {threshold:.12})
+      : null;
+    document.querySelectorAll('.reveal').forEach(el=>{
+      if(io) io.observe(el); else el.classList.add('is-visible');
     });
-  </script>
 
-  <!-- Datos estructurados (Person) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Cath — Madres a la Obra",
-    "description": "Doula y educadora perinatal. Acompañamiento en embarazo, parto/cesárea, lactancia y postparto.",
-    "url": "https://TUUSUARIO.github.io/sobre.html",
-    "telephone": "+1 829-770-5650",
-    "sameAs": ["https://instagram.com/madresalaobra"],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Madres a la Obra"
-    }
-  }
+    // Resaltar activo (opcional)
+    (function(){
+      const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+      ['servicios.html','guias.html','sobre.html'].forEach(t=>{
+        const link=document.querySelector(`.nav-links a[href$="${t}"]`);
+        if(link) link.classList.toggle('active', current===t);
+      });
+    })();
+
+    // Fuerza navegación a páginas .html desde el menú (por si hay IDs iguales)
+    (function enforcePageNav(){
+      document.querySelectorAll('.nav-links a').forEach(a=>{
+        const href=a.getAttribute('href')||'';
+        if(/\.html(\?|#|$)/i.test(href)){
+          a.addEventListener('click',function(e){
+            e.preventDefault();
+            window.location.assign(href);
+          });
+        }
+      });
+    })();
   </script>
 </body>
 </html>
+
+
+
+
+
+
+
