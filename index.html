@@ -82,8 +82,6 @@
 
     .contact-cta{display:flex;flex-wrap:wrap;gap:12px}
 
-    footer{padding:36px 0;border-top:1px solid #eef2f7;color:#64748b}
-
     /* Reveal + motion */
     .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
     .reveal.is-visible{opacity:1;transform:none}
@@ -100,12 +98,31 @@
     /* Keyframes */
     @keyframes floatY{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
     @keyframes floatBlob{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(6%,-6%,0) scale(1.08)}}
+
+    /* ===== Footer moderno MAOB ===== */
+    .site-footer{background:#ffffff;border-top:1px solid #eef2f7;margin-top:40px}
+    .f-grid{display:grid;grid-template-columns:1.2fr 1fr 1.1fr .9fr;gap:24px;align-items:start;padding:28px 0}
+    .f-title{font-weight:700;margin:0 0 10px;font-size:16px}
+    .f-text{color:#475569;margin:0}
+    .f-links a{display:block;color:#1f2937;padding:.25rem 0;border-radius:8px}
+    .f-links a:hover{background:#f6f7ff;color:#4338ca}
+    .f-contact a{display:flex;gap:.5rem;align-items:center;color:#1f2937;padding:.25rem 0;border-radius:8px;word-break:break-word}
+    .f-contact a:hover{background:#f8fafc}
+    .f-social{display:flex;gap:10px;flex-wrap:wrap}
+    .f-social a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid #e5e7eb;border-radius:12px;background:#fff;box-shadow:0 6px 14px rgba(18,24,40,.06)}
+    .f-social a:hover{transform:translateY(-1px);box-shadow:0 10px 20px rgba(18,24,40,.10)}
+    .f-bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;border-top:1px solid #eef2f7;padding:16px 0;color:#64748b}
+    .f-badges{display:flex;gap:10px;flex-wrap:wrap}
+    .badge-soft{display:inline-flex;align-items:center;gap:.4rem;background:#f6f7ff;color:#4338ca;border:1px solid #e4e7ff;padding:.25rem .6rem;border-radius:999px;font-size:12px;font-weight:700}
+    @media (max-width: 960px){.f-grid{grid-template-columns:1fr 1fr;gap:18px}}
+    @media (max-width: 640px){.f-grid{grid-template-columns:1fr}}
+
+    /* WhatsApp & social icons size */
+    .f-social a svg,.f-contact a svg{width:20px;height:20px;display:block;color:#1f2937}
   </style>
 </head>
 <body>
   <a class="visually-hidden" href="#inicio">Saltar al contenido</a>
-
-  <!-- HEADER UNIFICADO -->
   <header>
     <div class="container nav">
       <a class="brand" href="index.html" aria-label="Inicio Madres a la Obra">
@@ -163,36 +180,12 @@
       <h2>Servicios</h2>
       <p class="sub">Elige el acompañamiento que necesitas en esta etapa.</p>
       <div class="services">
-        <div class="card">
-          <span class="badge">Clases prenatales</span>
-          <h3>Preparación para parto o cesárea</h3>
-          <p>Herramientas prácticas y emocionales para un nacimiento consciente y seguro.</p>
-        </div>
-        <div class="card">
-          <span class="badge">Recién nacido</span>
-          <h3>Cuidados esenciales del bebé</h3>
-          <p>Señales, sueño seguro, baño, piel con piel y porteo básico.</p>
-        </div>
-        <div class="card">
-          <span class="badge">Compras</span>
-          <h3>Lista inteligente y habitación</h3>
-          <p>Optimiza tu presupuesto y elige lo necesario sin gastar de más.</p>
-        </div>
-        <div class="card">
-          <span class="badge">Baby Shower</span>
-          <h3>Participación especial</h3>
-          <p>Mini-charla, dinámica y momento significativo para celebrar tu maternidad.</p>
-        </div>
-        <div class="card">
-          <span class="badge">Lactancia</span>
-          <h3>Consejerías y talleres</h3>
-          <p>Inicio, posiciones, banco de leche y regreso al trabajo.</p>
-        </div>
-        <div class="card">
-          <span class="badge">Parto/Cesárea</span>
-          <h3>Acompañamiento al nacimiento</h3>
-          <p>Apoyo físico y emocional continuo para un proceso respetado.</p>
-        </div>
+        <div class="card"><span class="badge">Clases prenatales</span><h3>Preparación para parto o cesárea</h3><p>Herramientas prácticas y emocionales para un nacimiento consciente y seguro.</p></div>
+        <div class="card"><span class="badge">Recién nacido</span><h3>Cuidados esenciales del bebé</h3><p>Señales, sueño seguro, baño, piel con piel y porteo básico.</p></div>
+        <div class="card"><span class="badge">Compras</span><h3>Lista inteligente y habitación</h3><p>Optimiza tu presupuesto y elige lo necesario sin gastar de más.</p></div>
+        <div class="card"><span class="badge">Baby Shower</span><h3>Participación especial</h3><p>Mini-charla, dinámica y momento significativo para celebrar tu maternidad.</p></div>
+        <div class="card"><span class="badge">Lactancia</span><h3>Consejerías y talleres</h3><p>Inicio, posiciones, banco de leche y regreso al trabajo.</p></div>
+        <div class="card"><span class="badge">Parto/Cesárea</span><h3>Acompañamiento al nacimiento</h3><p>Apoyo físico y emocional continuo para un proceso respetado.</p></div>
       </div>
       <div class="actions" style="margin-top:18px">
         <a class="btn" href="https://madresalaobra.setmore.com" target="_blank" rel="noopener">Reservar sesión</a>
@@ -211,9 +204,7 @@
 
     <!-- SOBRE MÍ (extracto) -->
     <section class="section about reveal" id="sobre-mi">
-      <div>
-        <img src="assets/images/about.jpg" alt="Tu doula acompañándote con serenidad" loading="lazy" />
-      </div>
+      <div><img src="assets/images/about.jpg" alt="Tu doula acompañándote con serenidad" loading="lazy" /></div>
       <div>
         <h2>Sobre mí</h2>
         <p class="sub">Enfoque humanizado y basado en evidencia.</p>
@@ -234,18 +225,9 @@
     <!-- FAQ -->
     <section class="section reveal" id="faq">
       <h2>Preguntas frecuentes</h2>
-      <details>
-        <summary>¿Qué hace una doula?</summary>
-        <p>Acompaña emocional y físicamente en embarazo, parto/cesárea y postparto. No reemplaza al personal de salud.</p>
-      </details>
-      <details>
-        <summary>¿Acompañas cesáreas?</summary>
-        <p>Sí, preparo contigo una experiencia informada y amorosa.</p>
-      </details>
-      <details>
-        <summary>¿Modalidad online o presencial?</summary>
-        <p>Ambas, según tu ubicación y preferencia.</p>
-      </details>
+      <details><summary>¿Qué hace una doula?</summary><p>Acompaña emocional y físicamente en embarazo, parto/cesárea y postparto. No reemplaza al personal de salud.</p></details>
+      <details><summary>¿Acompañas cesáreas?</summary><p>Sí, preparo contigo una experiencia informada y amorosa.</p></details>
+      <details><summary>¿Modalidad online o presencial?</summary><p>Ambas, según tu ubicación y preferencia.</p></details>
     </section>
 
     <!-- CONTACTO -->
@@ -261,19 +243,77 @@
     </section>
   </main>
 
-  <footer>
-    <div class="container" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center">
-      <small>© <span id="y"></span> Madres a la Obra • Acompañamiento con amor y evidencia</small>
-      <div style="display:flex;gap:12px">
-        <a href="https://instagram.com/madresalaobra" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor"/><circle cx="12" cy="12" r="4" stroke="currentColor"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+  <!-- FOOTER MODERNO -->
+  <footer class="site-footer">
+    <div class="container f-grid">
+      <section>
+        <a class="brand" href="index.html" aria-label="Inicio Madres a la Obra" style="display:flex;gap:.6rem;align-items:center;margin-bottom:6px">
+          <img src="assets/images/logo.svg" alt="Logo MAOB" style="width:28px;height:28px" />
+          <strong>Madres a la Obra</strong>
+        </a>
+        <p class="f-text">Acompañamiento perinatal con evidencia, presencia amorosa y decisiones informadas.</p>
+        <div class="f-badges" style="margin-top:10px">
+          <span class="badge-soft">Santo Domingo, DO</span>
+          <span class="badge-soft">Atención online y presencial</span>
+        </div>
+      </section>
+
+      <nav aria-label="Enlaces del sitio" class="f-links">
+        <h3 class="f-title">Explora</h3>
+        <a href="servicios.html">Servicios</a>
+        <a href="guias.html">Guías</a>
+        <a href="sobre.html">Sobre mí</a>
+        <a href="index.html#faq">Preguntas frecuentes</a>
+        <a href="privacidad.html">Política de privacidad</a>
+        <a href="terminos.html">Términos y condiciones</a>
+      </nav>
+
+      <section class="f-contact">
+        <h3 class="f-title">Contacto</h3>
+        <a href="mailto:cath@madresalaobra.com.do" aria-label="Enviar correo a cath@madresalaobra.com.do">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor"/><path d="m4 7 8 6 8-6" stroke="currentColor"/></svg>
+          cath@madresalaobra.com.do
+        </a>
+        <a href="tel:+18297705650" aria-label="Llamar al número +1 829 770 5650">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+  <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+</svg>
+          +1 829-770-5650
         </a>
         <a href="https://wa.me/18297705650" target="_blank" rel="noopener" aria-label="WhatsApp">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 1 1-15.72 4.31L3.5 21l4.86-1.26A8.5 8.5 0 0 1 20.5 12Z" stroke="currentColor"/><path d="M9 9c0 3 3 6 6 6l1.2-.6a.8.8 0 0 1 .8.06l1 .64" stroke="currentColor" stroke-linecap="round"/></svg>
+          <!-- WhatsApp ícono mejorado -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+  <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+</svg>
+          Escríbeme por WhatsApp
         </a>
-        <a href="#contacto" aria-label="Email">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor"/><path d="m4 7 8 6 8-6" stroke="currentColor"/></svg>
-        </a>
+      </section>
+
+      <section>
+        <h3 class="f-title">Redes sociales</h3>
+        <div class="f-social" role="list">
+          <a href="https://instagram.com/madresalaobra" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor"/><circle cx="12" cy="12" r="4" stroke="currentColor"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="https://tiktok.com/@madresalaobra" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.5 3c.4 2.1 1.9 3.9 4 4.5v2.3c-1.6-.1-3.1-.6-4.4-1.5V15c0 3.3-2.7 6-6 6S3 18.3 3 15s2.7-6 6-6c.4 0 .8 0 1.2.1v2.7c-.4-.1-.8-.2-1.2-.2-1.8 0-3.3 1.5-3.3 3.4S7.2 18.4 9 18.4s3.4-1.5 3.4-3.3V3h3.1Z"/></svg>
+          </a>
+          <a href="https://youtube.com/@madresalaobra" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12s0-3-.4-4.4a3 3 0 0 0-2.1-2.1C17 5 12 5 12 5s-5 0-7.5.5A3 3 0 0 0 2.4 7.6C2 9 2 12 2 12s0 3 .4 4.4a3 3 0 0 0 2.1 2.1C7 19 12 19 12 19s5 0 7.5-.5a3 3 0 0 0 2.1-2.1C22 15 22 12 22 12Z"/><path d="m10 9 5 3-5 3V9Z" fill="#fff"/></svg>
+          </a>
+          <a href="https://wa.me/18297705650" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+  <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+</svg>
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <div class="container f-bottom">
+      <small>© <span id="y"></span> <strong>Cath Rodríguez</strong>. Todos los derechos reservados.</small>
+      <div class="f-badges">
+        <span class="badge-soft">Información educativa; no sustituye atención médica</span>
       </div>
     </div>
   </footer>
@@ -302,7 +342,7 @@
       if(io) io.observe(el); else el.classList.add('is-visible');
     });
 
-    // Marcar enlace activo según página (servicios | guías | sobre)
+    // Resaltar activo (opcional)
     (function(){
       const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
       ['servicios.html','guias.html','sobre.html'].forEach(t=>{
@@ -310,10 +350,8 @@
         if(link) link.classList.toggle('active', current===t);
       });
     })();
-  </script>
 
-  <!-- Fuerza navegación a otras páginas (evita scroll a anclas si coincidieran IDs) -->
-  <script>
+    // Fuerza navegación a páginas .html desde el menú (por si hay IDs iguales)
     (function enforcePageNav(){
       document.querySelectorAll('.nav-links a').forEach(a=>{
         const href=a.getAttribute('href')||'';
@@ -325,23 +363,6 @@
         }
       });
     })();
-  </script>
-
-  <!-- Datos estructurados -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Madres a la Obra",
-    "image": "https://TUUSUARIO.github.io/assets/images/og-image.jpg",
-    "url": "https://TUUSUARIO.github.io/",
-    "telephone": "+1 829-770-5650",
-    "email": "cath@madresalaobra.com.do",
-    "areaServed": "Santo Domingo, DO",
-    "sameAs": ["https://instagram.com/madresalaobra"],
-    "priceRange": "$$",
-    "description": "Doula y educadora perinatal. Acompañamiento en embarazo, parto/cesárea y postparto."
-  }
   </script>
 </body>
 </html>
