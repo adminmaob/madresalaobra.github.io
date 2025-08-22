@@ -4,73 +4,177 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Servicios — Madres a la Obra</title>
-  <meta name="description" content="Servicios de acompañamiento perinatal: clases prenatales, lactancia, acompañamiento a parto/cesárea y más." />
+  <meta name="description" content="Acompañamiento perinatal: clases prenatales, lactancia, postparto y apoyo al nacimiento. Presencia amorosa y decisiones informadas." />
+  <meta property="og:title" content="Servicios — Madres a la Obra" />
+  <meta property="og:description" content="Clases y acompañamientos con evidencia y amor en embarazo, parto/cesárea y postparto." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/og-image.jpg" />
   <link rel="icon" href="assets/images/favicon.png" />
   <style>
     :root{
-      --bg:#ffffff;--ink:#3c383d;--muted:#6b7280;--primary:#b17160;--accent:#e894a1;--surface:#ffffff;
-      --ring:rgba(177,113,96,.35);--radius:16px;--shadow:0 12px 28px rgba(18,24,40,.06);--header-h:64px;--tint:#fde8e6
+      /* PALETA DE MARCA */
+      /* Terracota / primario */        --primary:#b17160;
+      /* Rosa medio (acento) */         --accent:#e894a1;
+      /* Rosa claro (suave) */          --accent-soft:#f8c5be;
+      /* Malva gris (muted) */          --muted:#8a7792;
+      /* Tinta gris oscura */           --ink:#3c383d;
+      /* Fondo casi blanco (sin “amarillo”) */
+      --bg:#fffdfc;
+      --surface:#ffffff;
+
+      /* UI */
+      --ring: rgba(177,113,96,.35);
+      --radius:16px;
+      --shadow:0 12px 28px rgba(18,24,40,.06);
+      --header-h:64px;
+
+      /* Utilidades */
+      --line:#eef2f7;
+      --hover: rgba(248,197,190,.25); /* hover suave basado en accent-soft */
+      --chip-bg: rgba(232,148,161,.12);
+      --chip-br: rgba(232,148,161,.45);
+      --chip-ink: #402104; /* marrón profundo de marca */
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
     img{max-width:100%;height:auto;display:block}
     a{color:inherit;text-decoration:none}
+    a:focus,button:focus{outline:2px solid var(--primary);outline-offset:2px}
     .container{width:min(1120px,92vw);margin-inline:auto}
 
+    /* Accesibilidad (skip-link) */
+    .visualmente-oculto{
+      position:absolute!important;clip:rect(1px,1px,1px,1px);
+      padding:0;border:0;height:1px;width:1px;overflow:hidden
+    }
+
     /* Header */
-    header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #f1f5f9;height:var(--header-h)}
+    header{
+      position:sticky;top:0;z-index:30;
+      background:rgba(255,255,255,.85);
+      backdrop-filter:saturate(180%) blur(8px);
+      border-bottom:1px solid var(--line);
+      height:var(--header-h)
+    }
     .nav{display:flex;align-items:center;justify-content:space-between;height:var(--header-h)}
     .brand{display:flex;gap:.6rem;align-items:center}
-    .brand img{width:28px;height:28px}
+    .brand img{width:32px;height:32px}
     .nav-links{display:flex;gap:1rem;align-items:center}
     .nav-links a{padding:.4rem .6rem;border-radius:10px}
-    .nav-links a:hover,.nav-links a.active{background:var(--tint);color:#402104}
-    .cta{background:var(--primary);color:#fff;padding:.6rem .9rem;border-radius:999px;border:0;box-shadow:var(--shadow);font-weight:600}
+    .nav-links a:hover{background:var(--hover)}
+    .nav-links a.active{background:var(--chip-bg);color:var(--chip-ink)}
+    .cta{
+      background:var(--primary);color:#fff;padding:.6rem .9rem;border-radius:999px;
+      box-shadow:var(--shadow);border:0;font-weight:600;transition:transform .2s ease,box-shadow .2s ease
+    }
+    .cta:hover{transform:translateY(-1px);box-shadow:0 16px 30px rgba(177,113,96,.25)}
     .burger{display:none;background:transparent;border:0;padding:.4rem}
-    @media(max-width:860px){
-      .nav-links{display:none;position:absolute;top:var(--header-h);right:0;left:0;background:#fff;border-bottom:1px solid #e5e7eb;padding:10px}
+
+    /* Page */
+    main{padding:48px 0}
+    h1{font-size:clamp(28px,4vw,42px);line-height:1.1;margin:.3rem 0 .7rem}
+    .lead{color:#58525a;margin:0 0 16px}
+    .eyebrow{color:var(--muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
+    .card{
+      background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+      padding:20px;box-shadow:var(--shadow);transition:transform .25s ease,box-shadow .25s ease
+    }
+    .card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(18,24,40,.12)}
+    .card h3{margin:.2rem 0 .4rem}
+    .card p{margin:0;color:#56525b}
+    .badge{
+      display:inline-block;background:var(--chip-bg);color:var(--chip-ink);
+      border:1px solid var(--chip-br);padding:.2rem .6rem;border-radius:999px;font-size:12px;font-weight:700
+    }
+    .list{margin:.4rem 0 0;color:#56525b;padding-left:18px}
+    .list li{margin:.2rem 0}
+
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .btn{
+      display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1rem;border-radius:12px;
+      border:1px solid #e5e7eb;background:#fff;font-weight:700;transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease
+    }
+    .btn:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(18,24,40,.08);background:rgba(0,0,0,.015)}
+    .btn.primary{background:var(--primary);color:#fff;border-color:transparent}
+    .btn.primary:hover{box-shadow:0 12px 24px rgba(177,113,96,.28)}
+
+    /* Sections */
+    .section{padding:8px 0}
+    .section h2{
+      font-size:clamp(24px,3vw,32px);margin:0 0 12px;position:relative;display:inline-block
+    }
+    .section h2::after{
+      content:"";position:absolute;left:0;bottom:-6px;width:100%;height:8px;
+      background:linear-gradient(90deg, rgba(232,148,161,.35), rgba(248,197,190,.35));border-radius:999px
+    }
+
+    /* Reveal animation */
+    .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.is-visible{opacity:1;transform:none}
+
+    /* Responsive */
+    @media (max-width: 860px){
+      .grid{grid-template-columns:1fr}
+      .nav-links{
+        display:none;position:absolute;top:var(--header-h);right:0;left:0;background:#fff;
+        border-bottom:1px solid #e5e7eb;padding:10px
+      }
       .nav-links.open{display:flex;flex-direction:column}
       .burger{display:inline-flex}
     }
 
-    /* Page */
-    h1{font-size:clamp(28px,3.6vw,42px);line-height:1.1;margin:24px 0}
-    .lead{color:#4b5563;margin-top:-6px}
-    .hero{padding-bottom:8px;border-bottom:1px solid #eef2f7}
-    .section{padding:48px 0}
-    .grid{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
-    @media(max-width:860px){.grid{grid-template-columns:1fr}}
-    .card{background:#fff;border:1px solid #eef2f7;border-radius:16px;padding:20px;box-shadow:var(--shadow)}
-    .badge{display:inline-block;background:#fdeaea;color:#402104;border:1px solid #f3caca;padding:.2rem .6rem;border-radius:999px;font-size:12px;font-weight:600}
-    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1rem;border-radius:14px;border:1px solid transparent;background:var(--primary);color:#fff;font-weight:600}
-    .btn.secondary{background:#fff;color:var(--ink);border-color:#e5e7eb}
-
-    /* Footer (idéntico al index) */
-    .site-footer { background:#fff; border-top:1px solid #eef2f7; margin-top:40px }
+    /* Footer base (ajustado a marca) */
+    .site-footer { background:#fff; border-top:1px solid var(--line); margin-top:40px }
     .f-grid { display:grid; grid-template-columns:1.2fr 1fr 1.1fr .9fr; gap:24px; align-items:start; padding:28px 0 }
     .f-title { font-weight:700; margin:0 0 10px; font-size:16px }
-    .f-text { color:#475569; margin:0 }
-    .f-links a { display:block; color:#3c383d; padding:.25rem 0; border-radius:8px }
-    .f-links a:hover { background:var(--tint); color:#402104 }
-    .f-contact a { display:flex; gap:.5rem; align-items:center; color:#3c383d; padding:.25rem 0; border-radius:8px; word-break:break-word }
-    .f-contact a:hover { background:#f8fafc }
+    .f-text { color:#56525b; margin:0 }
+    .f-links a { display:block; color:var(--ink); padding:.25rem 0; border-radius:8px }
+    .f-links a:hover { background:var(--hover) }
+    .f-contact a {
+      display:flex; gap:.5rem; align-items:center; color:var(--ink);
+      padding:.25rem 0; border-radius:8px; word-break:break-word
+    }
+    .f-contact a:hover { background:rgba(0,0,0,.03) }
     .f-social { display:flex; gap:10px; flex-wrap:wrap }
-    .f-social a { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border:1px solid #e5e7eb; border-radius:12px; background:#fff; box-shadow:0 6px 14px rgba(18,24,40,.06) }
-    .f-social a:hover { transform:translateY(-1px); box-shadow:0 10px 20px rgba(18,24,40,.10) }
-    .f-bottom { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center; border-top:1px solid #eef2f7; padding:16px 0; color:#64748b }
+    .f-social a {
+      display:inline-flex; align-items:center; justify-content:center;
+      width:38px; height:38px; border:1px solid #e5e7eb; border-radius:12px; background:#fff;
+      box-shadow:0 6px 14px rgba(18,24,40,.06); transition:transform .2s ease, box-shadow .2s ease, background-color .2s ease
+    }
+    .f-social a:hover { transform:translateY(-1px); box-shadow:0 10px 20px rgba(18,24,40,.10); background:var(--hover) }
+    .f-bottom {
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center;
+      border-top:1px solid var(--line); padding:16px 0; color:#6b6a6f
+    }
     .f-badges { display:flex; gap:10px; flex-wrap:wrap }
-    .badge-soft { display:inline-flex; align-items:center; gap:.4rem; background:#fdeaea; color:#402104; border:1px solid #f3caca; padding:.25rem .6rem; border-radius:999px; font-size:12px; font-weight:700 }
+    .badge-soft {
+      display:inline-flex; align-items:center; gap:.4rem; background:var(--chip-bg); color:var(--chip-ink);
+      border:1px solid var(--chip-br); padding:.25rem .6rem; border-radius:999px; font-size:12px; font-weight:700
+    }
+
     @media (max-width: 960px){ .f-grid{ grid-template-columns:1fr 1fr; gap:18px } }
     @media (max-width: 640px){ .f-grid{ grid-template-columns:1fr } }
-    .f-contact a svg,.f-social a svg { width:20px;height:20px;vertical-align:middle;flex-shrink:0 }
+
+    /* Iconos (fill) */
+    .f-contact a svg,
+    .f-social a svg {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
   </style>
 </head>
 <body>
+  <a class="visualmente-oculto" href="#contenido">Saltar al contenido</a>
+
   <header>
     <div class="container nav">
-      <a class="brand" href="index.html" aria-label="Inicio Madres a la Obra">
+      <a class="brand" href="index.html" aria-label="Madres a la Obra, inicio">
         <img src="assets/images/logo.svg" alt="Logo MAOB" />
         <strong>Madres a la Obra</strong>
       </a>
@@ -79,83 +183,148 @@
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
         <div id="menu" class="nav-links">
-          <a href="./servicios.html" class="active" data-close>Servicios</a>
-          <a href="./guias.html" data-close>Guías</a>
-          <a href="./sobre.html" data-close>Sobre mí</a>
+          <a href="servicios.html" class="active" data-close>Servicios</a>
+          <a href="guias.html" data-close>Guías</a>
+          <a href="sobre.html" data-close>Sobre mí</a>
           <a href="index.html#faq" data-close>FAQ</a>
-          <a class="cta" href="index.html#contacto" data-close>Agenda</a>
+          <a class="cta" href="index.html#contacto" data-close>Agenda una llamada</a>
         </div>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero">
+  <main id="contenido" class="container">
+    <section class="reveal">
+      <div class="eyebrow">Acompañamientos y clases</div>
       <h1>Servicios</h1>
-      <p class="lead">Elige el acompañamiento que necesitas. Online y presencial, siempre con evidencia y calidez.</p>
+      <p class="lead">Elige el acompañamiento que necesitas. Todo con información clara, contención amorosa y respeto a tus decisiones.</p>
     </section>
 
-    <section class="section">
+    <section class="section reveal" aria-label="Listado de servicios">
       <div class="grid">
-        <div class="card">
+        <!-- Servicio 1 -->
+        <article class="card">
           <span class="badge">Clases prenatales</span>
           <h3>Preparación para parto o cesárea</h3>
-          <p>Información práctica, plan de nacimiento y manejo del dolor/ansiedad.</p>
+          <p>Herramientas prácticas y emocionales para un nacimiento consciente y seguro.</p>
+          <ul class="list">
+            <li>Plan de parto/cesárea informado</li>
+            <li>Manejo del dolor y respiración</li>
+            <li>Rol de la pareja o acompañante</li>
+          </ul>
           <div class="actions">
-            <a class="btn" href="https://madresalaobra.setmore.com" target="_blank" rel="noopener">Reservar</a>
-            <a class="btn secondary" href="index.html#faq">FAQ</a>
+            <a class="btn primary" target="_blank" rel="noopener"
+               href="https://wa.me/18297705650?text=Hola%20Cath%2C%20quisiera%20consultar%20disponibilidad%20para%20Preparaci%C3%B3n%20para%20parto%20o%20ces%C3%A1rea.">
+              Consultar disponibilidad
+            </a>
           </div>
-        </div>
-        <div class="card">
+        </article>
+
+        <!-- Servicio 2 -->
+        <article class="card">
           <span class="badge">Recién nacido</span>
           <h3>Cuidados esenciales del bebé</h3>
           <p>Señales, sueño seguro, baño, piel con piel y porteo básico.</p>
+          <ul class="list">
+            <li>Rutinas realistas y respetuosas</li>
+            <li>Ambiente y seguridad en casa</li>
+            <li>Primeras semanas con calma</li>
+          </ul>
           <div class="actions">
-            <a class="btn" href="https://madresalaobra.setmore.com" target="_blank" rel="noopener">Reservar</a>
-            <a class="btn secondary" href="index.html#contacto">Consultar</a>
+            <a class="btn primary" target="_blank" rel="noopener"
+               href="https://wa.me/18297705650?text=Hola%20Cath%2C%20quisiera%20consultar%20disponibilidad%20para%20Cuidados%20esenciales%20del%20beb%C3%A9.">
+              Consultar disponibilidad
+            </a>
           </div>
-        </div>
-        <div class="card">
-          <span class="badge">Lactancia</span>
-          <h3>Consejerías y talleres</h3>
-          <p>Inicio, posiciones, banco de leche, grietas, mastitis y regreso al trabajo.</p>
-          <div class="actions">
-            <a class="btn" href="https://madresalaobra.setmore.com" target="_blank" rel="noopener">Reservar</a>
-            <a class="btn secondary" href="guias.html">Ver guías</a>
-          </div>
-        </div>
-        <div class="card">
-          <span class="badge">Acompañamiento</span>
-          <h3>Parto / Cesárea</h3>
-          <p>Apoyo físico y emocional continuo, ambiente respetado y contención.</p>
-          <div class="actions">
-            <a class="btn" href="index.html#contacto">Coordinar</a>
-            <a class="btn secondary" href="sobre.html">Sobre mí</a>
-          </div>
-        </div>
-        <div class="card">
+        </article>
+
+        <!-- Servicio 3 -->
+        <article class="card">
           <span class="badge">Compras</span>
           <h3>Lista inteligente y habitación</h3>
-          <p>Optimiza presupuesto y elige lo esencial sin gastar de más.</p>
+          <p>Optimiza tu presupuesto y elige lo necesario sin gastar de más.</p>
+          <ul class="list">
+            <li>Checklist personalizado</li>
+            <li>Prioridades por etapa</li>
+            <li>Setup simple y funcional</li>
+          </ul>
           <div class="actions">
-            <a class="btn" href="index.html#contacto">Solicitar</a>
-            <a class="btn secondary" href="guias.html">Ver guías</a>
+            <a class="btn primary" target="_blank" rel="noopener"
+               href="https://wa.me/18297705650?text=Hola%20Cath%2C%20quisiera%20consultar%20disponibilidad%20para%20Lista%20inteligente%20y%20habitaci%C3%B3n.">
+              Consultar disponibilidad
+            </a>
           </div>
-        </div>
-        <div class="card">
+        </article>
+
+        <!-- Servicio 4 -->
+        <article class="card">
           <span class="badge">Baby Shower</span>
           <h3>Participación especial</h3>
-          <p>Mini-charla, dinámica y cierre significativo para celebrar tu maternidad.</p>
+          <p>Mini-charla, dinámica y un momento significativo para celebrar tu maternidad.</p>
+          <ul class="list">
+            <li>Actividades con propósito</li>
+            <li>Temas a elección (lactancia, cuidados, red de apoyo)</li>
+            <li>Duración flexible</li>
+          </ul>
           <div class="actions">
-            <a class="btn" href="index.html#contacto">Coordinar</a>
-            <a class="btn secondary" href="index.html#faq">Preguntas</a>
+            <a class="btn primary" target="_blank" rel="noopener"
+               href="https://wa.me/18297705650?text=Hola%20Cath%2C%20quisiera%20consultar%20disponibilidad%20para%20Participaci%C3%B3n%20especial%20en%20Baby%20Shower.">
+              Consultar disponibilidad
+            </a>
           </div>
+        </article>
+
+        <!-- Servicio 5 -->
+        <article class="card">
+          <span class="badge">Lactancia</span>
+          <h3>Consejerías y talleres</h3>
+          <p>Inicio, posiciones, banco de leche y regreso al trabajo.</p>
+          <ul class="list">
+            <li>Evaluación de toma y agarre</li>
+            <li>Extracción y almacenamiento</li>
+            <li>Plan de reintegro laboral</li>
+          </ul>
+        <div class="actions">
+            <a class="btn primary" target="_blank" rel="noopener"
+               href="https://wa.me/18297705650?text=Hola%20Cath%2C%20quisiera%20consultar%20disponibilidad%20para%20Consejer%C3%ADa%20de%20lactancia.">
+              Consultar disponibilidad
+            </a>
+          </div>
+        </article>
+
+        <!-- Servicio 6 -->
+        <article class="card">
+          <span class="badge">Parto/Cesárea</span>
+          <h3>Acompañamiento al nacimiento</h3>
+          <p>Apoyo físico y emocional continuo para un proceso respetado.</p>
+          <ul class="list">
+            <li>Presencia y soporte continuo</li>
+            <li>Comunicación con el equipo de salud</li>
+            <li>Posparto inicial y primera hora</li>
+          </ul>
+          <div class="actions">
+            <a class="btn primary" target="_blank" rel="noopener"
+               href="https://wa.me/18297705650?text=Hola%20Cath%2C%20quisiera%20consultar%20disponibilidad%20para%20Acompa%C3%B1amiento%20al%20nacimiento.">
+              Consultar disponibilidad
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal" aria-label="CTA de contacto">
+      <div class="card">
+        <h2 style="margin-top:0">¿Tienes dudas?</h2>
+        <p style="color:#56525b;margin:0 0 10px">Conversemos y armamos juntas el acompañamiento ideal para ti.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://wa.me/18297705650" target="_blank" rel="noopener">Escríbeme por WhatsApp</a>
+          <a class="btn" href="mailto:cath@madresalaobra.com.do">Enviar correo</a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER MODERNO (idéntico al index) -->
+  <!-- FOOTER MODERNO (unificado, íconos fill) -->
   <footer class="site-footer">
     <div class="container f-grid">
       <section>
@@ -193,16 +362,16 @@
           cath@madresalaobra.com.do
         </a>
 
-         <a href="tel:+18297705650" aria-label="Llamar al número +1 829 770 5650">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-          <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
-        </svg>
-        +1 829-770-5650
-      </a>
+        <a href="tel:+18297705650" aria-label="Llamar al número +1 829 770 5650">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+          </svg>
+          +1 829-770-5650
+        </a>
 
         <a href="https://wa.me/18297705650?text=Hola%20Cath%2C%20quisiera%20hacer%20una%20consulta." target="_blank" rel="noopener" aria-label="WhatsApp">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494 .654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627 .775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494 .654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
           </svg>
           WhatsApp
         </a>
@@ -248,15 +417,30 @@
   </footer>
 
   <script>
+    // Año dinámico
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Menú responsive
     function toggleNav(btn){
       const menu=document.getElementById('menu');
       const open=menu.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open?'true':'false');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     }
-    document.querySelectorAll('#menu [data-close]').forEach(a=>a.addEventListener('click',()=>{
-      document.getElementById('menu').classList.remove('open');
-    }));
+    document.querySelectorAll('#menu [data-close]').forEach(a =>
+      a.addEventListener('click',()=>{ document.getElementById('menu').classList.remove('open'); })
+    );
+
+    // Animaciones on-scroll
+    const io=('IntersectionObserver' in window)
+      ? new IntersectionObserver((entries)=>{
+          entries.forEach(e=>{
+            if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); }
+          });
+        },{threshold:.12})
+      : null;
+    document.querySelectorAll('.reveal').forEach(el=>{
+      if(io) io.observe(el); else el.classList.add('is-visible');
+    });
   </script>
 </body>
 </html>
