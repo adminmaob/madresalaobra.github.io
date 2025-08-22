@@ -4,107 +4,73 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Servicios — Madres a la Obra</title>
-  <meta name="description" content="Acompañamiento perinatal: clases prenatales, lactancia, postparto y apoyo al nacimiento. Presencia amorosa y decisiones informadas." />
-  <meta property="og:title" content="Servicios — Madres a la Obra" />
-  <meta property="og:description" content="Clases y acompañamientos con evidencia y amor en embarazo, parto/cesárea y postparto." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/images/og-image.jpg" />
+  <meta name="description" content="Servicios de acompañamiento perinatal: clases prenatales, lactancia, acompañamiento a parto/cesárea y más." />
   <link rel="icon" href="assets/images/favicon.png" />
   <style>
     :root{
-      --bg:#fffdfc;--ink:#1f2937;--muted:#6b7280;--primary:#9b87f5;--accent:#f6a5b8;--surface:#ffffff;
-      --ring:rgba(155,135,245,.35);--radius:16px;--shadow:0 12px 28px rgba(18,24,40,.06);--header-h:64px
+      --bg:#ffffff;--ink:#3c383d;--muted:#6b7280;--primary:#b17160;--accent:#e894a1;--surface:#ffffff;
+      --ring:rgba(177,113,96,.35);--radius:16px;--shadow:0 12px 28px rgba(18,24,40,.06);--header-h:64px;--tint:#fde8e6
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
     img{max-width:100%;height:auto;display:block}
     a{color:inherit;text-decoration:none}
-    a:focus,button:focus{outline:2px solid var(--primary);outline-offset:2px}
     .container{width:min(1120px,92vw);margin-inline:auto}
 
     /* Header */
     header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #f1f5f9;height:var(--header-h)}
     .nav{display:flex;align-items:center;justify-content:space-between;height:var(--header-h)}
     .brand{display:flex;gap:.6rem;align-items:center}
-    .brand img{width:32px;height:32px}
+    .brand img{width:28px;height:28px}
     .nav-links{display:flex;gap:1rem;align-items:center}
     .nav-links a{padding:.4rem .6rem;border-radius:10px}
-    .nav-links a:hover,.nav-links a.active{background:#f6f7ff;color:#4338ca}
-    .cta{background:var(--primary);color:#fff;padding:.6rem .9rem;border-radius:999px;box-shadow:var(--shadow);border:0;font-weight:600}
+    .nav-links a:hover,.nav-links a.active{background:var(--tint);color:#402104}
+    .cta{background:var(--primary);color:#fff;padding:.6rem .9rem;border-radius:999px;border:0;box-shadow:var(--shadow);font-weight:600}
     .burger{display:none;background:transparent;border:0;padding:.4rem}
-
-    /* Page */
-    main{padding:48px 0}
-    h1{font-size:clamp(28px,4vw,42px);line-height:1.1;margin:.3rem 0 .7rem}
-    .lead{color:#374151;margin:0 0 16px}
-    .eyebrow{color:var(--muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-
-    .grid{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
-    .card{background:var(--surface);border:1px solid #eef2f7;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);transition:transform .25s ease,box-shadow .25s ease}
-    .card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(18,24,40,.12)}
-    .card h3{margin:.2rem 0 .4rem}
-    .card p{margin:0;color:#475569}
-    .badge{display:inline-block;background:#f6f7ff;color:#4338ca;border:1px solid #e4e7ff;padding:.2rem .6rem;border-radius:999px;font-size:12px;font-weight:700}
-    .list{margin:.4rem 0 0;color:#475569;padding-left:18px}
-    .list li{margin:.2rem 0}
-
-    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
-    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1rem;border-radius:12px;border:1px solid #e5e7eb;background:#fff;font-weight:700}
-    .btn.primary{background:var(--primary);color:#fff;border-color:transparent}
-
-    /* Sections */
-    .section{padding:8px 0}
-    .section h2{font-size:clamp(24px,3vw,32px);margin:0 0 12px;position:relative;display:inline-block}
-    .section h2::after{content:"";position:absolute;left:0;bottom:-6px;width:100%;height:8px;background:linear-gradient(90deg, rgba(155,135,245,.35), rgba(246,165,184,.35));border-radius:999px}
-
-    /* Reveal animation */
-    .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
-    .reveal.is-visible{opacity:1;transform:none}
-
-    /* Responsive */
-    @media (max-width: 860px){
-      .grid{grid-template-columns:1fr}
+    @media(max-width:860px){
       .nav-links{display:none;position:absolute;top:var(--header-h);right:0;left:0;background:#fff;border-bottom:1px solid #e5e7eb;padding:10px}
       .nav-links.open{display:flex;flex-direction:column}
       .burger{display:inline-flex}
     }
 
-    /* Footer base */
-.site-footer { background:#fff; border-top:1px solid #eef2f7; margin-top:40px }
-.f-grid { display:grid; grid-template-columns:1.2fr 1fr 1.1fr .9fr; gap:24px; align-items:start; padding:28px 0 }
-.f-title { font-weight:700; margin:0 0 10px; font-size:16px }
-.f-text { color:#475569; margin:0 }
-.f-links a { display:block; color:#1f2937; padding:.25rem 0; border-radius:8px }
-.f-links a:hover { background:#f6f7ff; color:#4338ca }
-.f-contact a { display:flex; gap:.5rem; align-items:center; color:#1f2937; padding:.25rem 0; border-radius:8px; word-break:break-word }
-.f-contact a:hover { background:#f8fafc }
-.f-social { display:flex; gap:10px; flex-wrap:wrap }
-.f-social a { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border:1px solid #e5e7eb; border-radius:12px; background:#fff; box-shadow:0 6px 14px rgba(18,24,40,.06) }
-.f-social a:hover { transform:translateY(-1px); box-shadow:0 10px 20px rgba(18,24,40,.10) }
-.f-bottom { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center; border-top:1px solid #eef2f7; padding:16px 0; color:#64748b }
-.f-badges { display:flex; gap:10px; flex-wrap:wrap }
-.badge-soft { display:inline-flex; align-items:center; gap:.4rem; background:#f6f7ff; color:#4338ca; border:1px solid #e4e7ff; padding:.25rem .6rem; border-radius:999px; font-size:12px; font-weight:700 }
+    /* Page */
+    h1{font-size:clamp(28px,3.6vw,42px);line-height:1.1;margin:24px 0}
+    .lead{color:#4b5563;margin-top:-6px}
+    .hero{padding-bottom:8px;border-bottom:1px solid #eef2f7}
+    .section{padding:48px 0}
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
+    @media(max-width:860px){.grid{grid-template-columns:1fr}}
+    .card{background:#fff;border:1px solid #eef2f7;border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+    .badge{display:inline-block;background:#fdeaea;color:#402104;border:1px solid #f3caca;padding:.2rem .6rem;border-radius:999px;font-size:12px;font-weight:600}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1rem;border-radius:14px;border:1px solid transparent;background:var(--primary);color:#fff;font-weight:600}
+    .btn.secondary{background:#fff;color:var(--ink);border-color:#e5e7eb}
 
-@media (max-width: 960px){ .f-grid{ grid-template-columns:1fr 1fr; gap:18px } }
-@media (max-width: 640px){ .f-grid{ grid-template-columns:1fr } }
-
-    /* Iconos (fill) */
-.f-contact a svg,
-.f-social a svg {
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
-  flex-shrink: 0;
-}
+    /* Footer (idéntico al index) */
+    .site-footer { background:#fff; border-top:1px solid #eef2f7; margin-top:40px }
+    .f-grid { display:grid; grid-template-columns:1.2fr 1fr 1.1fr .9fr; gap:24px; align-items:start; padding:28px 0 }
+    .f-title { font-weight:700; margin:0 0 10px; font-size:16px }
+    .f-text { color:#475569; margin:0 }
+    .f-links a { display:block; color:#3c383d; padding:.25rem 0; border-radius:8px }
+    .f-links a:hover { background:var(--tint); color:#402104 }
+    .f-contact a { display:flex; gap:.5rem; align-items:center; color:#3c383d; padding:.25rem 0; border-radius:8px; word-break:break-word }
+    .f-contact a:hover { background:#f8fafc }
+    .f-social { display:flex; gap:10px; flex-wrap:wrap }
+    .f-social a { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border:1px solid #e5e7eb; border-radius:12px; background:#fff; box-shadow:0 6px 14px rgba(18,24,40,.06) }
+    .f-social a:hover { transform:translateY(-1px); box-shadow:0 10px 20px rgba(18,24,40,.10) }
+    .f-bottom { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center; border-top:1px solid #eef2f7; padding:16px 0; color:#64748b }
+    .f-badges { display:flex; gap:10px; flex-wrap:wrap }
+    .badge-soft { display:inline-flex; align-items:center; gap:.4rem; background:#fdeaea; color:#402104; border:1px solid #f3caca; padding:.25rem .6rem; border-radius:999px; font-size:12px; font-weight:700 }
+    @media (max-width: 960px){ .f-grid{ grid-template-columns:1fr 1fr; gap:18px } }
+    @media (max-width: 640px){ .f-grid{ grid-template-columns:1fr } }
+    .f-contact a svg,.f-social a svg { width:20px;height:20px;vertical-align:middle;flex-shrink:0 }
   </style>
 </head>
 <body>
-  <a class="visualmente-oculto" href="#contenido">Saltar al contenido</a>
-
   <header>
     <div class="container nav">
-      <a class="brand" href="index.html" aria-label="Madres a la Obra, inicio">
+      <a class="brand" href="index.html" aria-label="Inicio Madres a la Obra">
         <img src="assets/images/logo.svg" alt="Logo MAOB" />
         <strong>Madres a la Obra</strong>
       </a>
@@ -113,270 +79,184 @@
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
         <div id="menu" class="nav-links">
-          <a href="servicios.html" class="active" data-close>Servicios</a>
-          <a href="guias.html" data-close>Guías</a>
-          <a href="sobre.html" data-close>Sobre mí</a>
+          <a href="./servicios.html" class="active" data-close>Servicios</a>
+          <a href="./guias.html" data-close>Guías</a>
+          <a href="./sobre.html" data-close>Sobre mí</a>
           <a href="index.html#faq" data-close>FAQ</a>
-          <a class="cta" href="index.html#contacto" data-close>Agenda una llamada</a>
+          <a class="cta" href="index.html#contacto" data-close>Agenda</a>
         </div>
       </nav>
     </div>
   </header>
 
-  <main id="contenido" class="container">
-    <section class="reveal">
-      <div class="eyebrow">Acompañamientos y clases</div>
+  <main class="container">
+    <section class="hero">
       <h1>Servicios</h1>
-      <p class="lead">Elige el acompañamiento que necesitas. Todo con información clara, contención amorosa y respeto a tus decisiones.</p>
+      <p class="lead">Elige el acompañamiento que necesitas. Online y presencial, siempre con evidencia y calidez.</p>
     </section>
 
-    <section class="section reveal" aria-label="Listado de servicios">
+    <section class="section">
       <div class="grid">
-        <!-- Servicio 1 -->
-        <article class="card">
+        <div class="card">
           <span class="badge">Clases prenatales</span>
           <h3>Preparación para parto o cesárea</h3>
-          <p>Herramientas prácticas y emocionales para un nacimiento consciente y seguro.</p>
-          <ul class="list">
-            <li>Plan de parto/cesárea informado</li>
-            <li>Manejo del dolor y respiración</li>
-            <li>Rol de la pareja o acompañante</li>
-          </ul>
+          <p>Información práctica, plan de nacimiento y manejo del dolor/ansiedad.</p>
           <div class="actions">
-            <a class="btn primary" target="_blank" rel="noopener"
-               href="https://wa.me/18297705650?text=Hola%20Cath%2C%20quisiera%20consultar%20disponibilidad%20para%20Preparaci%C3%B3n%20para%20parto%20o%20ces%C3%A1rea.">
-              Consultar disponibilidad
-            </a>
+            <a class="btn" href="https://madresalaobra.setmore.com" target="_blank" rel="noopener">Reservar</a>
+            <a class="btn secondary" href="index.html#faq">FAQ</a>
           </div>
-        </article>
-
-        <!-- Servicio 2 -->
-        <article class="card">
+        </div>
+        <div class="card">
           <span class="badge">Recién nacido</span>
           <h3>Cuidados esenciales del bebé</h3>
           <p>Señales, sueño seguro, baño, piel con piel y porteo básico.</p>
-          <ul class="list">
-            <li>Rutinas realistas y respetuosas</li>
-            <li>Ambiente y seguridad en casa</li>
-            <li>Primeras semanas con calma</li>
-          </ul>
           <div class="actions">
-            <a class="btn primary" target="_blank" rel="noopener"
-               href="https://wa.me/18297705650?text=Hola%20Cath%2C%20quisiera%20consultar%20disponibilidad%20para%20Cuidados%20esenciales%20del%20beb%C3%A9.">
-              Consultar disponibilidad
-            </a>
+            <a class="btn" href="https://madresalaobra.setmore.com" target="_blank" rel="noopener">Reservar</a>
+            <a class="btn secondary" href="index.html#contacto">Consultar</a>
           </div>
-        </article>
-
-        <!-- Servicio 3 -->
-        <article class="card">
-          <span class="badge">Compras</span>
-          <h3>Lista inteligente y habitación</h3>
-          <p>Optimiza tu presupuesto y elige lo necesario sin gastar de más.</p>
-          <ul class="list">
-            <li>Checklist personalizado</li>
-            <li>Prioridades por etapa</li>
-            <li>Setup simple y funcional</li>
-          </ul>
-          <div class="actions">
-            <a class="btn primary" target="_blank" rel="noopener"
-               href="https://wa.me/18297705650?text=Hola%20Cath%2C%20quisiera%20consultar%20disponibilidad%20para%20Lista%20inteligente%20y%20habitaci%C3%B3n.">
-              Consultar disponibilidad
-            </a>
-          </div>
-        </article>
-
-        <!-- Servicio 4 -->
-        <article class="card">
-          <span class="badge">Baby Shower</span>
-          <h3>Participación especial</h3>
-          <p>Mini-charla, dinámica y un momento significativo para celebrar tu maternidad.</p>
-          <ul class="list">
-            <li>Actividades con propósito</li>
-            <li>Temas a elección (lactancia, cuidados, red de apoyo)</li>
-            <li>Duración flexible</li>
-          </ul>
-          <div class="actions">
-            <a class="btn primary" target="_blank" rel="noopener"
-               href="https://wa.me/18297705650?text=Hola%20Cath%2C%20quisiera%20consultar%20disponibilidad%20para%20Participaci%C3%B3n%20especial%20en%20Baby%20Shower.">
-              Consultar disponibilidad
-            </a>
-          </div>
-        </article>
-
-        <!-- Servicio 5 -->
-        <article class="card">
+        </div>
+        <div class="card">
           <span class="badge">Lactancia</span>
           <h3>Consejerías y talleres</h3>
-          <p>Inicio, posiciones, banco de leche y regreso al trabajo.</p>
-          <ul class="list">
-            <li>Evaluación de toma y agarre</li>
-            <li>Extracción y almacenamiento</li>
-            <li>Plan de reintegro laboral</li>
-          </ul>
+          <p>Inicio, posiciones, banco de leche, grietas, mastitis y regreso al trabajo.</p>
           <div class="actions">
-            <a class="btn primary" target="_blank" rel="noopener"
-               href="https://wa.me/18297705650?text=Hola%20Cath%2C%20quisiera%20consultar%20disponibilidad%20para%20Consejer%C3%ADa%20de%20lactancia.">
-              Consultar disponibilidad
-            </a>
+            <a class="btn" href="https://madresalaobra.setmore.com" target="_blank" rel="noopener">Reservar</a>
+            <a class="btn secondary" href="guias.html">Ver guías</a>
           </div>
-        </article>
-
-        <!-- Servicio 6 -->
-        <article class="card">
-          <span class="badge">Parto/Cesárea</span>
-          <h3>Acompañamiento al nacimiento</h3>
-          <p>Apoyo físico y emocional continuo para un proceso respetado.</p>
-          <ul class="list">
-            <li>Presencia y soporte continuo</li>
-            <li>Comunicación con el equipo de salud</li>
-            <li>Posparto inicial y primera hora</li>
-          </ul>
+        </div>
+        <div class="card">
+          <span class="badge">Acompañamiento</span>
+          <h3>Parto / Cesárea</h3>
+          <p>Apoyo físico y emocional continuo, ambiente respetado y contención.</p>
           <div class="actions">
-            <a class="btn primary" target="_blank" rel="noopener"
-               href="https://wa.me/18297705650?text=Hola%20Cath%2C%20quisiera%20consultar%20disponibilidad%20para%20Acompa%C3%B1amiento%20al%20nacimiento.">
-              Consultar disponibilidad
-            </a>
+            <a class="btn" href="index.html#contacto">Coordinar</a>
+            <a class="btn secondary" href="sobre.html">Sobre mí</a>
           </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section reveal" aria-label="CTA de contacto">
-      <div class="card">
-        <h2 style="margin-top:0">¿Tienes dudas?</h2>
-        <p style="color:#475569;margin:0 0 10px">Conversemos y armamos juntas el acompañamiento ideal para ti.</p>
-        <div class="actions">
-          <a class="btn primary" href="https://wa.me/18297705650" target="_blank" rel="noopener">Escríbeme por WhatsApp</a>
-          <a class="btn" href="mailto:cath@madresalaobra.com.do">Enviar correo</a>
+        </div>
+        <div class="card">
+          <span class="badge">Compras</span>
+          <h3>Lista inteligente y habitación</h3>
+          <p>Optimiza presupuesto y elige lo esencial sin gastar de más.</p>
+          <div class="actions">
+            <a class="btn" href="index.html#contacto">Solicitar</a>
+            <a class="btn secondary" href="guias.html">Ver guías</a>
+          </div>
+        </div>
+        <div class="card">
+          <span class="badge">Baby Shower</span>
+          <h3>Participación especial</h3>
+          <p>Mini-charla, dinámica y cierre significativo para celebrar tu maternidad.</p>
+          <div class="actions">
+            <a class="btn" href="index.html#contacto">Coordinar</a>
+            <a class="btn secondary" href="index.html#faq">Preguntas</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-<!-- FOOTER MODERNO (unificado, íconos fill) -->
-<footer class="site-footer">
-  <div class="container f-grid">
-    <section>
-      <a class="brand" href="index.html" aria-label="Inicio Madres a la Obra" style="display:flex;gap:.6rem;align-items:center;margin-bottom:6px">
-        <img src="assets/images/logo.svg" alt="Logo MAOB" style="width:28px;height:28px" />
-        <strong>Madres a la Obra</strong>
-      </a>
-      <p class="f-text">Acompañamiento perinatal con evidencia, presencia amorosa y decisiones informadas.</p>
-      <div class="f-badges" style="margin-top:10px">
-        <span class="badge-soft">Santo Domingo, DO</span>
-        <span class="badge-soft">Atención online y presencial</span>
-      </div>
-    </section>
+  <!-- FOOTER MODERNO (idéntico al index) -->
+  <footer class="site-footer">
+    <div class="container f-grid">
+      <section>
+        <a class="brand" href="index.html" aria-label="Inicio Madres a la Obra" style="display:flex;gap:.6rem;align-items:center;margin-bottom:6px">
+          <img src="assets/images/logo.svg" alt="Logo MAOB" style="width:28px;height:28px" />
+          <strong>Madres a la Obra</strong>
+        </a>
+        <p class="f-text">Acompañamiento perinatal con evidencia, presencia amorosa y decisiones informadas.</p>
+        <div class="f-badges" style="margin-top:10px">
+          <span class="badge-soft">Santo Domingo, DO</span>
+          <span class="badge-soft">Atención online y presencial</span>
+        </div>
+      </section>
 
-    <nav aria-label="Enlaces del sitio" class="f-links">
-      <h3 class="f-title">Explora</h3>
-      <a href="servicios.html">Servicios</a>
-      <a href="guias.html">Guías</a>
-      <a href="sobre.html">Sobre mí</a>
-      <a href="index.html#faq">Preguntas frecuentes</a>
-      <a href="privacidad.html">Política de privacidad</a>
-      <a href="terminos.html">Términos y condiciones</a>
-    </nav>
+      <nav aria-label="Enlaces del sitio" class="f-links">
+        <h3 class="f-title">Explora</h3>
+        <a href="servicios.html">Servicios</a>
+        <a href="guias.html">Guías</a>
+        <a href="sobre.html">Sobre mí</a>
+        <a href="index.html#faq">Preguntas frecuentes</a>
+        <a href="privacidad.html">Política de privacidad</a>
+        <a href="terminos.html">Términos y condiciones</a>
+      </nav>
 
-    <section class="f-contact">
-      <h3 class="f-title">Contacto</h3>
+      <section class="f-contact">
+        <h3 class="f-title">Contacto</h3>
 
-      <!-- Email (envelope-fill) -->
-      <a href="mailto:cath@madresalaobra.com.do" aria-label="Enviar correo a cath@madresalaobra.com.do">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-          <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414z"/>
-          <path d="M0 4.697v7.104l5.803-3.651L0 4.697z"/>
-          <path d="M6.761 8.83l-6.57 4.135A2 2 0 0 0 2 14h12a2 2 0 0 0 1.809-1.035l-6.57-4.135L8 9.586z"/>
-          <path d="M16 4.697l-5.803 3.553L16 11.801V4.697z"/>
-        </svg>
-        cath@madresalaobra.com.do
-      </a>
+        <a href="mailto:cath@madresalaobra.com.do" aria-label="Enviar correo a cath@madresalaobra.com.do">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414z"/>
+            <path d="M0 4.697v7.104l5.803-3.651L0 4.697z"/>
+            <path d="M6.761 8.83l-6.57 4.135A2 2 0 0 0 2 14h12a2 2 0 0 0 1.809-1.035l-6.57-4.135L8 9.586z"/>
+            <path d="M16 4.697l-5.803 3.553L16 11.801V4.697z"/>
+          </svg>
+          cath@madresalaobra.com.do
+        </a>
 
-      <!-- Teléfono (telephone-fill) -->
-      <a href="tel:+18297705650" aria-label="Llamar al número +1 829 770 5650">
+         <a href="tel:+18297705650" aria-label="Llamar al número +1 829 770 5650">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
           <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
         </svg>
         +1 829-770-5650
       </a>
 
-      <!-- WhatsApp (whatsapp-fill) con mensaje precargado -->
-      <a href="https://wa.me/18297705650?text=Hola%20Cath%2C%20quisiera%20hacer%20una%20consulta." target="_blank" rel="noopener" aria-label="WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-          <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
-        </svg>
-        WhatsApp
-      </a>
-    </section>
-
-    <section>
-      <h3 class="f-title">Redes sociales</h3>
-      <div class="f-social" role="list">
-        <!-- Instagram (fill) -->
-        <a href="https://instagram.com/madresalaobra" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.41.918A3.9 3.9 0 0 0 .43 2.75c-.198.51-.332 1.09-.372 1.943C.02 5.546 0 5.82 0 7.99c0 2.172.01 2.444.048 3.297.04.853.174 1.434.372 1.943.21.54.49.998.918 1.426.428.429.886.708 1.426.918.51.198 1.09.332 1.943.372C5.556 15.98 5.829 16 8 16s2.444-.02 3.297-.048c.853-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.426-.918 3.9 3.9 0 0 0 .918-1.426c.198-.51.332-1.09.372-1.943C15.98 10.434 16 10.162 16 7.99s-.02-2.444-.048-3.297c-.04-.853-.174-1.434-.372-1.943a3.9 3.9 0 0 0-.918-1.426A3.9 3.9 0 0 0 13.25.43c-.51-.198-1.09-.332-1.943-.372C10.444.02 10.171 0 8 0Zm0 1.44c2.136 0 2.39.008 3.236.046.781.036 1.205.167 1.487.277.375.145.643.318.924.6.282.281.455.549.6.924.11.282.241.706.277 1.487.038.846.046 1.1.046 3.236s-.008 2.39-.046 3.236c-.036.781-.167 1.205-.277 1.487a2.46 2.46 0 0 1-.6.924c-.281.282-.549.455-.924.6-.282.11-.706.241-1.487.277-.846.038-1.1.046-3.236.046s-2.39-.008-3.236-.046c-.781-.036-1.205-.167-1.487-.277a2.46 2.46 0 0 1-.924-.6 2.46 2.46 0 0 1-.6-.924c-.11-.282-.241-.706-.277-1.487C1.448 10.38 1.44 10.126 1.44 7.99s.008-2.39.046-3.236c.036-.781.167-1.205.277-1.487.145-.375.318-.643.6-.924.281-.282.549-.455.924-.6.282-.11.706-.241 1.487-.277C5.61 1.448 5.864 1.44 8 1.44Zm0 2.37a4.18 4.18 0 1 0 0 8.36 4.18 4.18 0 0 0 0-8.36Zm0 6.92a2.74 2.74 0 1 1 0-5.48 2.74 2.74 0 0 1 0 5.48ZM12.307 3.69a.97.97 0 1 0 0-1.94.97.97 0 0 0 0 1.94Z"/>
-          </svg>
-        </a>
-
-        <!-- TikTok (fill) -->
-        <a href="https://tiktok.com/@madresalaobra" target="_blank" rel="noopener" aria-label="TikTok">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M15.5 3c.4 2.1 1.9 3.9 4 4.5v2.3c-1.6-.1-3.1-.6-4.4-1.5V15c0 3.3-2.7 6-6 6S3 18.3 3 15s2.7-6 6-6c.4 0 .8 0 1.2.1v2.7c-.4-.1-.8-.2-1.2-.2-1.8 0-3.3 1.5-3.3 3.4S7.2 18.4 9 18.4s3.4-1.5 3.4-3.3V3h3.1Z"/>
-          </svg>
-        </a>
-
-        <!-- YouTube (fill) -->
-        <a href="https://youtube.com/@madresalaobra" target="_blank" rel="noopener" aria-label="YouTube">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M22 12s0-3-.4-4.4a3 3 0 0 0-2.1-2.1C17 5 12 5 12 5s-5 0-7.5.5A3 3 0 0 0 2.4 7.6C2 9 2 12 2 12s0 3 .4 4.4a3 3 0 0 0 2.1 2.1C7 19 12 19 12 19s5 0 7.5-.5a3 3 0 0 0 2.1-2.1C22 15 22 12 22 12Z"/>
-            <path d="m10 9 5 3-5 3V9Z" fill="#fff"/>
-          </svg>
-        </a>
-
-        <!-- WhatsApp en redes (fill) -->
         <a href="https://wa.me/18297705650?text=Hola%20Cath%2C%20quisiera%20hacer%20una%20consulta." target="_blank" rel="noopener" aria-label="WhatsApp">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494 .654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627 .775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
           </svg>
+          WhatsApp
         </a>
-      </div>
-    </section>
-  </div>
+      </section>
 
-  <div class="container f-bottom">
-    <small>© <span id="y"></span> <strong>Cath Rodríguez</strong>. Todos los derechos reservados.</small>
-    <div class="f-badges">
-      <span class="badge-soft">Información educativa; no sustituye atención médica</span>
+      <section>
+        <h3 class="f-title">Redes sociales</h3>
+        <div class="f-social" role="list">
+          <a href="https://instagram.com/madresalaobra" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.41.918A3.9 3.9 0 0 0 .43 2.75c-.198.51-.332 1.09-.372 1.943C.02 5.546 0 5.82 0 7.99c0 2.172.01 2.444.048 3.297.04.853.174 1.434.372 1.943.21.54.49.998.918 1.426.428.429.886.708 1.426.918.51.198 1.09.332 1.943.372C5.556 15.98 5.829 16 8 16s2.444-.02 3.297-.048c.853-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.426-.918 3.9 3.9 0 0 0 .918-1.426c.198-.51.332-1.09.372-1.943C15.98 10.434 16 10.162 16 7.99s-.02-2.444-.048-3.297c-.04-.853-.174-1.434-.372-1.943a3.9 3.9 0 0 0-.918-1.426A3.9 3.9 0 0 0 13.25.43c-.51-.198-1.09-.332-1.943-.372C10.444.02 10.171 0 8 0Zm0 1.44c2.136 0 2.39.008 3.236.046.781.036 1.205.167 1.487.277.375.145.643.318.924.6.282.281.455.549.6.924.11.282.241.706.277 1.487.038.846.046 1.1.046 3.236s-.008 2.39-.046 3.236c-.036.781-.167 1.205-.277 1.487a2.46 2.46 0 0 1-.6.924c-.281.282-.549.455-.924.6-.282.11-.706.241-1.487.277-.846.038-1.1.046-3.236.046s-2.39-.008-3.236-.046c-.781-.036-1.205-.167-1.487-.277a2.46 2.46 0 0 1-.924-.6 2.46 2.46 0 0 1-.6-.924c-.11-.282-.241-.706-.277-1.487C1.448 10.38 1.44 10.126 1.44 7.99s.008-2.39.046-3.236c.036-.781.167-1.205.277-1.487.145-.375.318-.643.6-.924.281-.282.549-.455.924-.6.282-.11.706-.241 1.487-.277C5.61 1.448 5.864 1.44 8 1.44Zm0 2.37a4.18 4.18 0 1 0 0 8.36 4.18 4.18 0 0 0 0-8.36Zm0 6.92a2.74 2.74 0 1 1 0-5.48 2.74 2.74 0 0 1 0 5.48ZM12.307 3.69a.97.97 0 1 0 0-1.94.97.97 0 0 0 0 1.94Z"/>
+            </svg>
+          </a>
+
+          <a href="https://tiktok.com/@madresalaobra" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M15.5 3c.4 2.1 1.9 3.9 4 4.5v2.3c-1.6-.1-3.1-.6-4.4-1.5V15c0 3.3-2.7 6-6 6S3 18.3 3 15s2.7-6 6-6c.4 0 .8 0 1.2.1v2.7c-.4-.1-.8-.2-1.2-.2-1.8 0-3.3 1.5-3.3 3.4S7.2 18.4 9 18.4s3.4-1.5 3.4-3.3V3h3.1Z"/>
+            </svg>
+          </a>
+
+          <a href="https://youtube.com/@madresalaobra" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M22 12s0-3-.4-4.4a3 3 0 0 0-2.1-2.1C17 5 12 5 12 5s-5 0-7.5.5A3 3 0 0 0 2.4 7.6C2 9 2 12 2 12s0 3 .4 4.4a3 3 0 0 0 2.1 2.1C7 19 12 19 12 19s5 0 7.5-.5a3 3 0 0 0 2.1-2.1C22 15 22 12 22 12Z"/>
+              <path d="m10 9 5 3-5 3V9Z" fill="#fff"/>
+            </svg>
+          </a>
+
+          <a href="https://wa.me/18297705650?text=Hola%20Cath%2C%20quisiera%20hacer%20una%20consulta." target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494 .654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627 .775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+            </svg>
+          </a>
+        </div>
+      </section>
     </div>
-  </div>
-</footer>
-  <script>
-    // Año dinámico
-    document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Menú responsive
+    <div class="container f-bottom">
+      <small>© <span id="y"></span> <strong>Cath Rodríguez</strong>. Todos los derechos reservados.</small>
+      <div class="f-badges">
+        <span class="badge-soft">Información educativa; no sustituye atención médica</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
     function toggleNav(btn){
       const menu=document.getElementById('menu');
       const open=menu.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-expanded', open?'true':'false');
     }
-    document.querySelectorAll('#menu [data-close]').forEach(a =>
-      a.addEventListener('click',()=>{ document.getElementById('menu').classList.remove('open'); })
-    );
-
-    // Animaciones on-scroll
-    const io=('IntersectionObserver' in window)
-      ? new IntersectionObserver((entries)=>{
-          entries.forEach(e=>{
-            if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); }
-          });
-        },{threshold:.12})
-      : null;
-    document.querySelectorAll('.reveal').forEach(el=>{
-      if(io) io.observe(el); else el.classList.add('is-visible');
-    });
+    document.querySelectorAll('#menu [data-close]').forEach(a=>a.addEventListener('click',()=>{
+      document.getElementById('menu').classList.remove('open');
+    }));
   </script>
 </body>
 </html>
