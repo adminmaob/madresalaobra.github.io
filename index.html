@@ -3,29 +3,32 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Doula en Santo Domingo | Madres a la Obra – Acompañamiento al embarazo y parto</title>
-  <meta name="description" content="“Madres a la Obra ofrece servicios de doula en Santo Domingo, República Dominicana. Preparación al parto, acompañamiento en cesárea, lactancia y apoyo postparto con amor y profesionalismo." />
-  <meta name="author" content="Madres a la Obra" />
-  <meta name="keywords" content="Doula en Santo Domingo, doula República Dominicana, preparación al parto, apoyo postparto, lactancia materna, cesárea acompañamiento, doula en Santo Domingo, preparación al parto RD, acompañamiento postparto, apoyo en cesárea República Dominicana, lactancia materna Santo Domingo" />
+  <title>Madres a la Obra — Acompañamiento a la maternidad</title>
+  <meta name="description" content="Acompañamiento cálido y profesional en embarazo, parto/cesárea y postparto. Información clara, presencia amorosa y decisiones informadas." />
   <meta property="og:title" content="Madres a la Obra" />
-  <meta property="og:description" content="Doula y acompañamiento en el embarazo, parto, postparto y lactancia en Santo Domingo." />
+  <meta property="og:description" content="Acompañamiento cálido y profesional en tu viaje a la maternidad." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/images/og-image.jpg" />
   <link rel="icon" href="assets/images/favicon.png" />
   <style>
     :root{
-      /* PALETA DE MARCA */
-      --bg:#ffffff;             /* sin amarillo de fondo */
-      --ink:#3c383d;            /* texto principal */
-      --muted:#6b7280;          /* texto secundario */
-      --primary:#b17160;        /* botón/CTA principal */
-      --accent:#e894a1;         /* acento suave */
-      --surface:#ffffff;        /* superficies */
+      /* Paleta de marca */
+      --bg:#ffffff;
+      --ink:#3c383d;
+      --muted:#6b7280;
+      --primary:#b17160;         /* acentos secundarios */
+      --accent:#e894a1;
+      --surface:#ffffff;
       --ring:rgba(177,113,96,.35);
       --radius:16px;
       --shadow:0 12px 28px rgba(18,24,40,.06);
       --header-h:64px;
-      --tint:#fde8e6;           /* hover suave en nav/cards */
+      --tint:#fde8e6;
+
+      /* HERO específico (como la referencia) */
+      --hero-bg:#fff9de;         /* crema suave */
+      --cta:#d59e96;             /* rosado botón */
+      --cta-hover:#c58982;
     }
 
     *{box-sizing:border-box}
@@ -46,27 +49,53 @@
     .nav-links{display:flex;gap:1rem;align-items:center}
     .nav-links a{padding:.4rem .6rem;border-radius:10px}
     .nav-links a:hover,.nav-links a.active{background:var(--tint);color:#402104}
-    .cta{background:var(--primary);color:white;padding:.6rem .9rem;border-radius:999px;box-shadow:var(--shadow);border:0;font-weight:600;transition:transform .2s ease,box-shadow .2s ease}
+    .cta{background:var(--primary);color:white;padding:.6rem .9rem;border-radius:999px;box-shadow:var(--shadow);border:0;font-weight:500;transition:transform .2s ease,box-shadow .2s ease}
     .cta:hover{transform:translateY(-1px);box-shadow:0 16px 30px rgba(177,113,96,.25)}
     .burger{display:none;background:transparent;border:0;padding:.4rem}
 
-    /* Hero */
-    .hero{padding:88px 0 64px;position:relative;overflow:hidden}
-    .hero::before{content:"";position:absolute;inset:-20% -10% auto -20%;height:360px;width:360px;background:
-      radial-gradient(60% 60% at 50% 50%, rgba(232,148,161,.35), transparent 60%),
-      radial-gradient(60% 60% at 70% 30%, rgba(177,113,96,.30), transparent 70%);
-      filter:blur(30px);animation:floatBlob 14s ease-in-out infinite alternate}
-    .hero-grid{display:grid;gap:32px;grid-template-columns:1.1fr .9fr;align-items:center}
-    .eyebrow{color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
-    h1{font-size:clamp(30px,4vw,46px);line-height:1.1;margin:.3rem 0 1rem}
-    p.lead{font-size:clamp(16px,2.1vw,19px);color:#4b5563}
-    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
-    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.05rem;border-radius:14px;border:1px solid transparent;background:var(--primary);color:white;font-weight:600;transition:transform .2s ease,box-shadow .2s ease}
-    .btn.secondary{background:white;color:var(--ink);border-color:#e5e7eb}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 22px rgba(18,24,40,.12)}
-    .hero img{border-radius:18px;box-shadow:0 18px 40px rgba(18,24,40,.10);animation:floatY 6s ease-in-out infinite}
+    /* HERO tipo portada (similar a tu imagen) */
+    .hero{
+      background:var(--hero-bg);
+      padding:72px 0 0;
+    }
+    .hero-grid{
+      display:grid;gap:32px;grid-template-columns:1.05fr .95fr;align-items:center
+    }
+    .eyebrow{color:#8a7792;font-weight:100;letter-spacing:.04em;text-transform:uppercase}
+    h1{
+      font-size:clamp(28px,4.6vw,38px);
+      line-height:1.1;
+      margin:.35rem 0 .9rem;
+      letter-spacing:-0.01em;
+      color:#1d1b20; /* más contraste como en el ejemplo */
+    }
+    p.lead{font-size:clamp(16px,2.2vw,20px);color:#3c383d;max-width:50ch}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+      padding:1rem 1.35rem;border-radius:999px;border:1px solid transparent;
+      background:var(--cta);color:#fff;font-weight:600;box-shadow:0 10px 24px rgba(213,158,150,.28);
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease
+    }
+    .btn:hover{transform:translateY(-2px);background:var(--cta-hover);box-shadow:0 14px 30px rgba(213,158,150,.34)}
+    .btn.secondary{background:#fff;color:var(--ink);border-color:#e5e7eb;box-shadow:none}
+    .hero-note{color:#6b7280;margin-top:14px}
 
-    /* Sections */
+    /* Imagen del hero */
+    .hero-figure{
+      position:relative;
+      aspect-ratio: 4/3;             /* mantiene proporción elegante */
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:0 28px 60px rgba(18,24,40,.12);
+      background:#f8f5f1;
+    }
+    .hero-figure img{
+      width:100%;height:100%;object-fit:cover;object-position:center;
+      transform:translateZ(0);
+    }
+
+    /* Resto de secciones */
     section{scroll-margin-top:calc(var(--header-h) + 16px)}
     .section{padding:64px 0}
     .section h2{font-size:clamp(24px,3vw,32px);margin:0 0 12px;position:relative;display:inline-block}
@@ -102,43 +131,34 @@
 
     /* Mobile */
     @media (max-width: 860px){
+      .hero{padding:56px 0 0}
       .hero-grid,.features,.services,.quotes,.about{grid-template-columns:1fr}
+      .hero-figure{aspect-ratio: 16/10;margin-top:6px}
       .nav-links{display:none;position:absolute;top:var(--header-h);right:0;left:0;background:white;border-bottom:1px solid #e5e7eb;padding:10px}
       .nav-links.open{display:flex;flex-direction:column}
       .burger{display:inline-flex}
     }
 
-    /* Keyframes */
-    @keyframes floatY{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
-    @keyframes floatBlob{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(6%,-6%,0) scale(1.08)}}
-
      /* Footer base */
-.site-footer { background:#fff; border-top:1px solid #eef2f7; margin-top:40px }
-.f-grid { display:grid; grid-template-columns:1.2fr 1fr 1.1fr .9fr; gap:24px; align-items:start; padding:28px 0 }
-.f-title { font-weight:700; margin:0 0 10px; font-size:16px }
-.f-text { color:#475569; margin:0 }
-.f-links a { display:block; color:#3c383d; padding:.25rem 0; border-radius:8px }
-.f-links a:hover { background:var(--tint); color:#402104 }
-.f-contact a { display:flex; gap:.5rem; align-items:center; color:#3c383d; padding:.25rem 0; border-radius:8px; word-break:break-word }
-.f-contact a:hover { background:#f8fafc }
-.f-social { display:flex; gap:10px; flex-wrap:wrap }
-.f-social a { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border:1px solid #e5e7eb; border-radius:12px; background:#fff; box-shadow:0 6px 14px rgba(18,24,40,.06) }
-.f-social a:hover { transform:translateY(-1px); box-shadow:0 10px 20px rgba(18,24,40,.10) }
-.f-bottom { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center; border-top:1px solid #eef2f7; padding:16px 0; color:#64748b }
-.f-badges { display:flex; gap:10px; flex-wrap:wrap }
-.badge-soft { display:inline-flex; align-items:center; gap:.4rem; background:#fdeaea; color:#402104; border:1px solid #f3caca; padding:.25rem .6rem; border-radius:999px; font-size:12px; font-weight:700 }
-
-@media (max-width: 960px){ .f-grid{ grid-template-columns:1fr 1fr; gap:18px } }
-@media (max-width: 640px){ .f-grid{ grid-template-columns:1fr } }
+    .site-footer { background:#fff; border-top:1px solid #eef2f7; margin-top:40px }
+    .f-grid { display:grid; grid-template-columns:1.2fr 1fr 1.1fr .9fr; gap:24px; align-items:start; padding:28px 0 }
+    .f-title { font-weight:700; margin:0 0 10px; font-size:16px }
+    .f-text { color:#475569; margin:0 }
+    .f-links a { display:block; color:#3c383d; padding:.25rem 0; border-radius:8px }
+    .f-links a:hover { background:var(--tint); color:#402104 }
+    .f-contact a { display:flex; gap:.5rem; align-items:center; color:#3c383d; padding:.25rem 0; border-radius:8px; word-break:break-word }
+    .f-contact a:hover { background:#f8fafc }
+    .f-social { display:flex; gap:10px; flex-wrap:wrap }
+    .f-social a { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border:1px solid #e5e7eb; border-radius:12px; background:#fff; box-shadow:0 6px 14px rgba(18,24,40,.06) }
+    .f-social a:hover { transform:translateY(-1px); box-shadow:0 10px 20px rgba(18,24,40,.10) }
+    .f-bottom { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center; border-top:1px solid #eef2f7; padding:16px 0; color:#64748b }
+    .f-badges { display:flex; gap:10px; flex-wrap:wrap }
+    .badge-soft { display:inline-flex; align-items:center; gap:.4rem; background:#fdeaea; color:#402104; border:1px solid #f3caca; padding:.25rem .6rem; border-radius:999px; font-size:12px; font-weight:700 }
+    @media (max-width: 960px){ .f-grid{ grid-template-columns:1fr 1fr; gap:18px } }
+    @media (max-width: 640px){ .f-grid{ grid-template-columns:1fr } }
 
     /* Iconos (fill) */
-.f-contact a svg,
-.f-social a svg {
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
-  flex-shrink: 0;
-}
+    .f-contact a svg,.f-social a svg{ width:20px;height:20px;vertical-align:middle;flex-shrink:0 }
   </style>
 </head>
 <body>
@@ -186,11 +206,11 @@
     <!-- CÓMO -->
     <section class="section reveal" id="como">
       <h2>Cómo te acompaño</h2>
-      <p class="sub">Información clara. Presencia amorosa. Decisiones informadas.</p>
+      <p class="sub">Clases Prenatales. Acompañamiento en Nacimiento. Soporte Postparto y Lactancia.</p>
       <div class="features">
-        <div class="card"><h3>Información clara</h3><p>Contenidos basados en evidencia, explicados con calma.</p></div>
-        <div class="card"><h3>Presencia amorosa</h3><p>Escucha activa, respeto y contención emocional.</p></div>
-        <div class="card"><h3>Decisiones informadas</h3><p>Tú eliges; yo te acompaño sin juicios.</p></div>
+        <div class="card"><h3>Clases Prenatales</h3><p>Preparación para el nacimiento y orientación sobre ciudados del recién nacido.</p></div>
+        <div class="card"><h3>Acompañamiento en Nacimiento</h3><p>Soporte emocional, físico y con infomación basada en evidencia en el nacimiento , vía parto o cesárea .</p></div>
+        <div class="card"><h3>Soporte Postparto y Lactancia</h3><p>Tú eliges; yo te acompaño sin juicios.</p></div>
       </div>
     </section>
 
