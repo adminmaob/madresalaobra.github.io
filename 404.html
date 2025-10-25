@@ -11,11 +11,27 @@
   <meta property="og:image" content="assets/images/og-image.jpg" />
   <link rel="icon" href="assets/icons/favicon1.png" />
   <style>
-    :root{--bg:#fffdfc;--ink:#1f2937;--muted:#6b7280;--primary:#9b87f5;--accent:#f6a5b8;--surface:#ffffff;--radius:16px;--shadow:0 12px 28px rgba(18,24,40,.06);--header-h:64px}
-    *{box-sizing:border-box} html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
-    img{max-width:100%;height:auto;display:block} a{color:inherit;text-decoration:none}
-    a:focus,button:focus{outline:2px solid var(--primary);outline-offset:2px}
+     :root{
+      --bg:#ffffff;
+      --ink:#3c383d;
+      --muted:#6b7280;
+      --primary:#b17160;
+      --accent:#e894a1;
+      --surface:#ffffff;
+      --radius:18px;
+      --shadow:0 12px 28px rgba(18,24,40,.06);
+      --tint:#fde8e6;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--ink);
+      font:16px/1.65 "Inter",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    }
+    a{text-decoration:none;color:inherit;transition:color .2s ease}
+    img{max-width:100%;display:block}
     .container{width:min(1120px,92vw);margin-inline:auto}
 
     header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #f1f5f9;height:var(--header-h)}
@@ -54,31 +70,24 @@
     @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
     @keyframes floatBlob{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(6%,-6%,0) scale(1.08)}}
 
-   /* Estilos base del footer (por si faltan en alguna página) */
-.site-footer { background:#fff; border-top:1px solid #eef2f7; margin-top:40px }
-.f-grid { display:grid; grid-template-columns:1.2fr 1fr 1.1fr .9fr; gap:24px; align-items:start; padding:28px 0 }
-.f-title { font-weight:700; margin:0 0 10px; font-size:16px }
-.f-text { color:#475569; margin:0 }
-.f-links a { display:block; color:#1f2937; padding:.25rem 0; border-radius:8px }
-.f-links a:hover { background:#f6f7ff; color:#4338ca }
-.f-contact a { display:flex; gap:.5rem; align-items:center; color:#1f2937; padding:.25rem 0; border-radius:8px; word-break:break-word }
-.f-contact a:hover { background:#f8fafc }
-.f-social { display:flex; gap:10px; flex-wrap:wrap }
-.f-social a { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border:1px solid #e5e7eb; border-radius:12px; background:#fff; box-shadow:0 6px 14px rgba(18,24,40,.06) }
-.f-social a:hover { transform:translateY(-1px); box-shadow:0 10px 20px rgba(18,24,40,.10) }
-.f-bottom { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center; border-top:1px solid #eef2f7; padding:16px 0; color:#64748b }
-.f-badges { display:flex; gap:10px; flex-wrap:wrap }
-.badge-soft { display:inline-flex; align-items:center; gap:.4rem; background:#f6f7ff; color:#4338ca; border:1px solid #e4e7ff; padding:.25rem .6rem; border-radius:999px; font-size:12px; font-weight:700 }
-
-@media (max-width: 960px){ .f-grid{ grid-template-columns:1fr 1fr; gap:18px } }
-@media (max-width: 640px){ .f-grid{ grid-template-columns:1fr } }
-    .f-contact a svg,
-.f-social a svg {
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
-  flex-shrink: 0;
-}
+  /* Footer */
+    .site-footer { background:#fff; border-top:1px solid #eef2f7; margin-top:40px }
+    .f-grid { display:grid; grid-template-columns:1.2fr 1fr 1.1fr .9fr; gap:24px; align-items:start; padding:28px 0 }
+    .f-title { font-weight:700; margin:0 0 10px; font-size:16px }
+    .f-text { color:#475569; margin:0 }
+    .f-links a { display:block; color:#3c383d; padding:.25rem 0; border-radius:8px }
+    .f-links a:hover { background:var(--tint); color:#402104 }
+    .f-contact a { display:flex; gap:.5rem; align-items:center; color:#3c383d; padding:.25rem 0; border-radius:8px; word-break:break-word }
+    .f-contact a:hover { background:#f8fafc }
+    .f-social { display:flex; gap:10px; flex-wrap:wrap }
+    .f-social a { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border:1px solid #e5e7eb; border-radius:12px; background:#fff; box-shadow:0 6px 14px rgba(18,24,40,.06) }
+    .f-social a:hover { transform:translateY(-1px); box-shadow:0 10px 20px rgba(18,24,40,.10) }
+    .f-bottom { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center; border-top:1px solid #eef2f7; padding:16px 0; color:#64748b }
+    .f-badges { display:flex; gap:10px; flex-wrap:wrap }
+    .badge-soft { display:inline-flex; align-items:center; gap:.4rem; background:#fdeaea; color:#402104; border:1px solid #f3caca; padding:.25rem .6rem; border-radius:999px; font-size:12px; font-weight:700 }
+    @media (max-width: 960px){ .f-grid{ grid-template-columns:1fr 1fr; gap:18px } }
+    @media (max-width: 640px){ .f-grid{ grid-template-columns:1fr } }
+    .f-contact a svg,.f-social a svg{ width:20px;height:20px;vertical-align:middle;flex-shrink:0 }
   </style>
 </head>
 <body>
@@ -172,14 +181,14 @@
       <h3 class="f-title">Contacto</h3>
 
       <!-- Email (envelope-fill) -->
-      <a href="mailto:cath@madresalaobra.com.do" aria-label="Enviar correo a cath@madresalaobra.com.do">
+      <a href="mailto:info@madresalaobra.com.do" aria-label="Enviar correo a info@madresalaobra.com.do">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
           <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414z"/>
           <path d="M0 4.697v7.104l5.803-3.651L0 4.697z"/>
           <path d="M6.761 8.83l-6.57 4.135A2 2 0 0 0 2 14h12a2 2 0 0 0 1.809-1.035l-6.57-4.135L8 9.586z"/>
           <path d="M16 4.697l-5.803 3.553L16 11.801V4.697z"/>
         </svg>
-        cath@madresalaobra.com.do
+        info@madresalaobra.com.do
       </a>
 
       <!-- Teléfono (telephone-fill) -->
@@ -276,14 +285,14 @@
         document.getElementById('reportWa').href = `https://wa.me/18297705650?text=${waMsg}`;
         const subject = encodeURIComponent('Enlace roto en Madres a la Obra');
         const body = encodeURIComponent(`Hola Cath,\n\nEncontré un enlace roto:\n${location.href}\n\nAnterior: ${document.referrer || '(sin referrer)'}`);
-        document.getElementById('reportMail').href = `mailto:cath@madresalaobra.com.do?subject=${subject}&body=${body}`;
+        document.getElementById('reportMail').href = `mailto:info@madresalaobra.com.do?subject=${subject}&body=${body}`;
         // Footer WA links
         const waLink = `https://wa.me/18297705650?text=${waMsg}`;
         const waFooter=document.getElementById('waFooter'); if(waFooter) waFooter.href=waLink;
         const waSocial=document.getElementById('waSocial'); if(waSocial) waSocial.href=waLink;
 
         // Redirección automática
-        let secs = 10; const countEl = document.getElementById('count'); countEl.textContent = secs;
+        let secs = 60; const countEl = document.getElementById('count'); countEl.textContent = secs;
         const timer = setInterval(()=>{ secs--; countEl.textContent = secs; if(secs<=0){ clearInterval(timer); window.location.replace(BASE); } },1000);
         document.getElementById('cancel').addEventListener('click', e=>{ e.preventDefault(); clearInterval(timer); document.getElementById('redir').textContent = 'Redirección cancelada.'; });
 
