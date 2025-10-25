@@ -72,6 +72,21 @@
     .cta:hover{transform:translateY(-1px);box-shadow:0 16px 30px rgba(177,113,96,.25)}
     .burger{display:none;background:transparent;border:0;padding:.4rem}
 
+ /* SUBMENÚ */
+    .submenu{position:absolute;top:100%;left:0;display:none;flex-direction:column;background:#fff;border:1px solid #e5e7eb;border-radius:10px;box-shadow:0 10px 25px rgba(18,24,40,.08);padding:6px 0;min-width:180px;}
+    .nav-links li{position:relative;list-style:none}
+    .nav-links li:hover>.submenu{display:flex}
+    .submenu a{padding:.4rem .8rem;white-space:nowrap}
+    .submenu a:hover{background:var(--tint);color:#402104}
+
+    @media(max-width:860px){
+      .nav-links{display:none;flex-direction:column;position:absolute;top:64px;right:0;left:0;background:#fff;border-bottom:1px solid #e5e7eb;padding:10px}
+      .nav-links.open{display:flex}
+      .burger{display:inline-flex}
+      .submenu{position:static;display:flex;border:0;box-shadow:none;padding:0}
+      .submenu a{padding:.4rem 1.2rem}
+    }
+
     /* Page */
     main{padding:48px 0}
     h1{font-size:clamp(28px,4vw,42px);line-height:1.1;margin:.3rem 0 .7rem}
@@ -182,13 +197,20 @@
         <button class="burger" aria-label="Abrir menú" aria-expanded="false" onclick="toggleNav(this)">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
-        <div id="menu" class="nav-links">
-          <a href="servicios.html" class="active" data-close>Servicios</a>
-          <a href="guias.html" data-close>Guías</a>
-          <a href="sobre.html" data-close>Sobre mí</a>
-          <a href="index.html#faq" data-close>FAQ</a>
-          <a class="cta" href="index.html#contacto" data-close>Agenda una llamada</a>
-        </div>
+        <ul id="menu" class="nav-links">
+  <li><a href="./servicios.html">Servicios</a></li>
+  <li>
+    <a href="./guias.html">Guías ▾</a>
+    <div class="submenu">
+      <a href="./guias.html">Guías y recursos</a>
+      <a href="./ebb.html">EBB (Evidencias)</a>
+      <a href="./normativas.html">Normativas y leyes</a>
+    </div>
+  </li>
+  <li><a href="./sobre.html">Sobre mí</a></li>
+  <li><a href="index.html#faq">FAQ</a></li>
+  <li><a class="cta" href="index.html#contacto">Agenda</a></li>
+</ul>
       </nav>
     </div>
   </header>
