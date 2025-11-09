@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Bloquea carpetas internas o de assets si deseas
+Disallow: /assets/
+
+# Indica tu sitemap principal
+Sitemap: https://www.madresalaobra.com.do/sitemap.xml
+
+# SEO y credibilidad
+Host: https://www.madresalaobra.com.do
