@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Página principal -->
+  <url>
+    <loc>https://www.madresalaobra.com.do/</loc>
+    <lastmod>2025-11-08</lastmod>
+    <priority>1.00</priority>
+  </url>
+
+  <!-- Páginas principales -->
+  <url>
+    <loc>https://www.madresalaobra.com.do/servicios.html</loc>
+    <lastmod>2025-11-08</lastmod>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://www.madresalaobra.com.do/guias.html</loc>
+    <lastmod>2025-11-08</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://www.madresalaobra.com.do/ebb.html</loc>
+    <lastmod>2025-11-08</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.madresalaobra.com.do/normativas.html</loc>
+    <lastmod>2025-11-08</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.madresalaobra.com.do/sobre.html</loc>
+    <lastmod>2025-11-08</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Legales -->
+  <url>
+    <loc>https://www.madresalaobra.com.do/privacidad.html</loc>
+    <lastmod>2025-11-08</lastmod>
+    <priority>0.60</priority>
+  </url>
+
+  <url>
+    <loc>https://www.madresalaobra.com.do/terminos.html</loc>
+    <lastmod>2025-11-08</lastmod>
+    <priority>0.60</priority>
+  </url>
+
+  <url>
+    <loc>https://www.madresalaobra.com.do/404.html</loc>
+    <lastmod>2025-11-08</lastmod>
+    <priority>0.10</priority>
+  </url>
+</urlset>
